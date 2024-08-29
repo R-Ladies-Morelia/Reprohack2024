@@ -6,6 +6,11 @@
 - Integrantes: Amairani Cancino Bello, María José Palma Martínez, Evelia Coss, Sofia Zorrilla, Maribel Arenas y Mayra Fragoso
 
 ## Conocimientos previos
+| Num | Header | Header2 | Header3 |
+|-----|--------|---------|---------|
+|  1  | first  | 1st     | One     |
+|  2  | second | 2nd     | Two     |
+|  3  | third  | 3rd     | Three   |
 
 
 ## Dataset del articulo
