@@ -23,6 +23,13 @@
 
 > NOTA: 
 
+```
+a <- b + c
+```
+
+
+codigo
+
 ## Dataset del articulo
 
 
