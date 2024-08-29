@@ -12,6 +12,7 @@
 |  2  | second | 2nd     | Two     |
 |  3  | third  | 3rd     | Three   |
 
+![The Carpentries Logo](https://carpentries.org/assets/img/TheCarpentries.svg)
 
 ## Dataset del articulo
 
