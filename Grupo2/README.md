@@ -14,9 +14,12 @@
 
 ![The Carpentries Logo](https://carpentries.org/assets/img/TheCarpentries.svg)
 
-Blue boxes (alert-info)
-<div class="alert alert-block alert-info">
-<b>Tip:</b> Use blue boxes (alert-info) for tips and notes.</div>
+
+**NOTA**:
+
+*NOTA*
+
+***NOTA***
 
 
 ## Dataset del articulo
