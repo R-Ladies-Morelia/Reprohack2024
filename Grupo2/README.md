@@ -21,6 +21,7 @@
 
 ***NOTA***
 
+> NOTA: 
 
 ## Dataset del articulo
 
