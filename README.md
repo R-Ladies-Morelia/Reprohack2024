@@ -34,10 +34,12 @@ Gracias por hacer de nuestro grupo un lugar especial. ¡Espero que sigamos logra
 
 Clases: jueves de 4 -6 pm (GMT-6)
 
-- [**Grupo 1: ggplot reproduciendo algunas figuras del artículo**](https://www.meetup.com/rladies-morelia/events/302577360/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link)
+- **Grupo 1: ggplot reproduciendo algunas figuras del artículo**
   * Artículo: [Differential methylation analysis in neuropathologically confirmed dementia with Lewy bodies](https://www.nature.com/articles/s42003-023-05725-x )
   * Fecha: jueves 29 de agosto
   * Líder de grupo: Maria Fernanda Miron Toruno
+  * Video: [Video Grupo 1](https://drive.google.com/file/d/1Cf01kp7e59tj1A7_HwNkBQgitBEj26P6/view?usp=sharing)
+  * [Meet up](https://www.meetup.com/rladies-morelia/events/302577360/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link)
 
 - [**Grupo 2: ggplot y variantes geneticas**](https://www.meetup.com/rladies-morelia/events/302577407/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link)
   * Artículo: [Historical Contingency Drives Compensatory Evolution and Rare Reversal of Phage Resistance](https://academic.oup.com/mbe/article/39/9/msac182/6673247?login=false#371728839)
