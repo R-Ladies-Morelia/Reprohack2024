@@ -1,7 +1,7 @@
 # Reprohack 2024
 
 <p align="center">
-<img src='Flyers/CARTEL-R-SEM-2024%20(1).jpg' width='600'>
+<img src='Flyers/CARTEL-R-SEM-2024%20(1).jpg' width='300'>
 </p>
 
 Edición 2024 💜, Rladies Morelia
