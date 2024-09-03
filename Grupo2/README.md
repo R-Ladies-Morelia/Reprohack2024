@@ -1,44 +1,33 @@
 # Grupo 2: ggplot y variantes geneticas
 
 - Artículo: [Historical Contingency Drives Compensatory Evolution and Rare Reversal of Phage Resistance](https://academic.oup.com/mbe/article/39/9/msac182/6673247?login=false#371728839)
+- Github del articulo: https://github.com/reenadebray/loss-of-resistance
 - Fecha: jueves 26 de septiembre
   + Líderes de grupo: Amairani Cancino Bello, María José Palma Martínez y Evelia Coss.
 - Integrantes: Amairani Cancino Bello, María José Palma Martínez, Evelia Coss, Sofia Zorrilla, Maribel Arenas y Mayra Fragoso
 
-## Conocimientos previos
-| Num | Header | Header2 | Header3 |
-|-----|--------|---------|---------|
-|  1  | first  | 1st     | One     |
-|  2  | second | 2nd     | Two     |
-|  3  | third  | 3rd     | Three   |
+> *NOTA:* Se genero un Fork del Github original con las modificaciones realizadas en este curso. 😎💜 Github: https://github.com/EveliaCoss/loss-of-resistance
 
-![The Carpentries Logo](https://carpentries.org/assets/img/TheCarpentries.svg)
-
-
-**NOTA**:
-
-*NOTA*
-
-***NOTA***
-
-> NOTA: 
-
-```
-a <- b + c
-```
-
-
-codigo
+## Informacion previa
 
 ## Dataset del articulo
 
+Descarga los datasets encontrados en el repositorio original de [Github del articulo](https://github.com/reenadebray/loss-of-resistance) dando click en el boton verde que dice CODE/Download ZIP. Guarda el archivo comprimido ZIP en la misma carpeta en donde vas a trabajar y descomprimelo. 
 
 ## Figuras propuestas
 
-Seleccionamos las figuras X1, X2 X3
+En el Github se encuentra el codigo accesible de las siguientes figuras:
 
+- [`1_Phenotype_data_analysis.R`](https://github.com/EveliaCoss/loss-of-resistance/blob/main/1_Phenotype_data_analysis.R): Este script contempla el codigo de las figuras:
+  * Figura 1. Input: "Costs_of_Res.xlsx"
+  * Figura 2A. Input: "Fitness_over_Time.xlsx"
+  * Figura 2B. Input: "Resistance_over_Time.xlsx"
+  * Figura 3. Input: "Replay.xlsx"
+- [`2_Genomes_data_analysis.R`](https://github.com/EveliaCoss/loss-of-resistance/blob/main/2_Genomes_data_analysis.R): Este script contempla el codigo de las figuras:
+  * Figura 4A. Input:
+  * Figura 4C. Input:
 
+## Presentacion 
 
-
-
-
+--------------
+Curso hecho con amor 💜
