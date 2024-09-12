@@ -10,6 +10,15 @@
 
 ## Informacion previa
 
+Reunion previa 12 de septiembre 2024, 10 am
+
+- Informacion general sobre las mediciones que hacen en el articulo (Majo)
+- Uso de ggplot (general) (Eve)
+- Como se redactan las funciones usando el paquete roxygen (Eve)
+- Correcta anotacion de la documentacion (Eve)
+- Importacion de datos de excel (Eve)
+- Heatmap (Eve)
+
 ## Dataset del articulo
 
 Descarga los datasets encontrados en el repositorio original de [Github del articulo](https://github.com/reenadebray/loss-of-resistance) dando click en el boton verde que dice CODE/Download ZIP. Guarda el archivo comprimido ZIP en la misma carpeta en donde vas a trabajar y descomprimelo. 
