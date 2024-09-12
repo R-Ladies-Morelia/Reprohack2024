@@ -1,0 +1,21 @@
+---
+title: "Reprohack: Historical contingency drives compensatory evolution and rare reversal of phage resistance"
+---
+
+## Resumen
+
+Este artículo se enfoca en estudiar la idea de la contigencia histórica. En este caso en particular se estudia cómo la selección por fagos puede afectar las trayectorias evolutivas de los hospederos.
+
+El costo sobre el fitness de adquirir una resistencia puede ser alto por lo que se interesan por observar si la sensibilidad se recupera cuando la presión selectiva disminuye, en esta caso, cuando ya no hay fagos. 
+
+En el artículo se mencionan casos importantes para la conservación de la resistencia, por ejemplo cuando el costo en términos de fitness es pequeño. Otra caso importante considerar es que hay mutaciones posteriores a la adquisición de la resistencia y que en ocasiones las mutaciones nuevas pueden compensar de alguna manera el gasto que se genera al adquirir la resistencia o que incluso las nuevas mutaciones podrían ser letales en un bakground wild type, lo que no permite que se regrese al estado de sensibilidad. 
+
+Para evaluar si la sensibilidad hacia los fagos tiende a reaparecer en ausencia de fagos, los autores rastrea la resistencia a fagos a través del tiempo en poblaciones de evolución experimental de la bacteria *Pseudomonoas syringae*. 
+De menara experimental lo primero que hicieron fue generar un panel de bacterias resistentes a la infección por fagos. Con el objetivo variación en los mecanismos de resistencia y en el fitness se utilizaron cinco diferentes fagos de Pseudomonas. Posteriormente se aislaron y secuenciaron 22 colonias, en las que se encontraron 17 diferentes mutaciones que confieren resistencia. Dichas mutaciones se mapearon los genes correspondientes.
+Posteriormente se inocularon 22 microcosmos cada uno con una de las colonias resistentes. Además se inocularon 6 microcosmos con el ancestro sensible. Las poblaciones fueron cambiadas a medio fresco cada 3 días para un total de 36 días. Las tazas de crecimiento de dichas bacterias fueron medidas.  
+De manera interante los autores encuentran que en la mayoría de sus poblaciones no se regresa al fenotipo sensible. Para conocer cómo la sensibilidad reevoluciona las colonias sensibles fueron aisladas y sus genomas secuenciados. 
+
+Se realizó la secuenciación (pool-sequencing) de cada una de las poblaciones al día 6 (en ausencia de fagos) y finalmente al día 36. 
+
+
+Aquí puedes encontrar el artículo completo: [Historical contingency drives compensatory evolution and rare reversal of phage resistance](https://academic.oup.com/mbe/article/39/9/msac182/6673247)

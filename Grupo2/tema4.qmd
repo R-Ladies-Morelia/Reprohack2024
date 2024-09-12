@@ -1,0 +1,6 @@
+---
+title: "Documentación de funciones"
+format: 
+  html:
+    page-layout: full 
+---

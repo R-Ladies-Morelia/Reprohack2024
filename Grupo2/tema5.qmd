@@ -1,0 +1,6 @@
+---
+title: "Generación de figuras"
+format: 
+  html:
+    page-layout: full 
+---
