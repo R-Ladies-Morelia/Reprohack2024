@@ -19,6 +19,12 @@ Reunion previa 12 de septiembre 2024, 10 am
 - Importacion de datos de excel (Eve)
 - Heatmap (Eve)
 
+> Pendientes por hacer durante la semana:
+> 
+> 1) Leer el artiulo
+> 2) Correr los scripts [`1_Phenotype_data_analysis.R`](https://github.com/EveliaCoss/loss-of-resistance/blob/main/1_Phenotype_data_analysis.R) y [`2_Genomes_data_analysis.R`](https://github.com/EveliaCoss/loss-of-resistance/blob/main/2_Genomes_data_analysis.R)
+> 3) Traer ideas sobre temas importantes por abordar, ejercicios por resolver o preguntas por hacer.
+
 ## Dataset del articulo
 
 Descarga los datasets encontrados en el repositorio original de [Github del articulo](https://github.com/reenadebray/loss-of-resistance) dando click en el boton verde que dice CODE/Download ZIP. Guarda el archivo comprimido ZIP en la misma carpeta en donde vas a trabajar y descomprimelo. 
