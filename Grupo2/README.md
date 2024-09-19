@@ -19,6 +19,8 @@ Reunion previa 12 de septiembre 2024, 10 am
 - Importacion de datos de excel (Eve)
 - Heatmap (Eve)
 
+Libro de [Quarto](https://r-ladies-morelia.github.io/Reprohack2024/Grupo2/docs/index.html) con informacion.
+
 > Pendientes por hacer durante la semana:
 > 
 > 1) Leer el artiulo
