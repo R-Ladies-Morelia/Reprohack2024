@@ -19,7 +19,11 @@ Reunion previa 12 de septiembre 2024, 10 am
 - Importacion de datos de excel (Eve)
 - Heatmap (Eve)
 
+## Material 
+
 Libro de [Quarto](https://r-ladies-morelia.github.io/Reprohack2024/Grupo2/docs/index.html) con informacion.
+
+## Trabajo en conjunto
 
 > Pendientes por hacer durante la semana:
 > 
@@ -43,8 +47,6 @@ En el Github se encuentra el codigo accesible de las siguientes figuras:
 - [`2_Genomes_data_analysis.R`](https://github.com/EveliaCoss/loss-of-resistance/blob/main/2_Genomes_data_analysis.R): Este script contempla el codigo de las figuras:
   * Figura 4A. Input:
   * Figura 4C. Input:
-
-## Presentacion 
 
 --------------
 Curso hecho con amor 💜
