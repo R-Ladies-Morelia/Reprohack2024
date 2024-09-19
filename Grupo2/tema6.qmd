@@ -2,11 +2,11 @@
 title: "Reproducción de figuras"
 ---
 
-A partir del [Github del articulo](https://github.com/reenadebray/loss-of-resistance) realizamos modificaciones de los scripts y generamos un fork con las modificaciones realizadas: https://github.com/EveliaCoss/loss-of-resistance
+A partir del [Github del articulo](https://github.com/reenadebray/loss-of-resistance) realizamos modificaciones de los scripts y generamos un [fork](https://github.com/EveliaCoss/loss-of-resistance) con las modificaciones realizadas.
 
 ## Figuras 1 a 3
 
-Modificado por Evelia Coss
+> Modificado por Evelia Coss
 
 Este script contempla el codigo de las figuras:
 
@@ -23,7 +23,7 @@ Puedes descargar el codigo en español o ingles:
 
 ## Figura 4
 
-Modificado por Amairani Cancino
+> Modificado por Amairani Cancino
 
 - Figura 4A. Input:
 - Figura 4C. Input:

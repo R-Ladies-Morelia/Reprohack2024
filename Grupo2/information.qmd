@@ -1,0 +1,28 @@
+---
+title: "Glosario"
+format: 
+  html:
+    page-layout: full 
+---
+
+## Conceptos importantes del articulo
+
+- Sofi da el diseno bonito
+
+que es un fago?
+que es pseudomonas?
+Que es una membrana, de que esta compuesta (polisacaridos)? Gram negativos
+Que es un microcosmos?
+Fitness?
+Figuras, imagenes. 
+Que es la contingencia historia en terminos evolutivos?
+SNPs
+Mutaciones en general
+ORF - open reading frames
+Mutaciones puntuales
+
+
+
+
+
+

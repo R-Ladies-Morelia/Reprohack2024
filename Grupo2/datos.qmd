@@ -1,0 +1,14 @@
+---
+title: "Sobre los datos"
+format: 
+  html:
+    page-layout: full 
+---
+
+## Datasets
+
+Explicar los inputs del articulo, que son las tablas.
+
+En columnas se compone, para que figuras se usa, que preguntas contesta.
+
+> Maribel

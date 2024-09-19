@@ -1,0 +1,43 @@
+---
+title: "Retos y problemas con el código"
+---
+
+## Ausencia de instrucciones
+
+### Reto 1
+
+En el código no se mencionaba con que paquetes realizaban la importación de los datos de excel que te daban, solo daban instrucciones como la siguiente:
+
+> Cargar informacion de "Costs_of_Res.xlsx" como variable `costs_of_res`.
+
+**Solución:** En este caso decidimos usar el paquete `readxl` para la importación de archivos. 
+
+<br>
+
+### Reto 2
+
+Para graficar la figura 2, el código mencionaba la variable `LOR_res_long`, sin embargo esta variable no se encontraba declarada en el código. Solo daba el siguiente fragmento: 
+
+```{r, eval=FALSE}
+ggplot(LOR_res_long[!LOR_res_long$isolate %in% c("FMS6","SNK6"),], aes(passage*3,value*100,group=isolate,color=(isolate%in%c("SNK7","QAC5","VCM4")))) +
+  geom_point(size=4.5,shape=18) +
+  geom_line(size=0.8)+theme_classic() +
+  guides(color=F)+scale_color_brewer(palette="Dark2") + 
+  scale_x_continuous(breaks=c(0,12,24,36)) + 
+  theme_classic(base_size=16) + 
+  ylab("Proportion of phage sensitivity in population (%)") +
+  xlab("Day of experimental evolution") + 
+  theme(axis.title.y=element_text(size=14))
+```
+
+**Solución:** Agregamos todo el código de inicio a fin en Chatgpt y le solicitamos que nos dijera cómo generar la variable X a partir de los datos que le dimos. Logrando obtener la información faltante. 
+
+<br>
+
+### Reto 3
+
+Variables erróneas colocadas en el código. Para la figura 3 menciona que se usa la variable `Prop_R_P12`, sin embargo sta variable no existe si no que se llama `Prop_S_P12`.
+
+**Solución:** corregimos el código cambiando la variable. 
+
+

@@ -20,6 +20,5 @@ De manera interante los autores encuentran que en la mayoría de sus poblaciones
 
 Se realizó la secuenciación (pool-sequencing) de cada una de las poblaciones al día 6 (en ausencia de fagos) y finalmente al día 36. 
 
-
 Aquí puedes encontrar el artículo completo: [Historical contingency drives compensatory evolution and rare reversal of phage resistance](https://academic.oup.com/mbe/article/39/9/msac182/6673247)
 
