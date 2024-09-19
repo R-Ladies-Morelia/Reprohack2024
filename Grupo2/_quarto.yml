@@ -11,12 +11,12 @@ website:
     
     
     tools:
-      - icon: twitter
-        href: https://twitter.com
+      - icon: facebook 
+        href: https://www.facebook.com/profile.php?id=100093337606435
       - icon: github
         menu:
           - text: Source Code
-            url:  https://code.com
+            url:  https://github.com/R-Ladies-Morelia/Reprohack2024/tree/main/Grupo2
             
   sidebar:
     style: "floating"
@@ -30,15 +30,18 @@ website:
           - tema1.qmd
           - tema2.qmd
           - tema3.qmd
+          - tema4.qmd
       - section: "Acerca de las funciones y figuras del artículo"
         contents:
-          - tema4.qmd
           - tema5.qmd
+          - tema6.qmd
 
 
 format:
   html:
-    theme: flatly
+    theme: 
+      light: flatly
+      dark: darkly
     css: styles.css
     toc: true
     code-wrap: true
