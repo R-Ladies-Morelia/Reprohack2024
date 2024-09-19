@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ggplot2</title>
+<title>Buenas prácticas en la bioinformática</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,10 +35,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,18 +76,19 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title"><img src="img/logo.png" alt="Logo" class="logo" style="height: 50px; width: auto;"></span>
     </a>
   </div>
-        <div class="quarto-navbar-tools ms-auto">
-    <a href="https://twitter.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-twitter"></i></a>
+        <div class="quarto-navbar-tools ms-auto tools-wide">
+    <a href="https://www.facebook.com/profile.php?id=100093337606435" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-facebook"></i></a>
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://code.com">
+            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/R-Ladies-Morelia/Reprohack2024/tree/main/Grupo2">
             Source Code
             </a>
           </li>
       </ul>
     </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
           <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
@@ -95,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introducción</a></li><li class="breadcrumb-item"><a href="./tema2.html">ggplot2</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introducción</a></li><li class="breadcrumb-item"><a href="./tema2.html">Buenas prácticas en la bioinformática</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -105,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -127,25 +130,31 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reprohack: Historical contingency drives compensatory evolution and rare reversal of phage resistance</span></a>
+ <span class="menu-text">Sobre nosotras</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tema1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Buenas prácticas en la bioinformática</span></a>
+ <span class="menu-text">Resumen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tema2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">ggplot2</span></a>
+ <span class="menu-text">Buenas prácticas en la bioinformática</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tema3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Formato de archivos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tema4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ggplot2</span></a>
   </div>
 </li>
       </ul>
@@ -161,13 +170,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tema4.html" class="sidebar-item-text sidebar-link">
+  <a href="./tema5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Documentación de funciones</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tema5.html" class="sidebar-item-text sidebar-link">
+  <a href="./tema6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Reproducción de figuras</span></a>
   </div>
 </li>
@@ -183,17 +192,31 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#desglose-de-las-capas-comunes" id="toc-desglose-de-las-capas-comunes" class="nav-link active" data-scroll-target="#desglose-de-las-capas-comunes">Desglose de las capas comunes</a></li>
-  <li><a href="#cheatsheet" id="toc-cheatsheet" class="nav-link" data-scroll-target="#cheatsheet">Cheatsheet</a></li>
+  <li><a href="#bioinformática-se-conforma-de-la-computación-biológica-matemáticas-y-estadística" id="toc-bioinformática-se-conforma-de-la-computación-biológica-matemáticas-y-estadística" class="nav-link active" data-scroll-target="#bioinformática-se-conforma-de-la-computación-biológica-matemáticas-y-estadística">Bioinformática se conforma de la computación, biológica, matemáticas y estadística</a>
+  <ul class="collapse">
+  <li><a href="#objetivo-de-este-mini-curso" id="toc-objetivo-de-este-mini-curso" class="nav-link" data-scroll-target="#objetivo-de-este-mini-curso">Objetivo de este mini curso: 📌</a></li>
+  </ul></li>
+  <li><a href="#escribiendo-un-buen-software" id="toc-escribiendo-un-buen-software" class="nav-link" data-scroll-target="#escribiendo-un-buen-software">Escribiendo un buen software</a>
+  <ul class="collapse">
+  <li><a href="#un-algoritmo-nos-permite-resolver-un-problema" id="toc-un-algoritmo-nos-permite-resolver-un-problema" class="nav-link" data-scroll-target="#un-algoritmo-nos-permite-resolver-un-problema">Un algoritmo nos permite resolver un problema ⭐</a></li>
+  <li><a href="#para-escribir-un-buen-software-necesitas" id="toc-para-escribir-un-buen-software-necesitas" class="nav-link" data-scroll-target="#para-escribir-un-buen-software-necesitas">Para escribir un buen software necesitas:</a></li>
+  <li><a href="#código-reproducible" id="toc-código-reproducible" class="nav-link" data-scroll-target="#código-reproducible">Código reproducible 🌟</a>
+  <ul class="collapse">
+  <li><a href="#contenedores" id="toc-contenedores" class="nav-link" data-scroll-target="#contenedores">Contenedores ⚡</a></li>
+  <li><a href="#crear-pipelines-completos" id="toc-crear-pipelines-completos" class="nav-link" data-scroll-target="#crear-pipelines-completos">Crear pipelines completos 🌀</a></li>
+  </ul></li>
+  <li><a href="#pasos-para-escribir-un-buen-software" id="toc-pasos-para-escribir-un-buen-software" class="nav-link" data-scroll-target="#pasos-para-escribir-un-buen-software">Pasos para escribir un buen software</a></li>
+  <li><a href="#puntos-claves-para-buenas-practicas-en-bioinfo" id="toc-puntos-claves-para-buenas-practicas-en-bioinfo" class="nav-link" data-scroll-target="#puntos-claves-para-buenas-practicas-en-bioinfo">Puntos claves para buenas practicas en bioinfo ⭐</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ggplot2</h1>
+<h1 class="title">Buenas prácticas en la bioinformática</h1>
 </div>
 
 
@@ -208,72 +231,98 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>¡Empecemos por lo básico! El paquete <code>ggplot2</code> se basa en la Gramática de los Gráficos (GG), que es un marco para la visualización de datos que disecciona cada componente de un gráfico en <strong>componentes individuales</strong>, creando <strong>capas distintas</strong>. Utilizando el sistema GG, podemos construir gráficos paso a paso para obtener resultados flexibles y personalizables.</p>
-<p><img src="img/Layers_ggplot.png" width="1000" height="250"></p>
-<p>Las capas GG tienen nombres específicos que verás a lo largo de esta seccion:</p>
-<p><img src="img/gglayers.png" width="1000" height="1000"></p>
-<p>Para hacer un ggplot, las capas de datos y mapas son requisitos básicos, mientras que las otras capas son para personalización adicional. Las capas que «no son necesarias» siguen siendo importantes, pero podrás generar un gráfico básico sin ellas.</p>
+<section id="bioinformática-se-conforma-de-la-computación-biológica-matemáticas-y-estadística" class="level2">
+<h2 class="anchored" data-anchor-id="bioinformática-se-conforma-de-la-computación-biológica-matemáticas-y-estadística">Bioinformática se conforma de la computación, biológica, matemáticas y estadística</h2>
+<p>La bioinformática, en relación con la genética y la genómica 🔬, es una subdisciplina científica que implica el uso de ciencias informáticas 📈 para recopilar, almacenar, analizar y diseminar datos biológicos, como secuencias de ADN y aminoácidos o anotaciones sobre esas secuencias <a href="https://www.genome.gov/es/genetics-glossary/Bioinformatica">NIH, 2023</a>.</p>
+<p>Uno de sus objetivos es: Aumentar el entendimiento de la salud y la enfermedad, en ciertos casos, se usan para proveer mejor atención médica <a href="https://www.genome.gov/es/genetics-glossary/Bioinformatica">NIH, 2023</a>.</p>
+<p>NIH: National Human Genome Research Institute</p>
+<section id="objetivo-de-este-mini-curso" class="level3">
+<h3 class="anchored" data-anchor-id="objetivo-de-este-mini-curso">Objetivo de este mini curso: 📌</h3>
+<p>Hacia una biología computacional más reproducible, transparente y colaborativa 💜</p>
+<blockquote class="blockquote">
+<p>“Los hechos individuales no reproducibles no tienen ninguna importancia para la ciencia”</p>
+<p>Karl Popper</p>
+</blockquote>
+<p>Más información <a href="https://ellipse.prbb.org/es/hacia-una-biologia-computacional-mas-reproducible-transparente-y-colaborativa/">aquí</a>.</p>
 <p><br></p>
-<section id="desglose-de-las-capas-comunes" class="level2">
-<h2 class="anchored" data-anchor-id="desglose-de-las-capas-comunes">Desglose de las capas comunes</h2>
-<p>A continuación se presenta un desglose de cada una de las capas de la GG y los argumentos comunes de cada una de ellas que pueden servir de referencia:</p>
+</section>
+</section>
+<section id="escribiendo-un-buen-software" class="level1">
+<h1>Escribiendo un buen software</h1>
+<section id="un-algoritmo-nos-permite-resolver-un-problema" class="level2">
+<h2 class="anchored" data-anchor-id="un-algoritmo-nos-permite-resolver-un-problema">Un algoritmo nos permite resolver un problema ⭐</h2>
+<p>Un algoritmo es un método para resolver un problema mediante una serie de pasos <strong>definidos, precisos</strong> y <strong>finitos</strong>.</p>
 <ul>
-<li><strong>Datos:</strong>
+<li><p><strong>Definido</strong>: si se sigue dos veces, se obtiene el mismo resultado. Es reproducible.</p></li>
+<li><p><strong>Preciso</strong>: implica el orden de realización de cada uno de los pasos.</p></li>
+<li><p><strong>Finito</strong>: Tiene un numero determinado de pasos, implica que tiene un fin.</p></li>
+</ul>
+<blockquote class="blockquote">
+<p>Un algoritmo podemos definirlo como un <strong>programa o software</strong>.</p>
+</blockquote>
+</section>
+<section id="para-escribir-un-buen-software-necesitas" class="level2">
+<h2 class="anchored" data-anchor-id="para-escribir-un-buen-software-necesitas">Para escribir un buen software necesitas:</h2>
+<blockquote class="blockquote">
+<p>Escribir <strong>código mantenible (maintainable code), usar control de versiones (version control) y rastreadores de problemas (issue trackers), revisiones de código (code reviews), pruebas unitarias (unit testing) y automatización de tareas (task automation)</strong>.</p>
+<p>Wilson, et al.&nbsp;2014. PLOS Biology</p>
+</blockquote>
+<p>Con el fin de <em>previnir retracciones</em>.</p>
+<p>Más información en <a href="https://doi.org/10.1371/journal.pbio.1001745">Best Practices for Scientific Computing - The Carpentries</a>.</p>
+</section>
+<section id="código-reproducible" class="level2">
+<h2 class="anchored" data-anchor-id="código-reproducible">Código reproducible 🌟</h2>
+<section id="contenedores" class="level3">
+<h3 class="anchored" data-anchor-id="contenedores">Contenedores ⚡</h3>
 <ul>
-<li><code>sus datos</code>, en formato <code>tidy</code> o <code>dataframe</code>, proporcionarán los ingredientes para su trazado</li>
-<li>utilice las técnicas <code>dplyr</code> para preparar los datos para un formato de trazado óptimo</li>
-<li>por lo general, esto significa que debe tener una fila por cada observación que desea trazar</li>
-</ul></li>
-<li><strong>Estética (Aesthetics / aes)</strong>, para hacer visibles los datos
+<li><a href="https://docs.docker.com/">Docker</a></li>
+<li><a href="https://docs.sylabs.io/guides/3.5/user-guide/introduction.html">Singularity</a></li>
+<li><a href="https://apptainer.org/">Apptainer</a></li>
+</ul>
+<p>Se puede almacenar todo el workflow, archivos, generando codigo reproducible y cooperativo.</p>
+<blockquote class="blockquote">
+<p>Minicurso del uso de <a href="https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/">Docker</a>.</p>
+</blockquote>
+</section>
+<section id="crear-pipelines-completos" class="level3">
+<h3 class="anchored" data-anchor-id="crear-pipelines-completos">Crear pipelines completos 🌀</h3>
 <ul>
-<li><code>x</code>, <code>y</code>: variable a lo largo de los ejes x e y.</li>
-<li><code>colour</code>: color de las variables según los datos.</li>
-<li><code>fill</code>: color interior de la zona o relleno.</li>
-<li><code>group</code>: a qué grupo pertenece una geom.</li>
-<li><code>shape</code>: la figura utilizada para trazar un punto.</li>
-<li><code>linetype</code>: tipo de línea utilizada (sólida, discontinua, etc.).</li>
-<li><code>size</code>: escala de tamaño para una dimensión extra</li>
-<li><code>alpha</code>: transparencia del objeto geométrico</li>
-</ul></li>
-<li><strong>Objetos geométricos</strong> (geoms - determina el tipo de trazado)
-<ul>
-<li><code>geom_point()</code>: gráfico de dispersión</li>
-<li><code>geom_line()</code>: líneas que conectan puntos aumentando el valor de x</li>
-<li><code>geom_path()</code>: líneas que conectan puntos en secuencia de aparición</li>
-<li><code>geom_boxplot()</code>: gráfico de caja y bigotes para variables categóricas</li>
-<li><code>geom_bar()</code>: gráficos de barras para el eje x categórico</li>
-<li><code>geom_histogram()</code>: histograma para eje x continuo</li>
-<li><code>geom_violin()</code>: núcleo de distribución de la dispersión de datos</li>
-<li><code>geom_smooth()</code>: línea de función basada en datos</li>
-</ul></li>
-<li><strong>Facetas:</strong>
-<ul>
-<li><code>facet_wrap()</code> o <code>facet_grid()</code> para múltiplos pequeños</li>
-</ul></li>
-<li><strong>Estadísticas:</strong>
-<ul>
-<li>similar a geoms, pero computada</li>
-<li>muestran medias, recuentos y otros resúmenes estadísticos de los datos</li>
-</ul></li>
-<li><strong>Coordenadas</strong> - ajuste de datos en una página
-<ul>
-<li><code>coord_cartesian</code> para establecer límites</li>
-<li><code>coord_polar</code> para gráficos circulares</li>
-<li><code>coord_map</code> para diferentes proyecciones cartográficas</li>
-</ul></li>
-<li><strong>Temas:</strong>
-<ul>
-<li>parámetros visuales generales</li>
-<li>fuentes, colores, formas, contornos</li>
-</ul></li>
+<li><a href="https://training.nextflow.io/es/">Nextflow</a></li>
+<li><a href="https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html">Snakemake</a></li>
 </ul>
 </section>
-<section id="cheatsheet" class="level2">
-<h2 class="anchored" data-anchor-id="cheatsheet">Cheatsheet</h2>
-<p><embed src="img/ggplot2-cheatsheet-2.1-Spanish.pdf" width="1000" height="1000"></p>
-<p>Más información en en el <a href="https://r.qcbs.ca/workshop03/book-en/">Workshop 3: Introduction to data visualisation with ggplot2</a></p>
+</section>
+<section id="pasos-para-escribir-un-buen-software" class="level2">
+<h2 class="anchored" data-anchor-id="pasos-para-escribir-un-buen-software">Pasos para escribir un buen software</h2>
+<ol type="1">
+<li><p>Análisis del problema / Definir el problema</p></li>
+<li><p>Diseño del algoritmo / Diseño del programa</p></li>
+<li><p>Codificación / Escribir el código</p></li>
+<li><p>Compilación y ejecución del programa</p></li>
+<li><p>Verificación / Realizar pruebas</p></li>
+<li><p>Depuración / Detectar los errores y corregirlos</p></li>
+</ol>
+<blockquote class="blockquote">
+<p>Programacion defensiva</p>
+</blockquote>
+<ol start="7" type="1">
+<li>Documentación</li>
+</ol>
+<p><br></p>
+</section>
+<section id="puntos-claves-para-buenas-practicas-en-bioinfo" class="level2">
+<h2 class="anchored" data-anchor-id="puntos-claves-para-buenas-practicas-en-bioinfo">Puntos claves para buenas practicas en bioinfo ⭐</h2>
+<ol type="1">
+<li><p>Escriba programas para personas, no para computadoras (Documenta qué hace y por qué). - Se coherente en la nomenclatura, indentación y otros aspectos del estilo.</p></li>
+<li><p>Divide los programas en *funciones cortas de un solo propósito. 💻 📚</p></li>
+<li><p>No repitas tu código. Crea pasos reproducibles o que se repitan por si solas. ➰</p></li>
+<li><p>Planifique los errores (Programacion defensiva) 🚩</p></li>
+<li><p>Optimice el software sólo después de que funcione correctamente. - Si funciona no lo modifiques, simplificalo.</p></li>
+<li><p>Colaborar - Busque siempre bibliotecas de software bien mantenidas que hagan lo que necesita. 👥</p></li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -297,6 +346,121 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

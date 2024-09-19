@@ -114,9 +114,9 @@
   {
     "objectID": "tema2.html",
     "href": "tema2.html",
-    "title": "ggplot2",
+    "title": "Buenas prácticas en la bioinformática",
     "section": "",
-    "text": "¡Empecemos por lo básico! El paquete ggplot2 se basa en la Gramática de los Gráficos (GG), que es un marco para la visualización de datos que disecciona cada componente de un gráfico en componentes individuales, creando capas distintas. Utilizando el sistema GG, podemos construir gráficos paso a paso para obtener resultados flexibles y personalizables.\nLas capas GG tienen nombres específicos que verás a lo largo de esta seccion:\nPara hacer un ggplot, las capas de datos y mapas son requisitos básicos, mientras que las otras capas son para personalización adicional. Las capas que «no son necesarias» siguen siendo importantes, pero podrás generar un gráfico básico sin ellas."
+    "text": "La bioinformática, en relación con la genética y la genómica 🔬, es una subdisciplina científica que implica el uso de ciencias informáticas 📈 para recopilar, almacenar, analizar y diseminar datos biológicos, como secuencias de ADN y aminoácidos o anotaciones sobre esas secuencias NIH, 2023.\nUno de sus objetivos es: Aumentar el entendimiento de la salud y la enfermedad, en ciertos casos, se usan para proveer mejor atención médica NIH, 2023.\nNIH: National Human Genome Research Institute\n\n\nHacia una biología computacional más reproducible, transparente y colaborativa 💜\n\n“Los hechos individuales no reproducibles no tienen ninguna importancia para la ciencia”\nKarl Popper\n\nMás información aquí."
   },
   {
     "objectID": "tema2.html#desglose-de-las-capas-comunes",
@@ -250,5 +250,47 @@
     "title": "Reproducción de figuras",
     "section": "Figura 4",
     "text": "Figura 4\nModificado por Amairani Cancino\n\nFigura 4A. Input:\nFigura 4C. Input:"
+  },
+  {
+    "objectID": "tema2.html#bioinformática-se-conforma-de-la-computación-biológica-matemáticas-y-estadística",
+    "href": "tema2.html#bioinformática-se-conforma-de-la-computación-biológica-matemáticas-y-estadística",
+    "title": "Buenas prácticas en la bioinformática",
+    "section": "",
+    "text": "La bioinformática, en relación con la genética y la genómica 🔬, es una subdisciplina científica que implica el uso de ciencias informáticas 📈 para recopilar, almacenar, analizar y diseminar datos biológicos, como secuencias de ADN y aminoácidos o anotaciones sobre esas secuencias NIH, 2023.\nUno de sus objetivos es: Aumentar el entendimiento de la salud y la enfermedad, en ciertos casos, se usan para proveer mejor atención médica NIH, 2023.\nNIH: National Human Genome Research Institute\n\n\nHacia una biología computacional más reproducible, transparente y colaborativa 💜\n\n“Los hechos individuales no reproducibles no tienen ninguna importancia para la ciencia”\nKarl Popper\n\nMás información aquí."
+  },
+  {
+    "objectID": "tema2.html#un-algoritmo-nos-permite-resolver-un-problema",
+    "href": "tema2.html#un-algoritmo-nos-permite-resolver-un-problema",
+    "title": "Buenas prácticas en la bioinformática",
+    "section": "Un algoritmo nos permite resolver un problema ⭐",
+    "text": "Un algoritmo nos permite resolver un problema ⭐\nUn algoritmo es un método para resolver un problema mediante una serie de pasos definidos, precisos y finitos.\n\nDefinido: si se sigue dos veces, se obtiene el mismo resultado. Es reproducible.\nPreciso: implica el orden de realización de cada uno de los pasos.\nFinito: Tiene un numero determinado de pasos, implica que tiene un fin.\n\n\nUn algoritmo podemos definirlo como un programa o software."
+  },
+  {
+    "objectID": "tema2.html#para-escribir-un-buen-software-necesitas",
+    "href": "tema2.html#para-escribir-un-buen-software-necesitas",
+    "title": "Buenas prácticas en la bioinformática",
+    "section": "Para escribir un buen software necesitas:",
+    "text": "Para escribir un buen software necesitas:\n\nEscribir código mantenible (maintainable code), usar control de versiones (version control) y rastreadores de problemas (issue trackers), revisiones de código (code reviews), pruebas unitarias (unit testing) y automatización de tareas (task automation).\nWilson, et al. 2014. PLOS Biology\n\nCon el fin de previnir retracciones.\nMás información en Best Practices for Scientific Computing - The Carpentries."
+  },
+  {
+    "objectID": "tema2.html#código-reproducible",
+    "href": "tema2.html#código-reproducible",
+    "title": "Buenas prácticas en la bioinformática",
+    "section": "Código reproducible 🌟",
+    "text": "Código reproducible 🌟\n\nContenedores ⚡\n\nDocker\nSingularity\nApptainer\n\nSe puede almacenar todo el workflow, archivos, generando codigo reproducible y cooperativo.\n\nMinicurso del uso de Docker.\n\n\n\nCrear pipelines completos 🌀\n\nNextflow\nSnakemake"
+  },
+  {
+    "objectID": "tema2.html#pasos-para-escribir-un-buen-software",
+    "href": "tema2.html#pasos-para-escribir-un-buen-software",
+    "title": "Buenas prácticas en la bioinformática",
+    "section": "Pasos para escribir un buen software",
+    "text": "Pasos para escribir un buen software\n\nAnálisis del problema / Definir el problema\nDiseño del algoritmo / Diseño del programa\nCodificación / Escribir el código\nCompilación y ejecución del programa\nVerificación / Realizar pruebas\nDepuración / Detectar los errores y corregirlos\n\n\nProgramacion defensiva\n\n\nDocumentación"
+  },
+  {
+    "objectID": "tema2.html#puntos-claves-para-buenas-practicas-en-bioinfo",
+    "href": "tema2.html#puntos-claves-para-buenas-practicas-en-bioinfo",
+    "title": "Buenas prácticas en la bioinformática",
+    "section": "Puntos claves para buenas practicas en bioinfo ⭐",
+    "text": "Puntos claves para buenas practicas en bioinfo ⭐\n\nEscriba programas para personas, no para computadoras (Documenta qué hace y por qué). - Se coherente en la nomenclatura, indentación y otros aspectos del estilo.\nDivide los programas en *funciones cortas de un solo propósito. 💻 📚\nNo repitas tu código. Crea pasos reproducibles o que se repitan por si solas. ➰\nPlanifique los errores (Programacion defensiva) 🚩\nOptimice el software sólo después de que funcione correctamente. - Si funciona no lo modifiques, simplificalo.\nColaborar - Busque siempre bibliotecas de software bien mantenidas que hagan lo que necesita. 👥"
   }
 ]
