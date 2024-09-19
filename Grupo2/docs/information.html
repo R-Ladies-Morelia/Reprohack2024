@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ggplot2</title>
+<title>Glosario</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tema2.html">Revisión de temas</a></li><li class="breadcrumb-item"><a href="./tema4.html">ggplot2</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introducción</a></li><li class="breadcrumb-item"><a href="./information.html">Glosario</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -108,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -147,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./information.html" class="sidebar-item-text sidebar-link">
+  <a href="./information.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Glosario</span></a>
   </div>
 </li>
@@ -176,7 +176,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tema4.html" class="sidebar-item-text sidebar-link active">
+  <a href="./tema4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ggplot2</span></a>
   </div>
 </li>
@@ -234,11 +234,8 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./Figura5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Figura 5</span></a>
-  </div>
-</li>
+ <span class="menu-text">Figure5.qmd</span>
+  </li>
       </ul>
   </li>
     </ul>
@@ -251,18 +248,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#desglose-de-las-capas-comunes" id="toc-desglose-de-las-capas-comunes" class="nav-link active" data-scroll-target="#desglose-de-las-capas-comunes">Desglose de las capas comunes</a></li>
-  <li><a href="#cheatsheet" id="toc-cheatsheet" class="nav-link" data-scroll-target="#cheatsheet">Cheatsheet</a></li>
-  <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios">Ejercicios</a></li>
+  <li><a href="#conceptos-importantes-del-articulo" id="toc-conceptos-importantes-del-articulo" class="nav-link active" data-scroll-target="#conceptos-importantes-del-articulo">Conceptos importantes del articulo</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ggplot2</h1>
+<h1 class="title">Glosario</h1>
 </div>
 
 
@@ -277,74 +272,12 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>¡Empecemos por lo básico! El paquete <code>ggplot2</code> se basa en la Gramática de los Gráficos (GG), que es un marco para la visualización de datos que disecciona cada componente de un gráfico en <strong>componentes individuales</strong>, creando <strong>capas distintas</strong>. Utilizando el sistema GG, podemos construir gráficos paso a paso para obtener resultados flexibles y personalizables.</p>
-<p><img src="img/Layers_ggplot.png" width="1000" height="250"></p>
-<p>Las capas GG tienen nombres específicos que verás a lo largo de esta seccion:</p>
-<p><img src="img/gglayers.png" width="1000" height="1000"></p>
-<p>Para hacer un ggplot, las capas de datos y mapas son requisitos básicos, mientras que las otras capas son para personalización adicional. Las capas que «no son necesarias» siguen siendo importantes, pero podrás generar un gráfico básico sin ellas.</p>
-<p><br></p>
-<section id="desglose-de-las-capas-comunes" class="level2">
-<h2 class="anchored" data-anchor-id="desglose-de-las-capas-comunes">Desglose de las capas comunes</h2>
-<p>A continuación se presenta un desglose de cada una de las capas de la GG y los argumentos comunes de cada una de ellas que pueden servir de referencia:</p>
+<section id="conceptos-importantes-del-articulo" class="level2">
+<h2 class="anchored" data-anchor-id="conceptos-importantes-del-articulo">Conceptos importantes del articulo</h2>
 <ul>
-<li><strong>Datos:</strong>
-<ul>
-<li><code>sus datos</code>, en formato <code>tidy</code> o <code>dataframe</code>, proporcionarán los ingredientes para su trazado</li>
-<li>utilice las técnicas <code>dplyr</code> para preparar los datos para un formato de trazado óptimo</li>
-<li>por lo general, esto significa que debe tener una fila por cada observación que desea trazar</li>
-</ul></li>
-<li><strong>Estética (Aesthetics / aes)</strong>, para hacer visibles los datos
-<ul>
-<li><code>x</code>, <code>y</code>: variable a lo largo de los ejes x e y.</li>
-<li><code>colour</code>: color de las variables según los datos.</li>
-<li><code>fill</code>: color interior de la zona o relleno.</li>
-<li><code>group</code>: a qué grupo pertenece una geom.</li>
-<li><code>shape</code>: la figura utilizada para trazar un punto.</li>
-<li><code>linetype</code>: tipo de línea utilizada (sólida, discontinua, etc.).</li>
-<li><code>size</code>: escala de tamaño para una dimensión extra</li>
-<li><code>alpha</code>: transparencia del objeto geométrico</li>
-</ul></li>
-<li><strong>Objetos geométricos</strong> (geoms - determina el tipo de trazado)
-<ul>
-<li><code>geom_point()</code>: gráfico de dispersión</li>
-<li><code>geom_line()</code>: líneas que conectan puntos aumentando el valor de x</li>
-<li><code>geom_path()</code>: líneas que conectan puntos en secuencia de aparición</li>
-<li><code>geom_boxplot()</code>: gráfico de caja y bigotes para variables categóricas</li>
-<li><code>geom_bar()</code>: gráficos de barras para el eje x categórico</li>
-<li><code>geom_histogram()</code>: histograma para eje x continuo</li>
-<li><code>geom_violin()</code>: núcleo de distribución de la dispersión de datos</li>
-<li><code>geom_smooth()</code>: línea de función basada en datos</li>
-</ul></li>
-<li><strong>Facetas:</strong>
-<ul>
-<li><code>facet_wrap()</code> o <code>facet_grid()</code> para múltiplos pequeños</li>
-</ul></li>
-<li><strong>Estadísticas:</strong>
-<ul>
-<li>similar a geoms, pero computada</li>
-<li>muestran medias, recuentos y otros resúmenes estadísticos de los datos</li>
-</ul></li>
-<li><strong>Coordenadas</strong> - ajuste de datos en una página
-<ul>
-<li><code>coord_cartesian</code> para establecer límites</li>
-<li><code>coord_polar</code> para gráficos circulares</li>
-<li><code>coord_map</code> para diferentes proyecciones cartográficas</li>
-</ul></li>
-<li><strong>Temas:</strong>
-<ul>
-<li>parámetros visuales generales</li>
-<li>fuentes, colores, formas, contornos</li>
-</ul></li>
+<li>Sofi da el diseno bonito</li>
 </ul>
-</section>
-<section id="cheatsheet" class="level2">
-<h2 class="anchored" data-anchor-id="cheatsheet">Cheatsheet</h2>
-<p><embed src="img/ggplot2-cheatsheet-2.1-Spanish.pdf" width="1000" height="1000"></p>
-<p>Más información en en el <a href="https://r.qcbs.ca/workshop03/book-en/">Workshop 3: Introduction to data visualisation with ggplot2</a></p>
-</section>
-<section id="ejercicios" class="level2">
-<h2 class="anchored" data-anchor-id="ejercicios">Ejercicios</h2>
-<p>Te invitamos a que corras el ejercicio propuesto en el script <a href="https://github.com/R-Ladies-Morelia/GGplotShiny/blob/main/ggplot2_R_ladies_Morelia/ggplo2_R_Ladies_Morelia_.R">ggplo2_R_Ladies_Morelia_.R</a> por Fernanda Miron.</p>
+<p>que es un fago? que es pseudomonas? Que es una membrana, de que esta compuesta (polisacaridos)? Gram negativos Que es un microcosmos? Fitness? Figuras, imagenes. Que es la contingencia historia en terminos evolutivos? SNPs Mutaciones en general ORF - open reading frames Mutaciones puntuales</p>
 
 
 </section>

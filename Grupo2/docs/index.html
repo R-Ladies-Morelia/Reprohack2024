@@ -141,6 +141,29 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sobre los datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./information.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glosario</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Revisión de temas</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./tema2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Buenas prácticas en la bioinformática</span></a>
   </div>
@@ -161,13 +184,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Acerca de las funciones y figuras del artículo</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tema5.html" class="sidebar-item-text sidebar-link">
@@ -178,6 +201,42 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./tema6.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Reproducción de figuras</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./retos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Retos y problemas con el código</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Figura1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Figura 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Figura2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Figura 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Figura3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Figura 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Figura4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Figura 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Figura5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Figura 5</span></a>
   </div>
 </li>
       </ul>
@@ -192,7 +251,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#integrantes" id="toc-integrantes" class="nav-link active" data-scroll-target="#integrantes">Integrantes</a></li>
+  <li><a href="#grupo-2-ggplot-y-variantes-genéticas" id="toc-grupo-2-ggplot-y-variantes-genéticas" class="nav-link active" data-scroll-target="#grupo-2-ggplot-y-variantes-genéticas">Grupo 2: ggplot y variantes genéticas</a></li>
+  <li><a href="#integrantes" id="toc-integrantes" class="nav-link" data-scroll-target="#integrantes">Integrantes</a></li>
   </ul>
 </nav>
     </div>
@@ -216,16 +276,24 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>Esta sesión promueve la reproducibilidad del código, la buena documentación del código y buenas prácticas para generar un mejor futuro en la ciencia con acceso libre a la información. Siendo parte del <a href="https://github.com/R-Ladies-Morelia/Reprohack2024">Reprohack2024</a> de R-Ladies Morelia.</p>
+<section id="grupo-2-ggplot-y-variantes-genéticas" class="level2">
+<h2 class="anchored" data-anchor-id="grupo-2-ggplot-y-variantes-genéticas">Grupo 2: ggplot y variantes genéticas</h2>
+<p>El artículo seleccionado tiene como idea principal investigar cómo la selección por fagos afecta la <strong>evolución de la resistencia en bacterias</strong>, específicamente en <em>Pseudomonas syringae</em>. Los autores se centran en estudiar si la <strong>sensibilidad a los fagos puede reaparecer</strong> cuando ya no están presentes (es decir, cuando la presión selectiva disminuye). Para ello, rastrean la evolución de la <strong>resistencia a lo largo del tiempo</strong> y descubren que, en la mayoría de los casos, las bacterias no vuelven a ser sensibles. Además, examinan cómo las <strong>mutaciones compensatorias</strong> pueden influir en este proceso.</p>
+<p>Aquí puedes encontrar el artículo completo: <a href="https://academic.oup.com/mbe/article/39/9/msac182/6673247">Historical contingency drives compensatory evolution and rare reversal of phage resistance</a></p>
+</section>
 <section id="integrantes" class="level2">
 <h2 class="anchored" data-anchor-id="integrantes">Integrantes</h2>
 <ul>
-<li>Amairani Cancino Bello</li>
+<li>Amairani Cancino Bello, Estudiante de doctorado, Cinvestav-IPN</li>
 <li>María José Palma Martínez</li>
-<li>Evelia Coss, LIIGH-UNAM, correo: ecoss@liigh.unam.mx, pagina web: https://eveliacoss.github.io/</li>
+<li>Evelia Coss, LIIGH-UNAM, <a href="ecoss@liigh.unam.mx">correo</a>, <a href="https://eveliacoss.github.io/">pagina web</a></li>
 <li>Sofia Zorrilla</li>
 <li>Maribel Arenas</li>
 <li>Mayra Fragoso</li>
 </ul>
+<hr>
+<p>Cursos hechos con amor 💜</p>
 
 
 </section>

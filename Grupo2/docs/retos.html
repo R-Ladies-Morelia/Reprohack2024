@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ggplot2</title>
+<title>Retos y problemas con el código</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -98,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tema2.html">Revisión de temas</a></li><li class="breadcrumb-item"><a href="./tema4.html">ggplot2</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tema5.html">Acerca de las funciones y figuras del artículo</a></li><li class="breadcrumb-item"><a href="./retos.html">Retos y problemas con el código</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -176,7 +210,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tema4.html" class="sidebar-item-text sidebar-link active">
+  <a href="./tema4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ggplot2</span></a>
   </div>
 </li>
@@ -205,7 +239,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./retos.html" class="sidebar-item-text sidebar-link">
+  <a href="./retos.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Retos y problemas con el código</span></a>
   </div>
 </li>
@@ -251,9 +285,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#desglose-de-las-capas-comunes" id="toc-desglose-de-las-capas-comunes" class="nav-link active" data-scroll-target="#desglose-de-las-capas-comunes">Desglose de las capas comunes</a></li>
-  <li><a href="#cheatsheet" id="toc-cheatsheet" class="nav-link" data-scroll-target="#cheatsheet">Cheatsheet</a></li>
-  <li><a href="#ejercicios" id="toc-ejercicios" class="nav-link" data-scroll-target="#ejercicios">Ejercicios</a></li>
+  <li><a href="#ausencia-de-instrucciones" id="toc-ausencia-de-instrucciones" class="nav-link active" data-scroll-target="#ausencia-de-instrucciones">Ausencia de instrucciones</a>
+  <ul class="collapse">
+  <li><a href="#reto-1" id="toc-reto-1" class="nav-link" data-scroll-target="#reto-1">Reto 1</a></li>
+  <li><a href="#reto-2" id="toc-reto-2" class="nav-link" data-scroll-target="#reto-2">Reto 2</a></li>
+  <li><a href="#reto-3" id="toc-reto-3" class="nav-link" data-scroll-target="#reto-3">Reto 3</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -262,7 +299,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ggplot2</h1>
+<h1 class="title">Retos y problemas con el código</h1>
 </div>
 
 
@@ -277,76 +314,41 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>¡Empecemos por lo básico! El paquete <code>ggplot2</code> se basa en la Gramática de los Gráficos (GG), que es un marco para la visualización de datos que disecciona cada componente de un gráfico en <strong>componentes individuales</strong>, creando <strong>capas distintas</strong>. Utilizando el sistema GG, podemos construir gráficos paso a paso para obtener resultados flexibles y personalizables.</p>
-<p><img src="img/Layers_ggplot.png" width="1000" height="250"></p>
-<p>Las capas GG tienen nombres específicos que verás a lo largo de esta seccion:</p>
-<p><img src="img/gglayers.png" width="1000" height="1000"></p>
-<p>Para hacer un ggplot, las capas de datos y mapas son requisitos básicos, mientras que las otras capas son para personalización adicional. Las capas que «no son necesarias» siguen siendo importantes, pero podrás generar un gráfico básico sin ellas.</p>
+<section id="ausencia-de-instrucciones" class="level2">
+<h2 class="anchored" data-anchor-id="ausencia-de-instrucciones">Ausencia de instrucciones</h2>
+<section id="reto-1" class="level3">
+<h3 class="anchored" data-anchor-id="reto-1">Reto 1</h3>
+<p>En el código no se mencionaba con que paquetes realizaban la importación de los datos de excel que te daban, solo daban instrucciones como la siguiente:</p>
+<blockquote class="blockquote">
+<p>Cargar informacion de “Costs_of_Res.xlsx” como variable <code>costs_of_res</code>.</p>
+</blockquote>
+<p><strong>Solución:</strong> En este caso decidimos usar el paquete <code>readxl</code> para la importación de archivos.</p>
 <p><br></p>
-<section id="desglose-de-las-capas-comunes" class="level2">
-<h2 class="anchored" data-anchor-id="desglose-de-las-capas-comunes">Desglose de las capas comunes</h2>
-<p>A continuación se presenta un desglose de cada una de las capas de la GG y los argumentos comunes de cada una de ellas que pueden servir de referencia:</p>
-<ul>
-<li><strong>Datos:</strong>
-<ul>
-<li><code>sus datos</code>, en formato <code>tidy</code> o <code>dataframe</code>, proporcionarán los ingredientes para su trazado</li>
-<li>utilice las técnicas <code>dplyr</code> para preparar los datos para un formato de trazado óptimo</li>
-<li>por lo general, esto significa que debe tener una fila por cada observación que desea trazar</li>
-</ul></li>
-<li><strong>Estética (Aesthetics / aes)</strong>, para hacer visibles los datos
-<ul>
-<li><code>x</code>, <code>y</code>: variable a lo largo de los ejes x e y.</li>
-<li><code>colour</code>: color de las variables según los datos.</li>
-<li><code>fill</code>: color interior de la zona o relleno.</li>
-<li><code>group</code>: a qué grupo pertenece una geom.</li>
-<li><code>shape</code>: la figura utilizada para trazar un punto.</li>
-<li><code>linetype</code>: tipo de línea utilizada (sólida, discontinua, etc.).</li>
-<li><code>size</code>: escala de tamaño para una dimensión extra</li>
-<li><code>alpha</code>: transparencia del objeto geométrico</li>
-</ul></li>
-<li><strong>Objetos geométricos</strong> (geoms - determina el tipo de trazado)
-<ul>
-<li><code>geom_point()</code>: gráfico de dispersión</li>
-<li><code>geom_line()</code>: líneas que conectan puntos aumentando el valor de x</li>
-<li><code>geom_path()</code>: líneas que conectan puntos en secuencia de aparición</li>
-<li><code>geom_boxplot()</code>: gráfico de caja y bigotes para variables categóricas</li>
-<li><code>geom_bar()</code>: gráficos de barras para el eje x categórico</li>
-<li><code>geom_histogram()</code>: histograma para eje x continuo</li>
-<li><code>geom_violin()</code>: núcleo de distribución de la dispersión de datos</li>
-<li><code>geom_smooth()</code>: línea de función basada en datos</li>
-</ul></li>
-<li><strong>Facetas:</strong>
-<ul>
-<li><code>facet_wrap()</code> o <code>facet_grid()</code> para múltiplos pequeños</li>
-</ul></li>
-<li><strong>Estadísticas:</strong>
-<ul>
-<li>similar a geoms, pero computada</li>
-<li>muestran medias, recuentos y otros resúmenes estadísticos de los datos</li>
-</ul></li>
-<li><strong>Coordenadas</strong> - ajuste de datos en una página
-<ul>
-<li><code>coord_cartesian</code> para establecer límites</li>
-<li><code>coord_polar</code> para gráficos circulares</li>
-<li><code>coord_map</code> para diferentes proyecciones cartográficas</li>
-</ul></li>
-<li><strong>Temas:</strong>
-<ul>
-<li>parámetros visuales generales</li>
-<li>fuentes, colores, formas, contornos</li>
-</ul></li>
-</ul>
 </section>
-<section id="cheatsheet" class="level2">
-<h2 class="anchored" data-anchor-id="cheatsheet">Cheatsheet</h2>
-<p><embed src="img/ggplot2-cheatsheet-2.1-Spanish.pdf" width="1000" height="1000"></p>
-<p>Más información en en el <a href="https://r.qcbs.ca/workshop03/book-en/">Workshop 3: Introduction to data visualisation with ggplot2</a></p>
+<section id="reto-2" class="level3">
+<h3 class="anchored" data-anchor-id="reto-2">Reto 2</h3>
+<p>Para graficar la figura 2, el código mencionaba la variable <code>LOR_res_long</code>, sin embargo esta variable no se encontraba declarada en el código. Solo daba el siguiente fragmento:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(LOR_res_long[<span class="sc">!</span>LOR_res_long<span class="sc">$</span>isolate <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"FMS6"</span>,<span class="st">"SNK6"</span>),], <span class="fu">aes</span>(passage<span class="sc">*</span><span class="dv">3</span>,value<span class="sc">*</span><span class="dv">100</span>,<span class="at">group=</span>isolate,<span class="at">color=</span>(isolate<span class="sc">%in%</span><span class="fu">c</span>(<span class="st">"SNK7"</span>,<span class="st">"QAC5"</span>,<span class="st">"VCM4"</span>)))) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="fl">4.5</span>,<span class="at">shape=</span><span class="dv">18</span>) <span class="sc">+</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size=</span><span class="fl">0.8</span>)<span class="sc">+</span><span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color=</span>F)<span class="sc">+</span><span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">"Dark2"</span>) <span class="sc">+</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">12</span>,<span class="dv">24</span>,<span class="dv">36</span>)) <span class="sc">+</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size=</span><span class="dv">16</span>) <span class="sc">+</span> </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Proportion of phage sensitivity in population (%)"</span>) <span class="sc">+</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Day of experimental evolution"</span>) <span class="sc">+</span> </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Solución:</strong> Agregamos todo el código de inicio a fin en Chatgpt y le solicitamos que nos dijera cómo generar la variable X a partir de los datos que le dimos. Logrando obtener la información faltante.</p>
+<p><br></p>
 </section>
-<section id="ejercicios" class="level2">
-<h2 class="anchored" data-anchor-id="ejercicios">Ejercicios</h2>
-<p>Te invitamos a que corras el ejercicio propuesto en el script <a href="https://github.com/R-Ladies-Morelia/GGplotShiny/blob/main/ggplot2_R_ladies_Morelia/ggplo2_R_Ladies_Morelia_.R">ggplo2_R_Ladies_Morelia_.R</a> por Fernanda Miron.</p>
+<section id="reto-3" class="level3">
+<h3 class="anchored" data-anchor-id="reto-3">Reto 3</h3>
+<p>Variables erróneas colocadas en el código. Para la figura 3 menciona que se usa la variable <code>Prop_R_P12</code>, sin embargo sta variable no existe si no que se llama <code>Prop_S_P12</code>.</p>
+<p><strong>Solución:</strong> corregimos el código cambiando la variable.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
