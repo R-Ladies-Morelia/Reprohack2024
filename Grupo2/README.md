@@ -23,6 +23,8 @@ Reunion previa 12 de septiembre 2024, 10 am
 
 Libro de [Quarto](https://r-ladies-morelia.github.io/Reprohack2024/Grupo2/docs/index.html) con informacion.
 
+Esquemas en [Canva](https://www.canva.com/design/DAGRE9XWs4o/X_y3xvGxVChIE9LAbgmExw/edit)
+
 ## Trabajo en conjunto
 
 > Pendientes por hacer durante la semana:
