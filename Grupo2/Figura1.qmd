@@ -1,5 +1,7 @@
 ---
 title: "Figura 1"
+params:
+  file_path: "/home/sofia/Documents/Rladies/Reprohack_gpo2/loss-of-resistance/"
 ---
 
 ## Análisis de genomas bacterianos evolucionados en ausencia de fagos
@@ -96,7 +98,7 @@ GC_long_to_growthrates <- function(GC_long, lower, upper, p){
 Cargar informacion de "Costs_of_Res.xlsx" como variable costs_of_res
 
 ```{r}
-costs_of_res <- read_excel("../Costs_of_Res.xlsx")
+costs_of_res <- read_excel("../../loss-of-resistance/Costs_of_Res.xlsx")
 ```
 
 ### Resistencia del fago y la disposición de la placa

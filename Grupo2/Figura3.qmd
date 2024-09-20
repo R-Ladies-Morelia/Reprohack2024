@@ -27,7 +27,7 @@ library(reshape2) # melt(): reduccion de datos
 Cargar informacion de "Replay.xlsx" como variable replay
 
 ```{r}
-replay <- read_excel("../Replay.xlsx", sheet = "Data")
+replay <- read_excel("../../loss-of-resistance/Replay.xlsx", sheet = "Data")
 replay$Prop_S_P12 <- as.numeric(as.character(replay$Prop_S_P12)) # Convert as numeric / Convertir a numerico
 ```
 
@@ -67,9 +67,6 @@ ggplot() +
   xlab("") + ylab("Proportion of phage sensitivity in replay populations (%)") + 
   theme(axis.text.x=element_blank())
 ```
-
-
-
 
 
 

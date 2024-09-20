@@ -25,7 +25,7 @@ library(reshape2) # melt(): reduccion de datos
 Cargar informacion de "Fitness_over_Time.xlsx" como variable fitness_over_time.
 
 ```{r}
-fitness_over_time <- read_excel("../Fitness_over_Time.xlsx")
+fitness_over_time <- read_excel("../../loss-of-resistance/Fitness_over_Time.xlsx")
 ```
 
 ### Ajuste de valores
@@ -73,7 +73,7 @@ ggplot() + geom_point(data=df,aes(x=passage*3,y=mean),size=3) +
 Cargar informacion de "Resistance_over_Time.xlsx" como variable res_over_time.
 
 ```{r}
-res_over_time <- read_excel("../Resistance_over_Time.xlsx", sheet = "Data")
+res_over_time <- read_excel("../../loss-of-resistance/Resistance_over_Time.xlsx", sheet = "Data")
 ```
 
 ### Transformación de los datos en formato largo
