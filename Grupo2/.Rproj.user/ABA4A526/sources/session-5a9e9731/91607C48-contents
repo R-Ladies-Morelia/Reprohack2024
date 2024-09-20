@@ -1,0 +1,106 @@
+---
+title: "Buenas prácticas en la bioinformática"
+format: 
+  html:
+    page-layout: full 
+---
+
+## Bioinformática se conforma de la computación, biológica, matemáticas y estadística
+
+La bioinformática, en relación con la genética y la genómica 🔬, es una subdisciplina científica que implica el uso de ciencias informáticas 📈 para recopilar, almacenar, analizar y diseminar datos biológicos, como secuencias de ADN y aminoácidos o anotaciones sobre esas secuencias [NIH, 2023](https://www.genome.gov/es/genetics-glossary/Bioinformatica).
+
+Uno de sus objetivos es: Aumentar el entendimiento de la salud y la enfermedad, en ciertos casos, se usan para proveer mejor atención médica [NIH, 2023](https://www.genome.gov/es/genetics-glossary/Bioinformatica).
+
+
+NIH: National Human Genome Research Institute
+
+###  Objetivo de este mini curso: 📌
+
+Hacia una biología computacional más reproducible, transparente y colaborativa 💜
+
+> “Los hechos individuales no reproducibles no tienen ninguna importancia para la ciencia”
+> 
+> Karl Popper
+
+Más información [aquí](https://ellipse.prbb.org/es/hacia-una-biologia-computacional-mas-reproducible-transparente-y-colaborativa/).
+
+<br>
+
+# Escribiendo un buen software
+
+## Un algoritmo nos permite resolver un problema ⭐
+
+Un algoritmo es un método para resolver un problema mediante una serie de pasos **definidos, precisos** y **finitos**.
+
+- **Definido**: si se sigue dos veces, se obtiene el mismo resultado. Es reproducible.
+
+- **Preciso**: implica el orden de realización de cada uno de los pasos.
+
+- **Finito**: Tiene un numero determinado de pasos, implica que tiene un fin.
+
+> Un algoritmo podemos definirlo como un **programa o software**.
+
+
+## Para escribir un buen software necesitas:
+
+> Escribir **código mantenible (maintainable code), usar control de versiones (version control) y rastreadores de problemas (issue trackers), revisiones de código (code reviews), pruebas unitarias (unit testing) y automatización de tareas (task automation)**.
+>
+> Wilson, et al. 2014. PLOS  Biology
+
+Con el fin de *previnir retracciones*.
+
+Más información en [Best Practices for Scientific Computing - The Carpentries](https://doi.org/10.1371/journal.pbio.1001745).
+
+## Código reproducible 🌟
+
+### Contenedores ⚡
+
+- [Docker](https://docs.docker.com/) 
+- [Singularity](https://docs.sylabs.io/guides/3.5/user-guide/introduction.html)
+- [Apptainer](https://apptainer.org/)
+
+Se puede almacenar todo el workflow, archivos, generando codigo reproducible y cooperativo.
+
+> Minicurso del uso de [Docker](https://www.melbournebioinformatics.org.au/tutorials/tutorials/docker/docker/).
+
+
+### Crear pipelines completos 🌀
+
+- [Nextflow](https://training.nextflow.io/es/)
+- [Snakemake](https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html)
+
+## Pasos para escribir un buen software
+
+1) Análisis del problema / Definir el problema
+
+2) Diseño del algoritmo / Diseño del programa
+
+3) Codificación / Escribir el código
+
+4) Compilación y ejecución del programa
+
+5) Verificación / Realizar pruebas
+
+6) Depuración / Detectar los errores y corregirlos
+
+> Programacion defensiva
+
+7) Documentación
+
+<br>
+
+## Puntos claves para buenas practicas en bioinfo ⭐
+
+1) Escriba programas para personas, no para computadoras (Documenta qué hace y por qué). - Se coherente en la nomenclatura, indentación y otros aspectos del estilo.
+
+2) Divide los programas en *funciones cortas de un solo propósito. 💻 📚
+
+3) No repitas tu código. Crea pasos reproducibles o que se repitan por si solas. ➰
+
+4) Planifique los errores (Programacion defensiva) 🚩
+
+5) Optimice el software sólo después de que funcione correctamente. - Si funciona no lo modifiques, simplificalo.
+
+6) Colaborar - Busque siempre bibliotecas de software bien mantenidas que hagan lo que necesita. 👥
+
+

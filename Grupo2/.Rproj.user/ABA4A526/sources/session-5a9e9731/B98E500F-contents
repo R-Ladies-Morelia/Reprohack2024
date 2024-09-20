@@ -1,0 +1,133 @@
+---
+title: "Figura 2"
+---
+
+## Múltiples vías evolutivas para recuperar los costes de fitness
+
+> **NOTA:** Agregar el diagrama con descripcion del analisis.
+
+
+![Fig. 2. Cambios fenotípicos en poblaciones bacterianas durante la evolución experimental en ausencia de fagos.](img/figure2.jpeg){width="500" height=250}
+
+```{r, echo=FALSE, message=FALSE}
+library(growthrates) # fit_growthmodel(): Calcular la tasa de crecimiento a partir de datos de microplacas.
+library(lmerTest) # Pruebas estadisticas
+# Paquetes adicionales (no los mencionan pero son necesarios)
+library(readxl) # lectura de archivos de excel
+library(tidyverse) # Manipulacion de datos
+library(reshape2) # melt(): reduccion de datos
+```
+
+## Figure 2A. Crecimiento a lo largo del tiempo
+
+### Cargar los datos
+
+Cargar informacion de "Fitness_over_Time.xlsx" como variable fitness_over_time.
+
+```{r}
+fitness_over_time <- read_excel("../../loss-of-resistance/Fitness_over_Time.xlsx")
+```
+
+### Ajuste de valores
+
+Calcular los valores ajustados controlando la resistencia del fago, el paso y la disposición de la placa.
+
+```{r}
+fitness_over_time$fitted <- fitted.values(lm(r~Passage*Type+Column,fitness_over_time))
+# Expresar los valores ajustados como porcentaje de la desarrollo de tipo wild-type
+for (passage in seq(0,12,2)){
+  anc_means<-mean(unlist(fitness_over_time[fitness_over_time$Passage==passage & fitness_over_time$Type=="ANC","fitted"]))
+  fitness_over_time[fitness_over_time$Passage==passage & fitness_over_time$Type=="PR","fitted_percWT"]<-100*fitness_over_time[fitness_over_time$Passage==passage & fitness_over_time$Type=="PR","fitted"]/anc_means
+}
+# Calcular el crecimiento a lo largo del tiempo
+df <- data.frame(aggregate(unlist(fitness_over_time[fitness_over_time$Type=="PR","fitted_percWT"]), by=list(unlist(fitness_over_time[fitness_over_time$Type=="PR","Passage"])),FUN=mean), 
+                 aggregate(unlist(fitness_over_time[fitness_over_time$Type=="PR","fitted_percWT"]),by=list(unlist(fitness_over_time[fitness_over_time$Type=="PR","Passage"])),FUN=sd)[,2])
+colnames(df) <- c("passage","mean","SD") # renombrar columnas
+```
+
+## Descripción de la figura
+
+Obtener las tasas de crecimiento de las poblaciones inoculadas con colonias resistentes a los fagos a lo largo de la evolución experimental en ausencia de fagos, calculadas a partir de mediciones de la densidad óptica en un lector de microplacas durante 40 h de crecimiento (n = 22).
+
+Las líneas representan las *trayectorias de las poblaciones individuales a lo largo del tiempo*, mientras que los *puntos indican la aptitud media entre las poblaciones muestreadas* el mismo día y las barras de error indican la DE. Los valores se normalizan con respecto a las tasas de crecimiento de las poblaciones de control sensibles a los fagos muestreadas en el mismo punto de la evolución experimental. 
+
+### Grafica
+
+```{r figura 2A}
+ggplot() + geom_point(data=df,aes(x=passage*3,y=mean),size=3) +
+  geom_errorbar(data=df,aes(x=passage*3,ymin=mean-SD,ymax=mean+SD),width=0,size=1) + 
+  geom_line(data=df,aes(x=passage*3,y=mean)) + 
+  theme_classic(base_size=16) + 
+  geom_hline(yintercept=100,linetype="dashed") + 
+  scale_x_continuous(breaks=seq(0,36,6)) + 
+  ylab("Fitness (% of wild-type)") + xlab("Day of experimental evolution") + 
+  coord_cartesian(ylim=c(60,115))
+```
+
+## Figure 2B. Resistencia en el tiempo
+
+> **NOTA:** Abri el excel y corre un error de compatibilidad.
+
+### Cargar los datos
+
+Cargar informacion de "Resistance_over_Time.xlsx" como variable res_over_time.
+
+```{r}
+res_over_time <- read_excel("../../loss-of-resistance/Resistance_over_Time.xlsx", sheet = "Data")
+```
+
+### Transformación de los datos en formato largo
+
+```{r}
+res_long <- melt(res_over_time, id.vars = "isolate", measure.vars = c("Prop_S_P0","Prop_S_P4","Prop_S_P8","Prop_S_P12"))
+res_long$variable <- as.character(res_long$variable) # Conversión de la columna variable a caracteres:  
+res_long$passage <- as.numeric(substr(res_long$variable,9,nchar(res_long$variable)))
+```
+
+Aumento de la aptitud con el tiempo; sin efecto principal o de interacción de las poblaciones que revirtieron a la sensibilidad.
+
+```{r}
+fitness_over_time[fitness_over_time$Population %in% c("SNK7","QAC5","VCM4"),"Outcome"] <- "S"
+fitness_over_time[!fitness_over_time$Population %in% c("SNK7","QAC5","VCM4"),"Outcome"] <- "R"
+anova(lmer(fitted_percWT~Passage*Outcome+(1|Population),fitness_over_time))
+```
+
+Sin efecto de los costes de resistencia sobre la reversión a la sensibilidad.
+
+```{r}
+load("costs_agg.RData")
+costs_agg[costs_agg$Population%in%c("SNK7","QAC5","VCM4"),"Outcome"] <- "S"
+costs_agg[!costs_agg$Population%in%c("SNK7","QAC5","VCM4"),"Outcome"] <- "R"
+t.test(fitted_percWT~Outcome, costs_agg)
+```
+
+### Descripción de la figura
+
+Proporción de colonias de cada población que se calificaron como *sensibles a los fagos a lo largo del tiempo*, según lo indicado por la interrupción del crecimiento bacteriano al encontrarse con los fagos en una placa de agar (n = 22 poblaciones con 96 colonias muestreadas por población). *Las líneas naranjas indican las poblaciones de las que se obtuvieron colonias sensibles.*
+
+### Grafica
+
+> **NOTA:** La variable `LOR_res_long` no se encuentra en el codigo, pero pude obtener el codigo gracias a chatgpt. Suposición de cómo podría haberse creado `LOR_res_long`. Podría haber sido una transformación adicional de `res_over_time` o un conjunto de datos similar. 
+
+```{r}
+LOR_res_long <- melt(res_over_time, id.vars = "isolate", measure.vars = c("Prop_S_P0","Prop_S_P4","Prop_S_P8","Prop_S_P12"))
+LOR_res_long$variable <- as.character(LOR_res_long$variable)
+LOR_res_long$passage <- as.numeric(substr(LOR_res_long$variable,9,nchar(LOR_res_long$variable)))
+LOR_res_long <- LOR_res_long[!LOR_res_long$isolate %in% c("FMS6","SNK6"),]  # Filtrado de aislamientos
+```
+
+Excluye las poblaciones con colonias que parecían sensibles en las placas pero que no se veían afectadas por el fago en las curvas de crecimiento.
+
+```{r}
+ggplot(LOR_res_long[!LOR_res_long$isolate %in% c("FMS6","SNK6"),], aes(passage*3,value*100,group=isolate,color=(isolate%in%c("SNK7","QAC5","VCM4")))) +
+  geom_point(size=4.5,shape=18) +
+  geom_line(size=0.8)+theme_classic() +
+  guides(color=F)+scale_color_brewer(palette="Dark2") + 
+  scale_x_continuous(breaks=c(0,12,24,36)) + 
+  theme_classic(base_size=16) + 
+  ylab("Proportion of phage sensitivity in population (%)") +
+  xlab("Day of experimental evolution") + 
+  theme(axis.title.y=element_text(size=14))
+```
+
+
