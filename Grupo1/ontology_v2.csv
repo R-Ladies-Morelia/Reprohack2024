@@ -1,0 +1,11 @@
+N.,GO.ID,p.Val,term_size,query_size,n_genes,source_description,Pathway
+1,GO:0048583,0.004567962,4013,32,18,GO:BP,regulation of response to stimulus
+2,GO:0051716,0.031066384,7521,26,20,GO:BP,cellular response to stimulus
+3,GO:0014069,0.0273691,338,32,5,GO:CC,postsynaptic density
+4,GO:0031253,0.032653549,351,32,5,GO:CC,cell projection membrane
+5,GO:0032279,0.033090269,352,32,5,GO:CC,asymmetric synapse
+6,GO:0099572,0.038196271,363,32,5,GO:CC,postsynaptic specialization
+7,GO:0031982,0.048505064,3998,7,6,GO:CC,vesicle
+8,GO:0098984,0.049005507,383,32,5,GO:CC,neuron to neuron synapse
+9,TF:M12593,0.001110228,8823,33,29,TF,Factor: CTCF; motif: NNRSYGCCMCCTGSTGGCCN
+10,TF:M00918,0.034916719,5733,17,14,TF,Factor: E2F; motif: TTTSGCGSG
