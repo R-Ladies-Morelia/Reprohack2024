@@ -64,5 +64,5 @@ Ejercicio tomado de [aqui](https://utrechtuniversity.github.io/workshop-computat
 
 > **NOTA:** Ahora que ya se instalo el paquete se activa una nueva funcion en Code/Insert Roxygen Skeleton.
 
-![](img/roxygencode.png){width="500" height=450}
+![](img/roxygencode.png){width="500" fig-align="center"}
 

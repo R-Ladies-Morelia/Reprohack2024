@@ -33,7 +33,7 @@ Archivos separados por comas.
 
 Este ejemplo fue obtenido del repositorio de Github de [Cosmoduende](dataset_shdb/charactersStats.csv).
 
-![](img/formatoCSV_marvel.png){width="1000" height=250}
+![](img/formatoCSV_marvel.png){width="800" fig-align="center"}
 
 ## Datos en formato TSV
 
@@ -41,7 +41,7 @@ Archivo separado por tabuladores.
 
 Este ejemplo proviene de la base de datos de *Arabidopsis thaliana*, la planta modelo en el estudio de la genómica. Este archivo indica el tipo o característica del gen anotado en [Araport11](https://www.arabidopsis.org/download_files/Genes/Araport11_genome_release/Araport11_gene_type).
 
-![](img/formatoTSV_arabidopsis.png){width="500" height=250}
+![](img/formatoTSV_arabidopsis.png){width="500" fig-align="center"}
 
 ### B) Archivos tipo RData
 

@@ -4,11 +4,11 @@ title: "ggplot2"
 
 ¡Empecemos por lo básico! El paquete `ggplot2` se basa en la Gramática de los Gráficos (GG), que es un marco para la visualización de datos que disecciona cada componente de un gráfico en **componentes individuales**, creando **capas distintas**. Utilizando el sistema GG, podemos construir gráficos paso a paso para obtener resultados flexibles y personalizables.
 
-![](img/Layers_ggplot.png){width="1000" height=250}
+![](img/Layers_ggplot.png){width="1000" fig-align="center"}
 
 Las capas GG tienen nombres específicos que verás a lo largo de esta seccion:
 
-![](img/gglayers.png){width="1000" height=1000}
+![](img/gglayers.png){width="1000" fig-align="center"}
 
 Para hacer un ggplot, las capas de datos y mapas son requisitos básicos, mientras que las otras capas son para personalización adicional. Las capas que «no son necesarias» siguen siendo importantes, pero podrás generar un gráfico básico sin ellas.
 
