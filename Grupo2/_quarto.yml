@@ -35,6 +35,13 @@ website:
         contents:
           - tema5.qmd
           - tema6.qmd
+          - retos.qmd
+          - Figura1.qmd
+          - Figura2.qmd
+          - Figura3.qmd
+          - Figura4.qmd
+          - Figura5.qmd
+          
 
 
 format:
