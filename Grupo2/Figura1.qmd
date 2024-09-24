@@ -9,7 +9,7 @@ params:
 > **NOTA:** Agregar el diagrama con descripcion del analisis.
 
 
-![Fig. 1. Mecanismos genéticos y costes de fitness de la resistencia a los fagos.](img/figure1.jpeg){width="500" height=250}
+![Fig. 1. Mecanismos genéticos y costes de fitness de la resistencia a los fagos.](img/figure1.jpeg){width="800"}
 
 ## Figure 1B. La resistencia es costosa
 
@@ -22,6 +22,9 @@ library(lmerTest) # Pruebas estadisticas
 library(readxl) # lectura de archivos de excel
 library(tidyverse) # Manipulacion de datos
 library(reshape2) # melt(): reduccion de datos
+library(ggh4x) # paquete que extiende las funcionalidades de facet_wrap y facet_grid
+library(RColorBrewer) # Paquete para asignar paleta de colores
+
 ```
 
 > **NOTA:** La funcion `fit_growthmodel()`, toma los datos de la siguiente forma: cada fila es la medida de un único pocillo en un único punto temporal, con columnas adicionales «Tratamiento» y «DO». Se ajusta una curva logística a cada pocillo por separado utilizando la DO a lo largo del tiempo.  He utilizado los siguientes parámetros: lower=c(y0=0.000001,mumax=0,K=0),upper=c(y0=0.05,mumax=5,K=1.5)),p=c(y0=0.01,mumax=0.2,K=0.1)
@@ -98,7 +101,7 @@ GC_long_to_growthrates <- function(GC_long, lower, upper, p){
 Cargar informacion de "Costs_of_Res.xlsx" como variable costs_of_res
 
 ```{r}
-costs_of_res <- read_excel("../../loss-of-resistance/Costs_of_Res.xlsx")
+costs_of_res <- read_excel("data/Costs_of_Res.xlsx")
 ```
 
 ### Resistencia del fago y la disposición de la placa
@@ -147,16 +150,50 @@ save(costs_agg, file = "costs_agg.RData")
 Tasas de crecimiento de la población de cepas resistentes en ausencia de fago, basadas en un modelo logístico ajustado a una curva de crecimiento de 40 h (n = 22 cepas).
 
 ```{r figura1B}
-ggplot(costs_of_res[costs_of_res$Population!="ancDC3000",]) + 
-  stat_summary(aes(reorder(Population,-fitted_percWT),fitted_percWT,group=Population,fill=Gene),geom="pointrange",shape=21,size=0.8) + 
-  theme_classic(base_size=18) + 
-  theme(axis.title.x=element_blank(),axis.text.x=element_blank(),axis.ticks.x=element_blank()) + 
-  guides(fill=F) + 
-  facet_grid(~paste(Gene,Annotation,sep="\n"), scales="free_x",space="free_x") + 
-  theme(strip.background = element_blank(),strip.placement="outside") + 
-  scale_fill_brewer(palette="Dark2") + 
-  ylab("Fitness (% of wild-type)") + 
-  geom_hline(yintercept=100,linetype="dashed")
+#| message: false
+#| fig-width: 11
+
+# Asignar colores a los titulos de los facets
+strip <- strip_themed(text_x = elem_list_text(color = brewer.pal(5, "Dark2")))
+
+# Guardar las etiquetas que van en los títulos de los facets
+strip_label <- distinct(costs_of_res[,c("Gene","Annotation")])[-c(1:2),] %>% 
+  mutate(Annotation = str_replace(Annotation, "_","\n"),label = paste(Gene,Annotation, sep = "\n"))
+
+
+costs_of_res[costs_of_res$Population!="ancDC3000",] %>% # El siguiente paso quita las Z que asignamos antes y más bien asigna el orden utilizando niveles en el factor de label
+  mutate(Population = ifelse(Population == "MS15","no detected\nmutation",Population),
+         Gene = ifelse(Gene == "Z","",Gene),
+         Annotation = ifelse(Annotation == "Z","",Annotation),
+         Annotation = str_replace(Annotation, "_","\n"),
+         label = paste(Gene,Annotation, sep = "\n")) %>% 
+  mutate(label = factor(label, levels = c(strip_label$label,"\n"))) %>% 
+ggplot()+
+  stat_summary(aes(x = reorder(Population,-fitted_percWT),
+                   y = fitted_percWT,
+                   group=Population,
+                   fill=Gene),
+               geom="pointrange",
+               shape=21,
+               size=0.8)+
+  geom_hline(yintercept=100,linetype="dashed")+
+  scale_fill_brewer(palette="Dark2")+
+  guides(fill=F)+
+  ylab("Fitness (% of wild-type)")+
+  facet_wrap2(~label,
+             scales="free_x",
+             #space="free_x", 
+             strip.position = "bottom",
+             nrow = 1,
+             strip = strip
+             )+
+  theme_classic(base_size=18)+
+  theme(axis.title.x=element_blank(),
+                axis.text.x=element_text(angle = 90),
+                #axis.ticks.x=element_blank(),
+        strip.background = element_blank(),
+        strip.placement = "outside",
+        strip.text = element_text(size = 12))
 ```
 
 

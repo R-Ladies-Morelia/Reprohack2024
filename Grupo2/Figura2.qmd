@@ -7,7 +7,7 @@ title: "Figura 2"
 > **NOTA:** Agregar el diagrama con descripcion del analisis.
 
 
-![Fig. 2. Cambios fenotípicos en poblaciones bacterianas durante la evolución experimental en ausencia de fagos.](img/figure2.jpeg){width="500" height=250}
+![Fig. 2. Cambios fenotípicos en poblaciones bacterianas durante la evolución experimental en ausencia de fagos.](img/figure2.jpeg){width="800"}
 
 ```{r, echo=FALSE, message=FALSE}
 library(growthrates) # fit_growthmodel(): Calcular la tasa de crecimiento a partir de datos de microplacas.
@@ -25,7 +25,7 @@ library(reshape2) # melt(): reduccion de datos
 Cargar informacion de "Fitness_over_Time.xlsx" como variable fitness_over_time.
 
 ```{r}
-fitness_over_time <- read_excel("../../loss-of-resistance/Fitness_over_Time.xlsx")
+fitness_over_time <- read_excel("data/Fitness_over_Time.xlsx")
 ```
 
 ### Ajuste de valores
@@ -34,11 +34,13 @@ Calcular los valores ajustados controlando la resistencia del fago, el paso y la
 
 ```{r}
 fitness_over_time$fitted <- fitted.values(lm(r~Passage*Type+Column,fitness_over_time))
+
 # Expresar los valores ajustados como porcentaje de la desarrollo de tipo wild-type
 for (passage in seq(0,12,2)){
   anc_means<-mean(unlist(fitness_over_time[fitness_over_time$Passage==passage & fitness_over_time$Type=="ANC","fitted"]))
   fitness_over_time[fitness_over_time$Passage==passage & fitness_over_time$Type=="PR","fitted_percWT"]<-100*fitness_over_time[fitness_over_time$Passage==passage & fitness_over_time$Type=="PR","fitted"]/anc_means
 }
+
 # Calcular el crecimiento a lo largo del tiempo
 df <- data.frame(aggregate(unlist(fitness_over_time[fitness_over_time$Type=="PR","fitted_percWT"]), by=list(unlist(fitness_over_time[fitness_over_time$Type=="PR","Passage"])),FUN=mean), 
                  aggregate(unlist(fitness_over_time[fitness_over_time$Type=="PR","fitted_percWT"]),by=list(unlist(fitness_over_time[fitness_over_time$Type=="PR","Passage"])),FUN=sd)[,2])
@@ -54,8 +56,10 @@ Las líneas representan las *trayectorias de las poblaciones individuales a lo l
 ### Grafica
 
 ```{r figura 2A}
-ggplot() + geom_point(data=df,aes(x=passage*3,y=mean),size=3) +
+ggplot() + 
+  geom_point(data=df,aes(x=passage*3,y=mean),size=3) +
   geom_errorbar(data=df,aes(x=passage*3,ymin=mean-SD,ymax=mean+SD),width=0,size=1) + 
+  geom_line(data = fitness_over_time, aes(x = Passage*3, y = fitted_percWT, group = Population), linewidth = 0.2, alpha = 0.4)+
   geom_line(data=df,aes(x=passage*3,y=mean)) + 
   theme_classic(base_size=16) + 
   geom_hline(yintercept=100,linetype="dashed") + 
@@ -73,7 +77,7 @@ ggplot() + geom_point(data=df,aes(x=passage*3,y=mean),size=3) +
 Cargar informacion de "Resistance_over_Time.xlsx" como variable res_over_time.
 
 ```{r}
-res_over_time <- read_excel("../../loss-of-resistance/Resistance_over_Time.xlsx", sheet = "Data")
+res_over_time <- read_excel("data/Resistance_over_Time.xlsx", sheet = "Data")
 ```
 
 ### Transformación de los datos en formato largo
