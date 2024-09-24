@@ -7,7 +7,7 @@ title: "Figura 5"
 > **NOTA:** Agregar el diagrama con descripcion del analisis.
 
 
-![Fig. 5. La contingencia genética ya no es detectable tras una evolución prolongada en ausencia de fagos.](img/figure5.jpeg){width="500" height=250}
+![Fig. 5. La contingencia genética ya no es detectable tras una evolución prolongada en ausencia de fagos.](img/figure5.jpeg){width="800"}
 
 
 

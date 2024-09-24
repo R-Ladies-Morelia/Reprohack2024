@@ -52,6 +52,10 @@ format:
     css: styles.css
     toc: true
     code-wrap: true
+    message: false
+    warning: false
+    fig-height: 8
+    fig-width: 8
     grid: 
       body-width: 1200px
       sidebar-width: 250px

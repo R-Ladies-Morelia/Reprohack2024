@@ -303,7 +303,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/figure1.jpeg" width="500" height="250" class="figure-img"></p>
+<p><img src="img/figure1.jpeg" class="img-fluid figure-img" width="800"></p>
 <figcaption class="figure-caption">Fig. 1. Mecanismos genéticos y costes de fitness de la resistencia a los fagos.</figcaption>
 </figure>
 </div>
@@ -318,7 +318,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Paquetes adicionales (no los mencionan pero son necesarios)</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl) <span class="co"># lectura de archivos de excel</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># Manipulacion de datos</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2) <span class="co"># melt(): reduccion de datos</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2) <span class="co"># melt(): reduccion de datos</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggh4x) <span class="co"># paquete que extiende las funcionalidades de facet_wrap y facet_grid</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer) <span class="co"># Paquete para asignar paleta de colores</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
 <p><strong>NOTA:</strong> La funcion <code>fit_growthmodel()</code>, toma los datos de la siguiente forma: cada fila es la medida de un único pocillo en un único punto temporal, con columnas adicionales «Tratamiento» y «DO». Se ajusta una curva logística a cada pocillo por separado utilizando la DO a lo largo del tiempo. He utilizado los siguientes parámetros: lower=c(y0=0.000001,mumax=0,K=0),upper=c(y0=0.05,mumax=5,K=1.5)),p=c(y0=0.01,mumax=0.2,K=0.1)</p>
@@ -395,7 +397,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="cargar-datos">Cargar datos</h3>
 <p>Cargar informacion de “Costs_of_Res.xlsx” como variable costs_of_res</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>costs_of_res <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"../../loss-of-resistance/Costs_of_Res.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>costs_of_res <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/Costs_of_Res.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="resistencia-del-fago-y-la-disposición-de-la-placa" class="level3">
@@ -456,28 +458,49 @@ Residuals 17 551.95  32.468               </code></pre>
 <h3 class="anchored" data-anchor-id="grafica">Grafica</h3>
 <p>Tasas de crecimiento de la población de cepas resistentes en ausencia de fago, basadas en un modelo logístico ajustado a una curva de crecimiento de 40 h (n = 22 cepas).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(costs_of_res[costs_of_res<span class="sc">$</span>Population<span class="sc">!=</span><span class="st">"ancDC3000"</span>,]) <span class="sc">+</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="fu">aes</span>(<span class="fu">reorder</span>(Population,<span class="sc">-</span>fitted_percWT),fitted_percWT,<span class="at">group=</span>Population,<span class="at">fill=</span>Gene),<span class="at">geom=</span><span class="st">"pointrange"</span>,<span class="at">shape=</span><span class="dv">21</span>,<span class="at">size=</span><span class="fl">0.8</span>) <span class="sc">+</span> </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size=</span><span class="dv">18</span>) <span class="sc">+</span> </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x=</span><span class="fu">element_blank</span>(),<span class="at">axis.text.x=</span><span class="fu">element_blank</span>(),<span class="at">axis.ticks.x=</span><span class="fu">element_blank</span>()) <span class="sc">+</span> </span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill=</span>F) <span class="sc">+</span> </span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="sc">~</span><span class="fu">paste</span>(Gene,Annotation,<span class="at">sep=</span><span class="st">"</span><span class="sc">\n</span><span class="st">"</span>), <span class="at">scales=</span><span class="st">"free_x"</span>,<span class="at">space=</span><span class="st">"free_x"</span>) <span class="sc">+</span> </span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">strip.background =</span> <span class="fu">element_blank</span>(),<span class="at">strip.placement=</span><span class="st">"outside"</span>) <span class="sc">+</span> </span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Dark2"</span>) <span class="sc">+</span> </span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Fitness (% of wild-type)"</span>) <span class="sc">+</span> </span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">100</span>,<span class="at">linetype=</span><span class="st">"dashed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: The `&lt;scale&gt;` argument of `guides()` cannot be `FALSE`. Use "none" instead as of ggplot2 3.3.4.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>No summary function supplied, defaulting to `mean_se()`
-No summary function supplied, defaulting to `mean_se()`
-No summary function supplied, defaulting to `mean_se()`
-No summary function supplied, defaulting to `mean_se()`
-No summary function supplied, defaulting to `mean_se()`</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Asignar colores a los titulos de los facets</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>strip <span class="ot">&lt;-</span> <span class="fu">strip_themed</span>(<span class="at">text_x =</span> <span class="fu">elem_list_text</span>(<span class="at">color =</span> <span class="fu">brewer.pal</span>(<span class="dv">5</span>, <span class="st">"Dark2"</span>)))</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardar las etiquetas que van en los títulos de los facets</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>strip_label <span class="ot">&lt;-</span> <span class="fu">distinct</span>(costs_of_res[,<span class="fu">c</span>(<span class="st">"Gene"</span>,<span class="st">"Annotation"</span>)])[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>),] <span class="sc">%&gt;%</span> </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Annotation =</span> <span class="fu">str_replace</span>(Annotation, <span class="st">"_"</span>,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>),<span class="at">label =</span> <span class="fu">paste</span>(Gene,Annotation, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>))</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>costs_of_res[costs_of_res<span class="sc">$</span>Population<span class="sc">!=</span><span class="st">"ancDC3000"</span>,] <span class="sc">%&gt;%</span> <span class="co"># El siguiente paso quita las Z que asignamos antes y más bien asigna el orden utilizando niveles en el factor de label</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Population =</span> <span class="fu">ifelse</span>(Population <span class="sc">==</span> <span class="st">"MS15"</span>,<span class="st">"no detected</span><span class="sc">\n</span><span class="st">mutation"</span>,Population),</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">Gene =</span> <span class="fu">ifelse</span>(Gene <span class="sc">==</span> <span class="st">"Z"</span>,<span class="st">""</span>,Gene),</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">Annotation =</span> <span class="fu">ifelse</span>(Annotation <span class="sc">==</span> <span class="st">"Z"</span>,<span class="st">""</span>,Annotation),</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">Annotation =</span> <span class="fu">str_replace</span>(Annotation, <span class="st">"_"</span>,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>),</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">label =</span> <span class="fu">paste</span>(Gene,Annotation, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">label =</span> <span class="fu">factor</span>(label, <span class="at">levels =</span> <span class="fu">c</span>(strip_label<span class="sc">$</span>label,<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Population,<span class="sc">-</span>fitted_percWT),</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> fitted_percWT,</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>                   <span class="at">group=</span>Population,</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>                   <span class="at">fill=</span>Gene),</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>               <span class="at">geom=</span><span class="st">"pointrange"</span>,</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>               <span class="at">shape=</span><span class="dv">21</span>,</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>               <span class="at">size=</span><span class="fl">0.8</span>)<span class="sc">+</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">100</span>,<span class="at">linetype=</span><span class="st">"dashed"</span>)<span class="sc">+</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Dark2"</span>)<span class="sc">+</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill=</span>F)<span class="sc">+</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Fitness (% of wild-type)"</span>)<span class="sc">+</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap2</span>(<span class="sc">~</span>label,</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>             <span class="at">scales=</span><span class="st">"free_x"</span>,</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>             <span class="co">#space="free_x", </span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>             <span class="at">strip.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>             <span class="at">nrow =</span> <span class="dv">1</span>,</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>             <span class="at">strip =</span> strip</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>             )<span class="sc">+</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size=</span><span class="dv">18</span>)<span class="sc">+</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>                <span class="at">axis.text.x=</span><span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>),</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>                <span class="co">#axis.ticks.x=element_blank(),</span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.placement =</span> <span class="st">"outside"</span>,</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Figura1_files/figure-html/figura1B-1.png" class="img-fluid" width="672"></p>
+<p><img src="Figura1_files/figure-html/figura1B-1.png" class="img-fluid" width="1056"></p>
 </div>
 </div>
 

@@ -301,7 +301,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/figure3.jpeg" width="500" height="250" class="figure-img"></p>
+<p><img src="img/figure3.jpeg" class="img-fluid figure-img" width="800"></p>
 <figcaption class="figure-caption">Fig. 3. Los resultados de la resistencia a los fagos en el experimento de repetición reflejan los resultados de su población fundadora.</figcaption>
 </figure>
 </div>
@@ -312,11 +312,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="cargar-datos">Cargar datos</h3>
 <p>Cargar informacion de “Replay.xlsx” como variable replay</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>replay <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"../../loss-of-resistance/Replay.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Data"</span>)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>replay <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/Replay.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Data"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>replay<span class="sc">$</span>Prop_S_P12 <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(replay<span class="sc">$</span>Prop_S_P12)) <span class="co"># Convert as numeric / Convertir a numerico</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: NAs introduced by coercion</code></pre>
-</div>
 </div>
 <blockquote class="blockquote">
 <p><strong>NOTA:</strong> no encuentro la variable<code>Prop_R_P12</code>, es mas bien la variable se llamaba <code>Prop_S_P12</code>.</p>
@@ -326,7 +323,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="calculo-de-sensibilidad-a-fagos">Calculo de sensibilidad a fagos</h3>
 <p>Las poblaciones derivadas de un fundador que reevolucionó la sensibilidad tenían más probabilidades de reevolucionar también la sensibilidad</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Prop_S_P12<span class="sc">~</span>Founder_outcome, <span class="at">data=</span>replay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Prop_S_P12<span class="sc">~</span>Founder_outcome, <span class="at">data=</span>replay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -342,12 +339,12 @@ mean in group R mean in group S
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>agg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aggregate</span>(<span class="dv">100</span><span class="sc">*</span>replay<span class="sc">$</span>Prop_S_P12, <span class="at">by=</span><span class="fu">list</span>(replay<span class="sc">$</span>Founder_outcome), <span class="at">FUN=</span><span class="cf">function</span>(x){<span class="fu">mean</span>(x,<span class="at">na.rm=</span>T)}) ,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aggregate</span>(<span class="dv">100</span><span class="sc">*</span>replay<span class="sc">$</span>Prop_S_P12,<span class="at">by=</span><span class="fu">list</span>(replay<span class="sc">$</span>Founder_outcome),<span class="at">FUN=</span><span class="cf">function</span>(x){<span class="fu">sd</span>(x,<span class="at">na.rm=</span>T)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(x))}))</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Renombrar columnas</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(agg) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Founder_outcome"</span>,<span class="st">"mean"</span>,<span class="st">"Founder_2"</span>,<span class="st">"SE"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>agg <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aggregate</span>(<span class="dv">100</span><span class="sc">*</span>replay<span class="sc">$</span>Prop_S_P12, <span class="at">by=</span><span class="fu">list</span>(replay<span class="sc">$</span>Founder_outcome), <span class="at">FUN=</span><span class="cf">function</span>(x){<span class="fu">mean</span>(x,<span class="at">na.rm=</span>T)}) ,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aggregate</span>(<span class="dv">100</span><span class="sc">*</span>replay<span class="sc">$</span>Prop_S_P12,<span class="at">by=</span><span class="fu">list</span>(replay<span class="sc">$</span>Founder_outcome),<span class="at">FUN=</span><span class="cf">function</span>(x){<span class="fu">sd</span>(x,<span class="at">na.rm=</span>T)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(x))}))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Renombrar columnas</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(agg) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Founder_outcome"</span>,<span class="st">"mean"</span>,<span class="st">"Founder_2"</span>,<span class="st">"SE"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="descripción-de-la-figura" class="level3">
@@ -357,27 +354,17 @@ mean in group R mean in group S
 <section id="grafica" class="level3">
 <h3 class="anchored" data-anchor-id="grafica">Grafica</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data=</span>agg,<span class="fu">aes</span>(Founder_outcome,<span class="at">ymax=</span>mean<span class="sc">+</span>SE,<span class="at">ymin=</span>mean<span class="sc">-</span>SE),<span class="at">alpha=</span><span class="fl">0.4</span>,<span class="at">width=</span><span class="fl">0.6</span>,<span class="at">size=</span><span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">data=</span>agg,<span class="fu">aes</span>(Founder_outcome,mean,<span class="at">fill=</span>Founder_outcome),<span class="at">geom=</span><span class="st">"bar"</span>,<span class="at">fun=</span>mean,<span class="at">width=</span><span class="fl">0.8</span>,<span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">data=</span>replay,<span class="fu">aes</span>(Founder_outcome,Prop_S_P12<span class="sc">*</span><span class="dv">100</span>),<span class="at">size=</span><span class="dv">3</span>,<span class="at">alpha=</span><span class="fl">0.4</span>,<span class="at">width=</span><span class="fl">0.05</span>,<span class="at">height=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size=</span><span class="dv">16</span>) <span class="sc">+</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Dark2"</span>) <span class="sc">+</span> </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill=</span>F) <span class="sc">+</span> </span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Proportion of phage sensitivity in replay populations (%)"</span>) <span class="sc">+</span> </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x=</span><span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-ℹ Please use `linewidth` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: The `&lt;scale&gt;` argument of `guides()` cannot be `FALSE`. Use "none" instead as of ggplot2 3.3.4.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 6 rows containing missing values or values outside the scale range (`geom_point()`).</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data=</span>agg,<span class="fu">aes</span>(Founder_outcome,<span class="at">ymax=</span>mean<span class="sc">+</span>SE,<span class="at">ymin=</span>mean<span class="sc">-</span>SE),<span class="at">alpha=</span><span class="fl">0.4</span>,<span class="at">width=</span><span class="fl">0.6</span>,<span class="at">size=</span><span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">data=</span>agg,<span class="fu">aes</span>(Founder_outcome,mean,<span class="at">fill=</span>Founder_outcome),<span class="at">geom=</span><span class="st">"bar"</span>,<span class="at">fun=</span>mean,<span class="at">width=</span><span class="fl">0.8</span>,<span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">data=</span>replay,<span class="fu">aes</span>(Founder_outcome,Prop_S_P12<span class="sc">*</span><span class="dv">100</span>),<span class="at">size=</span><span class="dv">3</span>,<span class="at">alpha=</span><span class="fl">0.4</span>,<span class="at">width=</span><span class="fl">0.05</span>,<span class="at">height=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size=</span><span class="dv">16</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">"Dark2"</span>) <span class="sc">+</span> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"R"</span> <span class="ot">=</span> <span class="st">"Remained</span><span class="sc">\n</span><span class="st">phage-resistant"</span>,<span class="st">"S"</span><span class="ot">=</span><span class="st">"Re-evolved</span><span class="sc">\n</span><span class="st">phage sensitivity"</span>))<span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill=</span>F) <span class="sc">+</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Outcome of founder population"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Proportion of phage sensitivity in replay populations (%)"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="Figura3_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="Figura3_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="768"></p>
 </div>
 </div>
 
