@@ -8,32 +8,53 @@ title: "Figura 4"
 
 ![Fig. 4. Contingencia genética en la identidad de los genes mutados durante la evolución experimental.](img/figure4.jpeg){width="800"}
 
-## Procesamiento de datos
+## Figura 4 A y 4 B
 
-DIAGRAMA
+Para generar las figuras 4A y 4B se tuvieron que seguir varios pasos para procesar los datos, por simplicidad, sólo presentaremos un esquema de los pasos que se siguieron y tomaremos las variables relevantes para generar las figuras.
 
-## Figura
+### Esquema
 
-En esta página solo mostramos el código para generar las figuras a partir de un archivo .RData en el que se encuentran guardados todos los objetos necesarios. Si quieres revisar el script completo lo puedes encontrar en el siguiente [link](https://github.com/EveliaCoss/loss-of-resistance/blob/main/2_Genomes_data_analysis.R)
+![Esquema](img/Fig4y5_workflow.png){width="800"}
 
-```{r}
-#--- Packages ----
-library(ggplot2)
-library(viridis)
-# Load objects from the .RData file
-# The variable contains : 
-# Saving objects needed for the figures from 2_Genome_data_analysis.R script.
-# save(p_day6, p_day36, annotation_day6, test_gene_df_day6, annotation_day6, breseq_gene_props_day6, test_gene_df_day36, breseq_gene_props_day36, 
-#    file = "ReproHack_data_figures4_5.RData")
+### Dificultades
+
+- Los paquetes no estabas especificados. 
+- La carpeta Breseq indicada, en realidad es la carpeta "Mutation tables" presente en el Github. 
+- El P value no aparecía en la gráfica de la Figura 4A. 
+
+En los heatmap: 
+
+- eran cuadrados y los valores del porcentaje iban de 0, 50, 100. 
+- Los colores no correspondían. 
+- Los nombres de las mutantes no correspondían. 
+- El código para las figuras 4 y 5 estaban juntos.
+
+
+### Paquetes
+
+Los paquetes que vamos a cargar son necesarios para las gráficas:
+
+```{r, message=FALSE}
+library(ggplot2) # Generar gráficos
+library(viridis) # Generar paleta de colores
+```
+
+### Cargar objetos
+
+Los objetos y variables que cargamos y ocuparemos para esta figura son: 
+
+- 1) `test_gene_df_day6`: Data frame con 2 columnas: `sim_coef` y `label` 
+- 2) `annotation_day6`: Guarda el texto para el p valor. 
+- 3) `breseq_gene_props_day6`: Data frame con 3 columnas: `top_gene`, `res_gene` y `percent_pops`
+
+```{r, message=FALSE}
 load("data/ReproHack_data_figures4_5.RData")
 ```
 
-### Figura 4A
+Es importante notar que la figura 4 muestra datos para el pase 2, es decir para el día 6 del experimento. Para obetener la figurs 4A se generar boxplots usang ggplot2. Los datos graficados son los de nuestro df: test_gene_df_day6. En este df encontramos los coeficientes de similitud a pares de las 22 poblaciones, la etiquetas nos muestra si tienen la mutación que confiere resistencia en el mismo o en diferente gen. Para colocar el pvalue del test de alotearización se cargó el objeto annotation_day6
 
 ```{r}
-#--- Fig. 4A ---- 
-# Creation and display of the graph
-ggplot(test_gene_df_day6, aes(label, sim_coef)) +
+p_day6 <- ggplot(test_gene_df_day6, aes(label, sim_coef)) +
   geom_boxplot(outlier.shape = NA, width = 0.4, size = 0.8) +
   geom_jitter(width = 0.05, size = 2, alpha = 0.2) +
   theme_classic(base_size = 18) +
@@ -43,14 +64,14 @@ ggplot(test_gene_df_day6, aes(label, sim_coef)) +
         strip.text = element_text(size = 18, face = "bold")) +
   ylim(0.1, 0.55) +
   annotate("text", x = 1.5, y = 0.55, label = annotation_day6, size = 6, hjust = 0.5, vjust = 1.5, color = "black")
+
+print(p_day6)
+
 ```
 
+Para el heatmap de las figura 4B usamos ggplot. Nuestra información la tomamos del objeto: breseq_gene_props_day6. Este dataframe nos da información sobre el porcentaje de poblaciones (agrupads por gen de resistencia) que tienen mutación en el top20 de genes.
 
-
-### Figura 4B
 ```{r}
-#| fig-width: 10 
-#--- Plot Fig 4B---- 
 ggplot(breseq_gene_props_day6, aes(top_gene, res_gene, fill = percent_pops * 100)) +
   geom_tile(color = "grey80") +
   theme_classic(base_size = 14) +
@@ -65,8 +86,8 @@ ggplot(breseq_gene_props_day6, aes(top_gene, res_gene, fill = percent_pops * 100
   ylab("") +
   xlab("") +
   ggtitle("Day 6 of experimental evolution")
-```
 
+```
 
 
 
