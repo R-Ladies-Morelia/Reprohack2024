@@ -6,7 +6,7 @@ title: "Figura 4"
 
 > **NOTA:** Agregar el diagrama con descripcion del analisis.
 
-![Fig. 4. Contingencia genética en la identidad de los genes mutados durante la evolución experimental.](img/figure4.jpeg){width="800"}
+![Fig. 4. Contingencia genética en la identidad de los genes mutados durante la evolución experimental.](img/figure4.jpeg){width=100%}
 
 ## Figura 4 A y 4 B
 
@@ -72,6 +72,7 @@ print(p_day6)
 Para el heatmap de las figura 4B usamos ggplot. Nuestra información la tomamos del objeto: breseq_gene_props_day6. Este dataframe nos da información sobre el porcentaje de poblaciones (agrupads por gen de resistencia) que tienen mutación en el top20 de genes.
 
 ```{r}
+#| fig-width: 10
 ggplot(breseq_gene_props_day6, aes(top_gene, res_gene, fill = percent_pops * 100)) +
   geom_tile(color = "grey80") +
   theme_classic(base_size = 14) +
