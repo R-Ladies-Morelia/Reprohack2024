@@ -7,19 +7,22 @@ format:
 
 ## Conceptos importantes del articulo
 
-- Sofi da el diseno bonito
+Bacteriofagos (Fagos): Virus que infectan exclusivamente bacterias
 
-que es un fago?
-que es pseudomonas?
-Que es una membrana, de que esta compuesta (polisacaridos)? Gram negativos
-Que es un microcosmos?
-Fitness?
-Figuras, imagenes. 
-Que es la contingencia historia en terminos evolutivos?
-SNPs
-Mutaciones en general
-ORF - open reading frames
-Mutaciones puntuales
+Pseudomonas: bacilos aerobios gramnegativos.
+
+Microcosmos: ecosistema artificial y simplificado a pequeña escala que sirve como modelo representativo de un entorno más amplio.
+Se utiliza en biología y ecología para estudiar, simular y predecir procesos, interacciones y dinámicas de ecosistemas naturales más complejos bajo condiciones controladas.
+
+Fitness: capacidad de un organismo para sobrevivir y reproducirse en su entorno, contribuyendo así genes a la siguiente generación.
+
+Contingencia histórica: El proceso por el cual eventos aleatorios y circunstancias únicas del pasado determinan el curso de la evolución, haciendo que el desarrollo de la vida sea impredecible y no repetible.
+
+Open Reading frames (ORF): Un marco abierto de lectura (ORF, por sus siglas en inglés) es una secuencia continua de nucleótidos en el ADN o ARN que tiene el potencial de codificar una proteína. Comienza con un codón de inicio, contiene una serie de codones que codifican para aminoácidos y termina con un codón de parada (UAA, UAG o UGA).
+
+Mutación: cualquier cambio en la secuencia del ADN de un organismos.
+
+SNPs: variante genómica en la posición de una base única en el ADN.
 
 
 
