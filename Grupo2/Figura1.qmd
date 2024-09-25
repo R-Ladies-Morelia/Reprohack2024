@@ -98,7 +98,7 @@ GC_long_to_growthrates <- function(GC_long, lower, upper, p){
 
 ### Cargar datos
 
-Cargar informacion de "Costs_of_Res.xlsx" como variable costs_of_res
+Cargar informacion de "Costs_of_Res.xlsx" como variable `costs_of_res`.
 
 ```{r}
 costs_of_res <- read_excel("data/Costs_of_Res.xlsx")
@@ -138,10 +138,12 @@ t.test(x = costs_agg$fitted_percWT,mu = 100,alternative = "less")
 anova(lm(fitted_percWT~Gene,costs_agg[costs_agg$Population!="MS15",]))
 ```
 
-Salvar variable para la figura 2.
+### Salvar la variable
+
+Pordemos salvar la variable para la figura 2.
 
 ```{r}
-save(costs_agg, file = "costs_agg.RData")
+save(costs_agg, file = "data/costs_agg.RData")
 ```
 
 
@@ -160,7 +162,7 @@ strip <- strip_themed(text_x = elem_list_text(color = brewer.pal(5, "Dark2")))
 strip_label <- distinct(costs_of_res[,c("Gene","Annotation")])[-c(1:2),] %>% 
   mutate(Annotation = str_replace(Annotation, "_","\n"),label = paste(Gene,Annotation, sep = "\n"))
 
-
+# Crear la figura
 costs_of_res[costs_of_res$Population!="ancDC3000",] %>% # El siguiente paso quita las Z que asignamos antes y más bien asigna el orden utilizando niveles en el factor de label
   mutate(Population = ifelse(Population == "MS15","no detected\nmutation",Population),
          Gene = ifelse(Gene == "Z","",Gene),
