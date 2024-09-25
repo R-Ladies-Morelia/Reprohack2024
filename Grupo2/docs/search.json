@@ -70,6 +70,20 @@
     "text": "NOTA: Agregar el diagrama con descripcion del analisis.\n\n\n\n\nFig. 4. Contingencia genética en la identidad de los genes mutados durante la evolución experimental."
   },
   {
+    "objectID": "Figura4.html#procesamiento-de-datos",
+    "href": "Figura4.html#procesamiento-de-datos",
+    "title": "Figura 4",
+    "section": "Procesamiento de datos",
+    "text": "Procesamiento de datos\nDIAGRAMA"
+  },
+  {
+    "objectID": "Figura4.html#figura",
+    "href": "Figura4.html#figura",
+    "title": "Figura 4",
+    "section": "Figura",
+    "text": "Figura\nEn esta página solo mostramos el código para generar las figuras a partir de un archivo .RData en el que se encuentran guardados todos los objetos necesarios. Si quieres revisar el script completo lo puedes encontrar en el siguiente link\n\n#--- Packages ----\nlibrary(ggplot2)\nlibrary(viridis)\n# Load objects from the .RData file\n# The variable contains : \n# Saving objects needed for the figures from 2_Genome_data_analysis.R script.\n# save(p_day6, p_day36, annotation_day6, test_gene_df_day6, annotation_day6, breseq_gene_props_day6, test_gene_df_day36, breseq_gene_props_day36, \n#    file = \"ReproHack_data_figures4_5.RData\")\nload(\"data/ReproHack_data_figures4_5.RData\")\n\n\nFigura 4A\n\n#--- Fig. 4A ---- \n# Creation and display of the graph\nggplot(test_gene_df_day6, aes(label, sim_coef)) +\n  geom_boxplot(outlier.shape = NA, width = 0.4, size = 0.8) +\n  geom_jitter(width = 0.05, size = 2, alpha = 0.2) +\n  theme_classic(base_size = 18) +\n  xlab(\"\") +\n  ylab(\"Overlap in acquired mutations\\n(Pairwise Sørensen-Dice similarity)\") +\n  theme(panel.spacing = unit(3, \"lines\"),\n        strip.text = element_text(size = 18, face = \"bold\")) +\n  ylim(0.1, 0.55) +\n  annotate(\"text\", x = 1.5, y = 0.55, label = annotation_day6, size = 6, hjust = 0.5, vjust = 1.5, color = \"black\")\n\n\n\n\n\n\nFigura 4B\n\n#--- Plot Fig 4B---- \nggplot(breseq_gene_props_day6, aes(top_gene, res_gene, fill = percent_pops * 100)) +\n  geom_tile(color = \"grey80\") +\n  theme_classic(base_size = 14) +\n  theme(\n    axis.text.x = element_text(angle = 90, hjust = 1, size = 10, family = \"Arial\")  # Define all adjustments in one call\n  ) +\n  scale_fill_viridis(\n    name = \"Populations\\nwith mutation (%)\",\n    limits = c(0, 100),  # Define scale limits\n    breaks = c(0, 25, 50, 75, 100)  # Define specific breaks to display\n  ) +\n  ylab(\"\") +\n  xlab(\"\") +\n  ggtitle(\"Day 6 of experimental evolution\")"
+  },
+  {
     "objectID": "retos.html",
     "href": "retos.html",
     "title": "Retos y problemas con el código",
@@ -110,6 +124,20 @@
     "title": "Figura 5",
     "section": "",
     "text": "NOTA: Agregar el diagrama con descripcion del analisis.\n\n\n\n\nFig. 5. La contingencia genética ya no es detectable tras una evolución prolongada en ausencia de fagos."
+  },
+  {
+    "objectID": "Figura5.html#procesamiento-de-datos",
+    "href": "Figura5.html#procesamiento-de-datos",
+    "title": "Figura 5",
+    "section": "Procesamiento de datos",
+    "text": "Procesamiento de datos\nDIAGRAMA"
+  },
+  {
+    "objectID": "Figura5.html#figura",
+    "href": "Figura5.html#figura",
+    "title": "Figura 5",
+    "section": "Figura",
+    "text": "Figura\nEn esta página solo mostramos el código para generar las figuras a partir de un archivo .RData en el que se encuentran guardados todos los objetos necesarios. Si quieres revisar el script completo lo puedes encontrar en el siguiente link\n\n#--- Packages ----\nlibrary(ggplot2)\nlibrary(viridis)\n# Load objects from the .RData file\n# The variable contains : \n# Saving objects needed for the figures from 2_Genome_data_analysis.R script.\n# save(p_day6, p_day36, annotation_day6, test_gene_df_day6, annotation_day6, breseq_gene_props_day6, test_gene_df_day36, breseq_gene_props_day36, \n#    file = \"ReproHack_data_figures4_5.RData\")\nload(\"data/ReproHack_data_figures4_5.RData\")\n\n\nFigura 5A\n\n#--- Fig. 5A----\nggplot(test_gene_df_day36, aes(label, sim_coef)) +\n  geom_boxplot(outlier.shape = NA, width = 0.4, size = 0.8) +\n  geom_jitter(width = 0.05, size = 2, alpha = 0.2) +\n  theme_classic(base_size = 18) +\n  xlab(\"\") +\n  ylab(\"Overlap in acquired mutations\\n(Paired Sørensen-Dice similarity)\") +\n  theme(panel.spacing = unit(3, \"lines\"),\n        strip.text = element_text(size = 18, face = \"bold\")) +\n  ylim(0.1, 0.55)\n\n\n\n\n\n\nFigura 5B\n\n#--- Fig. 5B----\nggplot(breseq_gene_props_day36, aes(top_gene, res_gene, fill = percent_pops * 100)) +\n  geom_tile(color = \"grey80\") +\n  theme_classic(base_size = 14) +\n  theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 10, family = \"Arial\")) +\n  scale_fill_viridis(name = \"Populations\\nwith mutation (%)\", limits = c(0, 100), breaks = c(0, 25, 50, 75, 100)) +\n  ylab(\"\") +\n  xlab(\"\") +\n  ggtitle(\"Day 36 of experimental evolution\")"
   },
   {
     "objectID": "Figura1.html",
