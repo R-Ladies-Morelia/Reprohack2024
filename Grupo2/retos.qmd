@@ -41,3 +41,19 @@ Variables erróneas colocadas en el código. Para la figura 3 menciona que se us
 **Solución:** corregimos el código cambiando la variable. 
 
 
+### Retos figuras 4 y 5
+
+### Reto 1
+En el código no se mencionaba con que paquetes se iba a trabajar. Ni los paquetes necesarios para la importación de datos de Excel. 
+
+### Reto 2 
+En el código no se mencionaba cómo se generaba la variable "Breseq". 
+
+### Reto 3 
+En el código para la figura 4A no había una línea para agregar el p value.
+
+### Reto 4 
+En el código de los Heatmaps, los nombres de las mutantes no correspondían, los colores del heatmap no correspondían y había algunos símbolos que fueron modificados. 
+
+### Reto 5 
+En el código no aparecía el análisis para la figura 5. El código tuvo que ser dividido en 2 partes para generar la aleatorizacion del día 6 y del día 36. 
