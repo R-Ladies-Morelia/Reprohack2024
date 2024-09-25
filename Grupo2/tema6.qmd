@@ -25,10 +25,10 @@ Puedes descargar el codigo en español o ingles:
 
 > Modificado por Amairani Cancino
 
-- Figura 4A. Input: "Mutattion tables", "Cost_of_Res.xlsx"
-- Figura 4C. Input: "Mutattion tables", "Cost_of_Res.xlsx"
+- Figura 4A y 4B. Input: "Mutation tables", "Cost_of_Res.xlsx"
+- Figura 5A y 5B. Input: "Mutation tables", "Cost_of_Res.xlsx"
 
-Puedes descargar el código en español o ingles: 
+Puedes descargar el código en español o inglés: 
 
 > En Español: 
 >
