@@ -28,6 +28,10 @@ website:
         contents:
           - index.qmd
           - tema1.qmd
+          - datos.qmd
+          - information.qmd
+      - section: "Revisión de temas"
+        contents:
           - tema2.qmd
           - tema3.qmd
           - tema4.qmd
