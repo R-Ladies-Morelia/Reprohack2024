@@ -66,8 +66,6 @@ format:
       margin-width: 200px
       gutter-width: 0.8em
     fontsize: 14pt
-    params:
-    file_path: "/home/sofia/Documents/Rladies/Reprohack_gpo2/loss-of-resistance/"
   
 engine: knitr
 knitr:
