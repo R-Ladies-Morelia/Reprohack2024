@@ -65,7 +65,7 @@ Clases: jueves de 4 -6 pm (GMT-6)
 <img src='Flyers/SESION-3.jpg' width='300'>
 </p>
 
-- **Grupo 3: ggplot y variantes geneticas**
+- **Grupo 3: Shiny app**
   * Artículo: [Shiny-phyloseq: Web application for interactive microbiome analysis with provenance tracking](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4287943/)
   * Fecha: jueves 31 de octubre
   * Líderes de grupo: Nelly Sélem Mojica
