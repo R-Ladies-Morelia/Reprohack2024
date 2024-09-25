@@ -6,35 +6,38 @@ title: "Figura 5"
 
 > **NOTA:** Agregar el diagrama con descripcion del analisis.
 
-
 ![Fig. 5. La contingencia genética ya no es detectable tras una evolución prolongada en ausencia de fagos.](img/figure5.jpeg){width="800"}
 
-## Procesamiento de datos
+## Figura 5 A y 5 B
 
-DIAGRAMA
+Para generar las figuras 5A y 5B se tuvieron que seguir varios pasos para procesar los datos, por simplicidad, sólo presentaremos un esquema de los pasos que se siguieron y tomaremos las variables relevantes para generar las figuras.
 
-## Figura
+### Esquema
 
-En esta página solo mostramos el código para generar las figuras a partir de un archivo .RData en el que se encuentran guardados todos los objetos necesarios. Si quieres revisar el script completo lo puedes encontrar en el siguiente [link](https://github.com/EveliaCoss/loss-of-resistance/blob/main/2_Genomes_data_analysis.R)
+![Esquema](img/Fig4y5_workflow.png){width="800"}
 
-```{r}
-#--- Packages ----
-library(ggplot2)
-library(viridis)
-# Load objects from the .RData file
-# The variable contains : 
-# Saving objects needed for the figures from 2_Genome_data_analysis.R script.
-# save(p_day6, p_day36, annotation_day6, test_gene_df_day6, annotation_day6, breseq_gene_props_day6, test_gene_df_day36, breseq_gene_props_day36, 
-#    file = "ReproHack_data_figures4_5.RData")
+Los paquetes que vamos a cargar son necesarios para las gráficas
+
+### Paquetes
+
+```{r, message=FALSE}
+library(ggplot2) # Generar gráficos
+library(viridis) # Generar paleta de colores
+```
+
+### Cargar objetos
+
+Los objetos y variables que cargamos y ocuparemos para esta figura son: 1. test_gene_df_day36 \# Data frame con 2 columnas: sim_coef y label 3. breseq_gene_props_day36 #Data frame con 3 columnas: top_gene, res_gene y percent_pops
+
+```{r, message=FALSE}
 load("data/ReproHack_data_figures4_5.RData")
 ```
 
-### Figura 5A 
+Es importante notar que la figura 5 muestra datos para el pase 12, es decir para el día 36 del experimento. Para obetener la figurs 4A se generar boxplots usang ggplot2. Los datos graficados son los de nuestro df: test_gene_df_day36. En este df encontramos los coeficientes de similitud a pares de las 22 poblaciones, la etiquetas nos muestra si tienen la mutación que confiere resistencia en el mismo o en diferente gen.
 
-```{r}
+```{r, message=FALSE}
 
-#--- Fig. 5A----
-ggplot(test_gene_df_day36, aes(label, sim_coef)) +
+p_day36 <- ggplot(test_gene_df_day36, aes(label, sim_coef)) +
   geom_boxplot(outlier.shape = NA, width = 0.4, size = 0.8) +
   geom_jitter(width = 0.05, size = 2, alpha = 0.2) +
   theme_classic(base_size = 18) +
@@ -44,14 +47,12 @@ ggplot(test_gene_df_day36, aes(label, sim_coef)) +
         strip.text = element_text(size = 18, face = "bold")) +
   ylim(0.1, 0.55)
 
+print(p_day36)
 ```
 
-
-### Figura 5B
+Para el heatmap de las figura 5B usamos ggplot. Nuestra información la tomamos del objeto: breseq_gene_props_day36. Este dataframe nos da información sobre el porcentaje de poblaciones (agrupads por gen de resistencia) que tienen mutación en el top20 de genes.
 
 ```{r}
-#| fig-width: 10 
-#--- Fig. 5B----
 ggplot(breseq_gene_props_day36, aes(top_gene, res_gene, fill = percent_pops * 100)) +
   geom_tile(color = "grey80") +
   theme_classic(base_size = 14) +
@@ -60,12 +61,8 @@ ggplot(breseq_gene_props_day36, aes(top_gene, res_gene, fill = percent_pops * 10
   ylab("") +
   xlab("") +
   ggtitle("Day 36 of experimental evolution")
+
 ```
-
-
-
-
-
 
 
 
