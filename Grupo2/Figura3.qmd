@@ -7,7 +7,7 @@ title: "Figura 3"
 > **NOTA:** Agregar el diagrama con descripcion del analisis.
 
 
-![Fig. 3. Los resultados de la resistencia a los fagos en el experimento de repetición reflejan los resultados de su población fundadora.](img/figure3.jpeg){width="800"}
+![Fig. 3. Los resultados de la resistencia a los fagos en el experimento de repetición reflejan los resultados de su población fundadora.](img/figure3.jpeg){width=80%}
 
 
 ```{r, echo=FALSE, message=FALSE}
@@ -57,6 +57,7 @@ Proporción de colonias en cada población que se calificaron como sensibles a l
 ### Grafica
 
 ```{r}
+#| fig-width: 10
 ggplot() +
   geom_errorbar(data=agg,aes(Founder_outcome,ymax=mean+SE,ymin=mean-SE),alpha=0.4,width=0.6,size=0.8) +
   stat_summary(data=agg,aes(Founder_outcome,mean,fill=Founder_outcome),geom="bar",fun=mean,width=0.8,color="black") +

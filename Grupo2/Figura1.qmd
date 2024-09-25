@@ -9,7 +9,7 @@ params:
 > **NOTA:** Agregar el diagrama con descripcion del analisis.
 
 
-![Fig. 1. Mecanismos genéticos y costes de fitness de la resistencia a los fagos.](img/figure1.jpeg){width="800"}
+![Fig. 1. Mecanismos genéticos y costes de fitness de la resistencia a los fagos.](img/figure1.jpeg){width=100%}
 
 ## Figure 1B. La resistencia es costosa
 

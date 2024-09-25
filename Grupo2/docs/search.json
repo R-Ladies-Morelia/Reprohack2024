@@ -272,18 +272,11 @@
     "text": "NOTA: Agregar el diagrama con descripcion del analisis.\n\n\n\n\nFig. 4. Contingencia genética en la identidad de los genes mutados durante la evolución experimental."
   },
   {
-    "objectID": "Figura4.html#procesamiento-de-datos",
-    "href": "Figura4.html#procesamiento-de-datos",
+    "objectID": "Figura4.html#figura-4-a-y-4-b",
+    "href": "Figura4.html#figura-4-a-y-4-b",
     "title": "Figura 4",
-    "section": "Procesamiento de datos",
-    "text": "Procesamiento de datos\nDIAGRAMA"
-  },
-  {
-    "objectID": "Figura4.html#figura",
-    "href": "Figura4.html#figura",
-    "title": "Figura 4",
-    "section": "Figura",
-    "text": "Figura\nEn esta página solo mostramos el código para generar las figuras a partir de un archivo .RData en el que se encuentran guardados todos los objetos necesarios. Si quieres revisar el script completo lo puedes encontrar en el siguiente link\n\n#--- Packages ----\nlibrary(ggplot2)\nlibrary(viridis)\n# Load objects from the .RData file\n# The variable contains : \n# Saving objects needed for the figures from 2_Genome_data_analysis.R script.\n# save(p_day6, p_day36, annotation_day6, test_gene_df_day6, annotation_day6, breseq_gene_props_day6, test_gene_df_day36, breseq_gene_props_day36, \n#    file = \"ReproHack_data_figures4_5.RData\")\nload(\"data/ReproHack_data_figures4_5.RData\")\n\n\nFigura 4A\n\n#--- Fig. 4A ---- \n# Creation and display of the graph\nggplot(test_gene_df_day6, aes(label, sim_coef)) +\n  geom_boxplot(outlier.shape = NA, width = 0.4, size = 0.8) +\n  geom_jitter(width = 0.05, size = 2, alpha = 0.2) +\n  theme_classic(base_size = 18) +\n  xlab(\"\") +\n  ylab(\"Overlap in acquired mutations\\n(Pairwise Sørensen-Dice similarity)\") +\n  theme(panel.spacing = unit(3, \"lines\"),\n        strip.text = element_text(size = 18, face = \"bold\")) +\n  ylim(0.1, 0.55) +\n  annotate(\"text\", x = 1.5, y = 0.55, label = annotation_day6, size = 6, hjust = 0.5, vjust = 1.5, color = \"black\")\n\n\n\n\n\n\nFigura 4B\n\n#--- Plot Fig 4B---- \nggplot(breseq_gene_props_day6, aes(top_gene, res_gene, fill = percent_pops * 100)) +\n  geom_tile(color = \"grey80\") +\n  theme_classic(base_size = 14) +\n  theme(\n    axis.text.x = element_text(angle = 90, hjust = 1, size = 10, family = \"Arial\")  # Define all adjustments in one call\n  ) +\n  scale_fill_viridis(\n    name = \"Populations\\nwith mutation (%)\",\n    limits = c(0, 100),  # Define scale limits\n    breaks = c(0, 25, 50, 75, 100)  # Define specific breaks to display\n  ) +\n  ylab(\"\") +\n  xlab(\"\") +\n  ggtitle(\"Day 6 of experimental evolution\")"
+    "section": "Figura 4 A y 4 B",
+    "text": "Figura 4 A y 4 B\nPara generar las figuras 4A y 4B se tuvieron que seguir varios pasos para procesar los datos, por simplicidad, sólo presentaremos un esquema de los pasos que se siguieron y tomaremos las variables relevantes para generar las figuras.\n\nEsquema\n\n\n\nEsquema\n\n\n\n\nDificultades\n\nLos paquetes no estabas especificados.\nLa carpeta Breseq indicada, en realidad es la carpeta “Mutation tables” presente en el Github.\nEl P value no aparecía en la gráfica de la Figura 4A.\n\nEn los heatmap:\n\neran cuadrados y los valores del porcentaje iban de 0, 50, 100.\nLos colores no correspondían.\nLos nombres de las mutantes no correspondían.\nEl código para las figuras 4 y 5 estaban juntos.\n\n\n\nPaquetes\nLos paquetes que vamos a cargar son necesarios para las gráficas:\n\nlibrary(ggplot2) # Generar gráficos\nlibrary(viridis) # Generar paleta de colores\n\n\n\nCargar objetos\nLos objetos y variables que cargamos y ocuparemos para esta figura son:\n\n\ntest_gene_df_day6: Data frame con 2 columnas: sim_coef y label\n\n\nannotation_day6: Guarda el texto para el p valor.\n\n\nbreseq_gene_props_day6: Data frame con 3 columnas: top_gene, res_gene y percent_pops\n\n\n\nload(\"data/ReproHack_data_figures4_5.RData\")\n\nEs importante notar que la figura 4 muestra datos para el pase 2, es decir para el día 6 del experimento. Para obetener la figurs 4A se generar boxplots usang ggplot2. Los datos graficados son los de nuestro df: test_gene_df_day6. En este df encontramos los coeficientes de similitud a pares de las 22 poblaciones, la etiquetas nos muestra si tienen la mutación que confiere resistencia en el mismo o en diferente gen. Para colocar el pvalue del test de alotearización se cargó el objeto annotation_day6\n\np_day6 &lt;- ggplot(test_gene_df_day6, aes(label, sim_coef)) +\n  geom_boxplot(outlier.shape = NA, width = 0.4, size = 0.8) +\n  geom_jitter(width = 0.05, size = 2, alpha = 0.2) +\n  theme_classic(base_size = 18) +\n  xlab(\"\") +\n  ylab(\"Overlap in acquired mutations\\n(Pairwise Sørensen-Dice similarity)\") +\n  theme(panel.spacing = unit(3, \"lines\"),\n        strip.text = element_text(size = 18, face = \"bold\")) +\n  ylim(0.1, 0.55) +\n  annotate(\"text\", x = 1.5, y = 0.55, label = annotation_day6, size = 6, hjust = 0.5, vjust = 1.5, color = \"black\")\n\nprint(p_day6)\n\n\n\n\nPara el heatmap de las figura 4B usamos ggplot. Nuestra información la tomamos del objeto: breseq_gene_props_day6. Este dataframe nos da información sobre el porcentaje de poblaciones (agrupads por gen de resistencia) que tienen mutación en el top20 de genes.\n\nggplot(breseq_gene_props_day6, aes(top_gene, res_gene, fill = percent_pops * 100)) +\n  geom_tile(color = \"grey80\") +\n  theme_classic(base_size = 14) +\n  theme(\n    axis.text.x = element_text(angle = 90, hjust = 1, size = 10, family = \"Arial\")  # Define all adjustments in one call\n  ) +\n  scale_fill_viridis(\n    name = \"Populations\\nwith mutation (%)\",\n    limits = c(0, 100),  # Define scale limits\n    breaks = c(0, 25, 50, 75, 100)  # Define specific breaks to display\n  ) +\n  ylab(\"\") +\n  xlab(\"\") +\n  ggtitle(\"Day 6 of experimental evolution\")"
   },
   {
 >>>>>>> 5566720 (Actualización de pagina de figura 2 de Sofía)
@@ -329,18 +322,11 @@
     "text": "NOTA: Agregar el diagrama con descripcion del analisis.\n\n\n\n\nFig. 5. La contingencia genética ya no es detectable tras una evolución prolongada en ausencia de fagos."
   },
   {
-    "objectID": "Figura5.html#procesamiento-de-datos",
-    "href": "Figura5.html#procesamiento-de-datos",
+    "objectID": "Figura5.html#figura-5-a-y-5-b",
+    "href": "Figura5.html#figura-5-a-y-5-b",
     "title": "Figura 5",
-    "section": "Procesamiento de datos",
-    "text": "Procesamiento de datos\nDIAGRAMA"
-  },
-  {
-    "objectID": "Figura5.html#figura",
-    "href": "Figura5.html#figura",
-    "title": "Figura 5",
-    "section": "Figura",
-    "text": "Figura\nEn esta página solo mostramos el código para generar las figuras a partir de un archivo .RData en el que se encuentran guardados todos los objetos necesarios. Si quieres revisar el script completo lo puedes encontrar en el siguiente link\n\n#--- Packages ----\nlibrary(ggplot2)\nlibrary(viridis)\n# Load objects from the .RData file\n# The variable contains : \n# Saving objects needed for the figures from 2_Genome_data_analysis.R script.\n# save(p_day6, p_day36, annotation_day6, test_gene_df_day6, annotation_day6, breseq_gene_props_day6, test_gene_df_day36, breseq_gene_props_day36, \n#    file = \"ReproHack_data_figures4_5.RData\")\nload(\"data/ReproHack_data_figures4_5.RData\")\n\n\nFigura 5A\n\n#--- Fig. 5A----\nggplot(test_gene_df_day36, aes(label, sim_coef)) +\n  geom_boxplot(outlier.shape = NA, width = 0.4, size = 0.8) +\n  geom_jitter(width = 0.05, size = 2, alpha = 0.2) +\n  theme_classic(base_size = 18) +\n  xlab(\"\") +\n  ylab(\"Overlap in acquired mutations\\n(Paired Sørensen-Dice similarity)\") +\n  theme(panel.spacing = unit(3, \"lines\"),\n        strip.text = element_text(size = 18, face = \"bold\")) +\n  ylim(0.1, 0.55)\n\n\n\n\n\n\nFigura 5B\n\n#--- Fig. 5B----\nggplot(breseq_gene_props_day36, aes(top_gene, res_gene, fill = percent_pops * 100)) +\n  geom_tile(color = \"grey80\") +\n  theme_classic(base_size = 14) +\n  theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 10, family = \"Arial\")) +\n  scale_fill_viridis(name = \"Populations\\nwith mutation (%)\", limits = c(0, 100), breaks = c(0, 25, 50, 75, 100)) +\n  ylab(\"\") +\n  xlab(\"\") +\n  ggtitle(\"Day 36 of experimental evolution\")"
+    "section": "Figura 5 A y 5 B",
+    "text": "Figura 5 A y 5 B\nPara generar las figuras 5A y 5B se tuvieron que seguir varios pasos para procesar los datos, por simplicidad, sólo presentaremos un esquema de los pasos que se siguieron y tomaremos las variables relevantes para generar las figuras.\n\nEsquema\n\n\n\nEsquema\n\n\nLos paquetes que vamos a cargar son necesarios para las gráficas\n\n\nPaquetes\n\nlibrary(ggplot2) # Generar gráficos\nlibrary(viridis) # Generar paleta de colores\n\n\n\nCargar objetos\nLos objetos y variables que cargamos y ocuparemos para esta figura son: 1. test_gene_df_day36 # Data frame con 2 columnas: sim_coef y label 3. breseq_gene_props_day36 #Data frame con 3 columnas: top_gene, res_gene y percent_pops\n\nload(\"data/ReproHack_data_figures4_5.RData\")\n\nEs importante notar que la figura 5 muestra datos para el pase 12, es decir para el día 36 del experimento. Para obetener la figurs 4A se generar boxplots usang ggplot2. Los datos graficados son los de nuestro df: test_gene_df_day36. En este df encontramos los coeficientes de similitud a pares de las 22 poblaciones, la etiquetas nos muestra si tienen la mutación que confiere resistencia en el mismo o en diferente gen.\n\np_day36 &lt;- ggplot(test_gene_df_day36, aes(label, sim_coef)) +\n  geom_boxplot(outlier.shape = NA, width = 0.4, size = 0.8) +\n  geom_jitter(width = 0.05, size = 2, alpha = 0.2) +\n  theme_classic(base_size = 18) +\n  xlab(\"\") +\n  ylab(\"Overlap in acquired mutations\\n(Paired Sørensen-Dice similarity)\") +\n  theme(panel.spacing = unit(3, \"lines\"),\n        strip.text = element_text(size = 18, face = \"bold\")) +\n  ylim(0.1, 0.55)\n\nprint(p_day36)\n\n\n\n\nPara el heatmap de las figura 5B usamos ggplot. Nuestra información la tomamos del objeto: breseq_gene_props_day36. Este dataframe nos da información sobre el porcentaje de poblaciones (agrupads por gen de resistencia) que tienen mutación en el top20 de genes.\n\nggplot(breseq_gene_props_day36, aes(top_gene, res_gene, fill = percent_pops * 100)) +\n  geom_tile(color = \"grey80\") +\n  theme_classic(base_size = 14) +\n  theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 10, family = \"Arial\")) +\n  scale_fill_viridis(name = \"Populations\\nwith mutation (%)\", limits = c(0, 100), breaks = c(0, 25, 50, 75, 100)) +\n  ylab(\"\") +\n  xlab(\"\") +\n  ggtitle(\"Day 36 of experimental evolution\")"
   },
   {
     "objectID": "Figura1.html",
@@ -549,6 +535,7 @@
   },
   {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "objectID": "datos.html",
     "href": "datos.html",
     "title": "Sobre los datos",
@@ -730,6 +717,8 @@
     "section": "Figura 5 A y 5 B",
     "text": "Figura 5 A y 5 B\nPara generar las figuras 5A y 5B se tuvieron que seguir varios pasos para procesar los datos, por simplicidad, sólo presentaremos un esquema de los pasos que se siguieron y tomaremos las variables relevantes para generar las figuras.\n\nEsquema\n\n\n\nEsquema\n\n\nLos paquetes que vamos a cargar son necesarios para las gráficas\n\n\nPaquetes\n\nlibrary(ggplot2) # Generar gráficos\nlibrary(viridis) # Generar paleta de colores\n\n\n\nCargar objetos\nLos objetos y variables que cargamos y ocuparemos para esta figura son: 1. test_gene_df_day36 # Data frame con 2 columnas: sim_coef y label 3. breseq_gene_props_day36 #Data frame con 3 columnas: top_gene, res_gene y percent_pops\n\nload(\"data/ReproHack_data_figures4_5.RData\")\n\nEs importante notar que la figura 5 muestra datos para el pase 12, es decir para el día 36 del experimento. Para obetener la figurs 4A se generar boxplots usang ggplot2. Los datos graficados son los de nuestro df: test_gene_df_day36. En este df encontramos los coeficientes de similitud a pares de las 22 poblaciones, la etiquetas nos muestra si tienen la mutación que confiere resistencia en el mismo o en diferente gen.\n\np_day36 &lt;- ggplot(test_gene_df_day36, aes(label, sim_coef)) +\n  geom_boxplot(outlier.shape = NA, width = 0.4, size = 0.8) +\n  geom_jitter(width = 0.05, size = 2, alpha = 0.2) +\n  theme_classic(base_size = 18) +\n  xlab(\"\") +\n  ylab(\"Overlap in acquired mutations\\n(Paired Sørensen-Dice similarity)\") +\n  theme(panel.spacing = unit(3, \"lines\"),\n        strip.text = element_text(size = 18, face = \"bold\")) +\n  ylim(0.1, 0.55)\n\nprint(p_day36)\n\n\n\n\nPara el heatmap de las figura 5B usamos ggplot. Nuestra información la tomamos del objeto: breseq_gene_props_day36. Este dataframe nos da información sobre el porcentaje de poblaciones (agrupads por gen de resistencia) que tienen mutación en el top20 de genes.\n\nggplot(breseq_gene_props_day36, aes(top_gene, res_gene, fill = percent_pops * 100)) +\n  geom_tile(color = \"grey80\") +\n  theme_classic(base_size = 14) +\n  theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 10, family = \"Arial\")) +\n  scale_fill_viridis(name = \"Populations\\nwith mutation (%)\", limits = c(0, 100), breaks = c(0, 25, 50, 75, 100)) +\n  ylab(\"\") +\n  xlab(\"\") +\n  ggtitle(\"Day 36 of experimental evolution\")"
 =======
+=======
+>>>>>>> cb974a5 (Volvi a arreglar los archivos de las figuras e incorporé los cambios de la Figura2)
     "objectID": "tema4.html",
     "href": "tema4.html",
     "title": "ggplot2",
@@ -756,6 +745,9 @@
     "title": "ggplot2",
     "section": "Ejercicios",
     "text": "Ejercicios\nTe invitamos a que corras el ejercicio propuesto en el script ggplo2_R_Ladies_Morelia_.R por Fernanda Miron."
+<<<<<<< HEAD
 >>>>>>> 5566720 (Actualización de pagina de figura 2 de Sofía)
+=======
+>>>>>>> cb974a5 (Volvi a arreglar los archivos de las figuras e incorporé los cambios de la Figura2)
   }
 ]

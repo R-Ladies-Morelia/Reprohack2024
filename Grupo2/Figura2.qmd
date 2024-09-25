@@ -7,7 +7,7 @@ title: "Figura 2"
 > **NOTA:** Agregar el diagrama con descripcion del analisis.
 
 
-![Fig. 2. Cambios fenotípicos en poblaciones bacterianas durante la evolución experimental en ausencia de fagos.](img/figure2.jpeg){width="800"}
+![Fig. 2. Cambios fenotípicos en poblaciones bacterianas durante la evolución experimental en ausencia de fagos.](img/figure2.jpeg){width=100%}
 
 ```{r, echo=FALSE, message=FALSE}
 library(growthrates) # fit_growthmodel(): Calcular la tasa de crecimiento a partir de datos de microplacas.
