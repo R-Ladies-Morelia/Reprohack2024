@@ -25,5 +25,5 @@ Puedes descargar el codigo en español o ingles:
 
 > Modificado por Amairani Cancino
 
-- Figura 4A. Input:
-- Figura 4C. Input:
+- Figura 4A. Input: "Mutattion tables", "Cost_of_Res.xlsx"
+- Figura 4C. Input: "Mutattion tables", "Cost_of_Res.xlsx"
