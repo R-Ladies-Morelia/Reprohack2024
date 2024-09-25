@@ -23,7 +23,7 @@ where:
 
 > Cuando ya vayamos a crear un paquete podemos usar [`roxygen2`](https://github.com/r-lib/roxygen2) para la documentacion de las funciones.
 
-Yo uso el ejemplo de la funcion [`suma()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/sum).
+Yo uso el ejemplo de la funcion [`sum()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/sum).
 
 [Good Enough Practices for Scientific Computing](https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)
 
