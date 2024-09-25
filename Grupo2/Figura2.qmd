@@ -141,7 +141,7 @@ anova(lmer(fitted_percWT~Passage*Outcome+(1|Population),fitness_over_time))
 Una de sus hipótesis era que las resistencias más costosas (en la figura 1B aquellas que tuvieran tasas de crecimiento más lento) iban a tener mayor probabilidad de perder la resistencia. Por lo tanto comparan el promedio de la tasa de crecimiento original por el resultado al final del experimento pero encuentran que no hay diferencias en la tasa de crecimiento original y la pérdida de resistencia.
 
 ```{r}
-load("costs_agg.RData")
+load("data/costs_agg.RData")
 costs_agg[costs_agg$Population%in%c("SNK7","QAC5","VCM4"),"Outcome"] <- "S"
 costs_agg[!costs_agg$Population%in%c("SNK7","QAC5","VCM4"),"Outcome"] <- "R"
 t.test(fitted_percWT~Outcome, costs_agg)
