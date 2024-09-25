@@ -286,7 +286,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#múltiples-vías-evolutivas-para-recuperar-los-costes-de-fitness" id="toc-múltiples-vías-evolutivas-para-recuperar-los-costes-de-fitness" class="nav-link active" data-scroll-target="#múltiples-vías-evolutivas-para-recuperar-los-costes-de-fitness">Múltiples vías evolutivas para recuperar los costes de fitness</a></li>
-  <li><a href="#figure-2a.-crecimiento-a-lo-largo-del-tiempo" id="toc-figure-2a.-crecimiento-a-lo-largo-del-tiempo" class="nav-link" data-scroll-target="#figure-2a.-crecimiento-a-lo-largo-del-tiempo">Figure 2A. Crecimiento a lo largo del tiempo</a>
+  <li><a href="#figure-2a.-cómo-cambia-la-adecuación-a-lo-largo-del-tiempo" id="toc-figure-2a.-cómo-cambia-la-adecuación-a-lo-largo-del-tiempo" class="nav-link" data-scroll-target="#figure-2a.-cómo-cambia-la-adecuación-a-lo-largo-del-tiempo">Figure 2A. ¿Cómo cambia la adecuación a lo largo del tiempo?</a>
   <ul class="collapse">
   <li><a href="#cargar-los-datos" id="toc-cargar-los-datos" class="nav-link" data-scroll-target="#cargar-los-datos">Cargar los datos</a></li>
   <li><a href="#ajuste-de-valores" id="toc-ajuste-de-valores" class="nav-link" data-scroll-target="#ajuste-de-valores">Ajuste de valores</a></li>
@@ -295,12 +295,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#grafica" id="toc-grafica" class="nav-link" data-scroll-target="#grafica">Grafica</a></li>
   </ul></li>
-  <li><a href="#figure-2b.-resistencia-en-el-tiempo" id="toc-figure-2b.-resistencia-en-el-tiempo" class="nav-link" data-scroll-target="#figure-2b.-resistencia-en-el-tiempo">Figure 2B. Resistencia en el tiempo</a>
+  <li><a href="#figure-2b.-cómo-cambia-la-proporción-de-colonias-resistentes-en-el-tiempo" id="toc-figure-2b.-cómo-cambia-la-proporción-de-colonias-resistentes-en-el-tiempo" class="nav-link" data-scroll-target="#figure-2b.-cómo-cambia-la-proporción-de-colonias-resistentes-en-el-tiempo">Figure 2B. ¿Cómo cambia la proporción de colonias resistentes en el tiempo?</a>
   <ul class="collapse">
   <li><a href="#cargar-los-datos-1" id="toc-cargar-los-datos-1" class="nav-link" data-scroll-target="#cargar-los-datos-1">Cargar los datos</a></li>
   <li><a href="#transformación-de-los-datos-en-formato-largo" id="toc-transformación-de-los-datos-en-formato-largo" class="nav-link" data-scroll-target="#transformación-de-los-datos-en-formato-largo">Transformación de los datos en formato largo</a></li>
   <li><a href="#descripción-de-la-figura-1" id="toc-descripción-de-la-figura-1" class="nav-link" data-scroll-target="#descripción-de-la-figura-1">Descripción de la figura</a></li>
   <li><a href="#grafica-1" id="toc-grafica-1" class="nav-link" data-scroll-target="#grafica-1">Grafica</a></li>
+  <li><a href="#será-que-el-aumento-en-la-adecuación-que-se-observa-con-el-tiempo-se-debe-a-la-pérdida-de-la-resistencia" id="toc-será-que-el-aumento-en-la-adecuación-que-se-observa-con-el-tiempo-se-debe-a-la-pérdida-de-la-resistencia" class="nav-link" data-scroll-target="#será-que-el-aumento-en-la-adecuación-que-se-observa-con-el-tiempo-se-debe-a-la-pérdida-de-la-resistencia">¿Será que el aumento en la adecuación que se observa con el tiempo se debe a la pérdida de la resistencia?</a></li>
+  <li><a href="#será-que-las-resistencias-más-costosas-tienen-más-probabilidad-de-terminar-siendo-sensibles-a-los-fagos" id="toc-será-que-las-resistencias-más-costosas-tienen-más-probabilidad-de-terminar-siendo-sensibles-a-los-fagos" class="nav-link" data-scroll-target="#será-que-las-resistencias-más-costosas-tienen-más-probabilidad-de-terminar-siendo-sensibles-a-los-fagos">¿Será que las resistencias más costosas tienen más probabilidad de terminar siendo sensibles a los fagos?</a></li>
+  <li><a href="#observaciones-que-requieren-más-investigación" id="toc-observaciones-que-requieren-más-investigación" class="nav-link" data-scroll-target="#observaciones-que-requieren-más-investigación">Observaciones que requieren más investigación</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -337,8 +340,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="figure-2a.-crecimiento-a-lo-largo-del-tiempo" class="level2">
-<h2 class="anchored" data-anchor-id="figure-2a.-crecimiento-a-lo-largo-del-tiempo">Figure 2A. Crecimiento a lo largo del tiempo</h2>
+<section id="figure-2a.-cómo-cambia-la-adecuación-a-lo-largo-del-tiempo" class="level2">
+<h2 class="anchored" data-anchor-id="figure-2a.-cómo-cambia-la-adecuación-a-lo-largo-del-tiempo">Figure 2A. ¿Cómo cambia la adecuación a lo largo del tiempo?</h2>
 <section id="cargar-los-datos" class="level3">
 <h3 class="anchored" data-anchor-id="cargar-los-datos">Cargar los datos</h3>
 <p>Cargar informacion de “Fitness_over_Time.xlsx” como variable fitness_over_time.</p>
@@ -348,20 +351,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="ajuste-de-valores" class="level3">
 <h3 class="anchored" data-anchor-id="ajuste-de-valores">Ajuste de valores</h3>
-<p>Calcular los valores ajustados controlando la resistencia del fago, el paso y la disposición de la placa.</p>
+<p>Calcular los valores ajustados de la tasa de crecimiento, controlando por el tipo de bacteria (proveniente de una cepa resistente o no), la posición en la placa y el tiempo en el que se muestreó.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fitness_over_time<span class="sc">$</span>fitted <span class="ot">&lt;-</span> <span class="fu">fitted.values</span>(<span class="fu">lm</span>(r<span class="sc">~</span>Passage<span class="sc">*</span>Type<span class="sc">+</span>Column,fitness_over_time))</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Expresar los valores ajustados como porcentaje de la desarrollo de tipo wild-type</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Expresar los valores ajustados de la tasa de crecimiento como porcentaje relativo a la tasa de crecimiento del tipo wild-type (iniciada de una cepa sensible a fagos)</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (passage <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">12</span>,<span class="dv">2</span>)){</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  anc_means<span class="ot">&lt;-</span><span class="fu">mean</span>(<span class="fu">unlist</span>(fitness_over_time[fitness_over_time<span class="sc">$</span>Passage<span class="sc">==</span>passage <span class="sc">&amp;</span> fitness_over_time<span class="sc">$</span>Type<span class="sc">==</span><span class="st">"ANC"</span>,<span class="st">"fitted"</span>]))</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  fitness_over_time[fitness_over_time<span class="sc">$</span>Passage<span class="sc">==</span>passage <span class="sc">&amp;</span> fitness_over_time<span class="sc">$</span>Type<span class="sc">==</span><span class="st">"PR"</span>,<span class="st">"fitted_percWT"</span>]<span class="ot">&lt;-</span><span class="dv">100</span><span class="sc">*</span>fitness_over_time[fitness_over_time<span class="sc">$</span>Passage<span class="sc">==</span>passage <span class="sc">&amp;</span> fitness_over_time<span class="sc">$</span>Type<span class="sc">==</span><span class="st">"PR"</span>,<span class="st">"fitted"</span>]<span class="sc">/</span>anc_means</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular el crecimiento a lo largo del tiempo</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular el promedio y sd del porcentaje de crecimiento de la población de las bacterias iniciadas desde cepas resistents (relativo) por evento de muestreo (passage)</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">aggregate</span>(<span class="fu">unlist</span>(fitness_over_time[fitness_over_time<span class="sc">$</span>Type<span class="sc">==</span><span class="st">"PR"</span>,<span class="st">"fitted_percWT"</span>]), <span class="at">by=</span><span class="fu">list</span>(<span class="fu">unlist</span>(fitness_over_time[fitness_over_time<span class="sc">$</span>Type<span class="sc">==</span><span class="st">"PR"</span>,<span class="st">"Passage"</span>])),<span class="at">FUN=</span>mean), </span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">aggregate</span>(<span class="fu">unlist</span>(fitness_over_time[fitness_over_time<span class="sc">$</span>Type<span class="sc">==</span><span class="st">"PR"</span>,<span class="st">"fitted_percWT"</span>]),<span class="at">by=</span><span class="fu">list</span>(<span class="fu">unlist</span>(fitness_over_time[fitness_over_time<span class="sc">$</span>Type<span class="sc">==</span><span class="st">"PR"</span>,<span class="st">"Passage"</span>])),<span class="at">FUN=</span>sd)[,<span class="dv">2</span>])</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"passage"</span>,<span class="st">"mean"</span>,<span class="st">"SD"</span>) <span class="co"># renombrar columnas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"passage"</span>,<span class="st">"mean"</span>,<span class="st">"SD"</span>) <span class="co"># renombrar columnas</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  passage      mean       SD
+1       0  89.89712 6.899891
+2       2  95.12769 7.896342
+3       4  93.91953 6.402866
+4       6  95.01774 5.807250
+5       8  97.60042 7.534193
+6      10  96.53824 6.803644
+7      12 106.73598 7.916310</code></pre>
+</div>
 </div>
 </section>
 </section>
@@ -369,9 +384,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="descripción-de-la-figura">Descripción de la figura</h2>
 <p>Obtener las tasas de crecimiento de las poblaciones inoculadas con colonias resistentes a los fagos a lo largo de la evolución experimental en ausencia de fagos, calculadas a partir de mediciones de la densidad óptica en un lector de microplacas durante 40 h de crecimiento (n = 22).</p>
 <p>Las líneas representan las <em>trayectorias de las poblaciones individuales a lo largo del tiempo</em>, mientras que los <em>puntos indican la aptitud media entre las poblaciones muestreadas</em> el mismo día y las barras de error indican la DE. Los valores se normalizan con respecto a las tasas de crecimiento de las poblaciones de control sensibles a los fagos muestreadas en el mismo punto de la evolución experimental.</p>
+<p>Encontraron que con el tiempo la adecuación de las colonias resistentes aumenta hasta ser similar a la del grupo sensible. Esto puede ser porque se pierde la resistencia (y por lo tanto el costo que tiene) o porque se adquieren mutaciones adicionales que compensan ese costo.</p>
 <section id="grafica" class="level3">
 <h3 class="anchored" data-anchor-id="grafica">Grafica</h3>
 <div class="cell">
+<<<<<<< HEAD
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">data=</span>df,<span class="fu">aes</span>(<span class="at">x=</span>passage<span class="sc">*</span><span class="dv">3</span>,<span class="at">y=</span>mean),<span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data=</span>df,<span class="fu">aes</span>(<span class="at">x=</span>passage<span class="sc">*</span><span class="dv">3</span>,<span class="at">ymin=</span>mean<span class="sc">-</span>SD,<span class="at">ymax=</span>mean<span class="sc">+</span>SD),<span class="at">width=</span><span class="dv">0</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span>df,<span class="fu">aes</span>(<span class="at">x=</span>passage<span class="sc">*</span><span class="dv">3</span>,<span class="at">y=</span>mean)) <span class="sc">+</span> </span>
@@ -380,14 +397,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">36</span>,<span class="dv">6</span>)) <span class="sc">+</span> </span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Fitness (% of wild-type)"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Day of experimental evolution"</span>) <span class="sc">+</span> </span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">60</span>,<span class="dv">115</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data=</span>df,<span class="fu">aes</span>(<span class="at">x=</span>passage<span class="sc">*</span><span class="dv">3</span>,<span class="at">y=</span>mean),<span class="at">size=</span><span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data=</span>df,<span class="fu">aes</span>(<span class="at">x=</span>passage<span class="sc">*</span><span class="dv">3</span>,<span class="at">ymin=</span>mean<span class="sc">-</span>SD,<span class="at">ymax=</span>mean<span class="sc">+</span>SD),<span class="at">width=</span><span class="dv">0</span>,<span class="at">size=</span><span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> fitness_over_time, <span class="fu">aes</span>(<span class="at">x =</span> Passage<span class="sc">*</span><span class="dv">3</span>, <span class="at">y =</span> fitted_percWT, <span class="at">group =</span> Population), <span class="at">linewidth =</span> <span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>)<span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span>df,<span class="fu">aes</span>(<span class="at">x=</span>passage<span class="sc">*</span><span class="dv">3</span>,<span class="at">y=</span>mean)) <span class="sc">+</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size=</span><span class="dv">16</span>) <span class="sc">+</span> </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">100</span>,<span class="at">linetype=</span><span class="st">"dashed"</span>) <span class="sc">+</span> </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">36</span>,<span class="dv">6</span>)) <span class="sc">+</span> </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Fitness (% of wild-type)"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Day of experimental evolution"</span>) <span class="sc">+</span> </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">60</span>,<span class="dv">115</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> 5ff5d55 (Modifique el texto de la hoja de la figura 2 para poder explicarlo mejor)
 <div class="cell-output-display">
 <p><img src="Figura2_files/figure-html/figura 2A-1.png" class="img-fluid" width="768"></p>
 </div>
 </div>
 </section>
 </section>
-<section id="figure-2b.-resistencia-en-el-tiempo" class="level2">
-<h2 class="anchored" data-anchor-id="figure-2b.-resistencia-en-el-tiempo">Figure 2B. Resistencia en el tiempo</h2>
+<section id="figure-2b.-cómo-cambia-la-proporción-de-colonias-resistentes-en-el-tiempo" class="level2">
+<h2 class="anchored" data-anchor-id="figure-2b.-cómo-cambia-la-proporción-de-colonias-resistentes-en-el-tiempo">Figure 2B. ¿Cómo cambia la proporción de colonias resistentes en el tiempo?</h2>
 <blockquote class="blockquote">
 <p><strong>NOTA:</strong> Abri el excel y corre un error de compatibilidad.</p>
 </blockquote>
@@ -395,21 +424,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="cargar-los-datos-1">Cargar los datos</h3>
 <p>Cargar informacion de “Resistance_over_Time.xlsx” como variable res_over_time.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>res_over_time <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/Resistance_over_Time.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>res_over_time <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/Resistance_over_Time.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="transformación-de-los-datos-en-formato-largo" class="level3">
 <h3 class="anchored" data-anchor-id="transformación-de-los-datos-en-formato-largo">Transformación de los datos en formato largo</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>res_long <span class="ot">&lt;-</span> <span class="fu">melt</span>(res_over_time, <span class="at">id.vars =</span> <span class="st">"isolate"</span>, <span class="at">measure.vars =</span> <span class="fu">c</span>(<span class="st">"Prop_S_P0"</span>,<span class="st">"Prop_S_P4"</span>,<span class="st">"Prop_S_P8"</span>,<span class="st">"Prop_S_P12"</span>))</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>res_long<span class="sc">$</span>variable <span class="ot">&lt;-</span> <span class="fu">as.character</span>(res_long<span class="sc">$</span>variable) <span class="co"># Conversión de la columna variable a caracteres:  </span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>res_long<span class="sc">$</span>passage <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">substr</span>(res_long<span class="sc">$</span>variable,<span class="dv">9</span>,<span class="fu">nchar</span>(res_long<span class="sc">$</span>variable)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>res_long <span class="ot">&lt;-</span> <span class="fu">melt</span>(res_over_time, <span class="at">id.vars =</span> <span class="st">"isolate"</span>, <span class="at">measure.vars =</span> <span class="fu">c</span>(<span class="st">"Prop_S_P0"</span>,<span class="st">"Prop_S_P4"</span>,<span class="st">"Prop_S_P8"</span>,<span class="st">"Prop_S_P12"</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>res_long<span class="sc">$</span>variable <span class="ot">&lt;-</span> <span class="fu">as.character</span>(res_long<span class="sc">$</span>variable) <span class="co"># Conversión de la columna variable a caracteres:  </span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>res_long<span class="sc">$</span>passage <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">substr</span>(res_long<span class="sc">$</span>variable,<span class="dv">9</span>,<span class="fu">nchar</span>(res_long<span class="sc">$</span>variable)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Aumento de la aptitud con el tiempo; sin efecto principal o de interacción de las poblaciones que revirtieron a la sensibilidad.</p>
+</section>
+<section id="descripción-de-la-figura-1" class="level3">
+<h3 class="anchored" data-anchor-id="descripción-de-la-figura-1">Descripción de la figura</h3>
+<p>Proporción de colonias de cada población que se calificaron como <em>sensibles a los fagos a lo largo del tiempo</em>, según lo indicado por la interrupción del crecimiento bacteriano al encontrarse con los fagos en una placa de agar (n = 22 poblaciones con 96 colonias muestreadas por población). <em>Las líneas naranjas indican las poblaciones de las que se obtuvieron colonias sensibles.</em></p>
+</section>
+<section id="grafica-1" class="level3">
+<h3 class="anchored" data-anchor-id="grafica-1">Grafica</h3>
+<blockquote class="blockquote">
+<p><strong>NOTA:</strong> La variable <code>LOR_res_long</code> no se encuentra en el codigo, pero pude obtener el codigo gracias a chatgpt. Suposición de cómo podría haberse creado <code>LOR_res_long</code>. Podría haber sido una transformación adicional de <code>res_over_time</code> o un conjunto de datos similar.</p>
+</blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fitness_over_time[fitness_over_time<span class="sc">$</span>Population <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"SNK7"</span>,<span class="st">"QAC5"</span>,<span class="st">"VCM4"</span>),<span class="st">"Outcome"</span>] <span class="ot">&lt;-</span> <span class="st">"S"</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>fitness_over_time[<span class="sc">!</span>fitness_over_time<span class="sc">$</span>Population <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"SNK7"</span>,<span class="st">"QAC5"</span>,<span class="st">"VCM4"</span>),<span class="st">"Outcome"</span>] <span class="ot">&lt;-</span> <span class="st">"R"</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lmer</span>(fitted_percWT<span class="sc">~</span>Passage<span class="sc">*</span>Outcome<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>Population),fitness_over_time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>LOR_res_long <span class="ot">&lt;-</span> <span class="fu">melt</span>(res_over_time, <span class="at">id.vars =</span> <span class="st">"isolate"</span>, <span class="at">measure.vars =</span> <span class="fu">c</span>(<span class="st">"Prop_S_P0"</span>,<span class="st">"Prop_S_P4"</span>,<span class="st">"Prop_S_P8"</span>,<span class="st">"Prop_S_P12"</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>LOR_res_long<span class="sc">$</span>variable <span class="ot">&lt;-</span> <span class="fu">as.character</span>(LOR_res_long<span class="sc">$</span>variable)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>LOR_res_long<span class="sc">$</span>passage <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">substr</span>(LOR_res_long<span class="sc">$</span>variable,<span class="dv">9</span>,<span class="fu">nchar</span>(LOR_res_long<span class="sc">$</span>variable)))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>LOR_res_long <span class="ot">&lt;-</span> LOR_res_long[<span class="sc">!</span>LOR_res_long<span class="sc">$</span>isolate <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"FMS6"</span>,<span class="st">"SNK6"</span>),]  <span class="co"># Filtrado de aislamientos</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nota: Excluye las poblaciones con colonias que parecían sensibles en las placas pero que no se veían afectadas por el fago en las curvas de crecimiento.</p>
+<p>Al final encuentran que la mayoría de las colonias se mantienen resistentes. Unicamente 5 parecían ser sensibles a los fagos (de esas 2 las excluimos porque el crecimiento no se detuvo cuando fueron expuestas a los fagos). Por lo tanto, solo 3 colonias pierden la resistencia (líneas naranjas).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(LOR_res_long, <span class="fu">aes</span>(passage<span class="sc">*</span><span class="dv">3</span>,value<span class="sc">*</span><span class="dv">100</span>,<span class="at">group=</span>isolate,<span class="at">color=</span>(isolate<span class="sc">%in%</span><span class="fu">c</span>(<span class="st">"SNK7"</span>,<span class="st">"QAC5"</span>,<span class="st">"VCM4"</span>)))) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="fl">4.5</span>,<span class="at">shape=</span><span class="dv">18</span>) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size=</span><span class="fl">0.8</span>)<span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color=</span>F)<span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">"Dark2"</span>) <span class="sc">+</span> </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">12</span>,<span class="dv">24</span>,<span class="dv">36</span>)) <span class="sc">+</span> </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size=</span><span class="dv">16</span>) <span class="sc">+</span> </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Proportion of phage sensitivity in population (%)"</span>) <span class="sc">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Day of experimental evolution"</span>) <span class="sc">+</span> </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Figura2_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="768"></p>
+</div>
+</div>
+</section>
+<section id="será-que-el-aumento-en-la-adecuación-que-se-observa-con-el-tiempo-se-debe-a-la-pérdida-de-la-resistencia" class="level3">
+<h3 class="anchored" data-anchor-id="será-que-el-aumento-en-la-adecuación-que-se-observa-con-el-tiempo-se-debe-a-la-pérdida-de-la-resistencia">¿Será que el aumento en la adecuación que se observa con el tiempo se debe a la pérdida de la resistencia?</h3>
+<p>A pesar de que la adecuación si cambió (aumentó) en el tiempo, no hay diferencias significativas entre las poblaciones que se mantuvieron resistentes y las poblaciones que perdieron la resistencia. Por lo tanto, posiblemente las primeras adquirieron nuevas mutaciones que redujeron los costos de adecuación.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fitness_over_time[fitness_over_time<span class="sc">$</span>Population <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"SNK7"</span>,<span class="st">"QAC5"</span>,<span class="st">"VCM4"</span>),<span class="st">"Outcome"</span>] <span class="ot">&lt;-</span> <span class="st">"S"</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>fitness_over_time[<span class="sc">!</span>fitness_over_time<span class="sc">$</span>Population <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"SNK7"</span>,<span class="st">"QAC5"</span>,<span class="st">"VCM4"</span>),<span class="st">"Outcome"</span>] <span class="ot">&lt;-</span> <span class="st">"R"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lmer</span>(fitted_percWT<span class="sc">~</span>Passage<span class="sc">*</span>Outcome<span class="sc">+</span>(<span class="dv">1</span><span class="sc">|</span>Population),fitness_over_time)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Type III Analysis of Variance Table with Satterthwaite's method
                  Sum Sq Mean Sq NumDF DenDF F value    Pr(&gt;F)    
@@ -420,12 +486,22 @@ Passage:Outcome  117.22  117.22     1   149  2.1462     0.145
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
-<p>Sin efecto de los costes de resistencia sobre la reversión a la sensibilidad.</p>
+</section>
+<section id="será-que-las-resistencias-más-costosas-tienen-más-probabilidad-de-terminar-siendo-sensibles-a-los-fagos" class="level3">
+<h3 class="anchored" data-anchor-id="será-que-las-resistencias-más-costosas-tienen-más-probabilidad-de-terminar-siendo-sensibles-a-los-fagos">¿Será que las resistencias más costosas tienen más probabilidad de terminar siendo sensibles a los fagos?</h3>
+<p>Una de sus hipótesis era que las resistencias más costosas (en la figura 1B aquellas que tuvieran tasas de crecimiento más lento) iban a tener mayor probabilidad de perder la resistencia. Por lo tanto comparan el promedio de la tasa de crecimiento original por el resultado al final del experimento pero encuentran que no hay diferencias en la tasa de crecimiento original y la pérdida de resistencia.</p>
 <div class="cell">
+<<<<<<< HEAD
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/costs_agg.RData"</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>costs_agg[costs_agg<span class="sc">$</span>Population<span class="sc">%in%</span><span class="fu">c</span>(<span class="st">"SNK7"</span>,<span class="st">"QAC5"</span>,<span class="st">"VCM4"</span>),<span class="st">"Outcome"</span>] <span class="ot">&lt;-</span> <span class="st">"S"</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>costs_agg[<span class="sc">!</span>costs_agg<span class="sc">$</span>Population<span class="sc">%in%</span><span class="fu">c</span>(<span class="st">"SNK7"</span>,<span class="st">"QAC5"</span>,<span class="st">"VCM4"</span>),<span class="st">"Outcome"</span>] <span class="ot">&lt;-</span> <span class="st">"R"</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(fitted_percWT<span class="sc">~</span>Outcome, costs_agg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"costs_agg.RData"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>costs_agg[costs_agg<span class="sc">$</span>Population<span class="sc">%in%</span><span class="fu">c</span>(<span class="st">"SNK7"</span>,<span class="st">"QAC5"</span>,<span class="st">"VCM4"</span>),<span class="st">"Outcome"</span>] <span class="ot">&lt;-</span> <span class="st">"S"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>costs_agg[<span class="sc">!</span>costs_agg<span class="sc">$</span>Population<span class="sc">%in%</span><span class="fu">c</span>(<span class="st">"SNK7"</span>,<span class="st">"QAC5"</span>,<span class="st">"VCM4"</span>),<span class="st">"Outcome"</span>] <span class="ot">&lt;-</span> <span class="st">"R"</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(fitted_percWT<span class="sc">~</span>Outcome, costs_agg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> 5ff5d55 (Modifique el texto de la hoja de la figura 2 para poder explicarlo mejor)
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -441,36 +517,13 @@ mean in group R mean in group S
 </div>
 </div>
 </section>
-<section id="descripción-de-la-figura-1" class="level3">
-<h3 class="anchored" data-anchor-id="descripción-de-la-figura-1">Descripción de la figura</h3>
-<p>Proporción de colonias de cada población que se calificaron como <em>sensibles a los fagos a lo largo del tiempo</em>, según lo indicado por la interrupción del crecimiento bacteriano al encontrarse con los fagos en una placa de agar (n = 22 poblaciones con 96 colonias muestreadas por población). <em>Las líneas naranjas indican las poblaciones de las que se obtuvieron colonias sensibles.</em></p>
-</section>
-<section id="grafica-1" class="level3">
-<h3 class="anchored" data-anchor-id="grafica-1">Grafica</h3>
-<blockquote class="blockquote">
-<p><strong>NOTA:</strong> La variable <code>LOR_res_long</code> no se encuentra en el codigo, pero pude obtener el codigo gracias a chatgpt. Suposición de cómo podría haberse creado <code>LOR_res_long</code>. Podría haber sido una transformación adicional de <code>res_over_time</code> o un conjunto de datos similar.</p>
-</blockquote>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>LOR_res_long <span class="ot">&lt;-</span> <span class="fu">melt</span>(res_over_time, <span class="at">id.vars =</span> <span class="st">"isolate"</span>, <span class="at">measure.vars =</span> <span class="fu">c</span>(<span class="st">"Prop_S_P0"</span>,<span class="st">"Prop_S_P4"</span>,<span class="st">"Prop_S_P8"</span>,<span class="st">"Prop_S_P12"</span>))</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>LOR_res_long<span class="sc">$</span>variable <span class="ot">&lt;-</span> <span class="fu">as.character</span>(LOR_res_long<span class="sc">$</span>variable)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>LOR_res_long<span class="sc">$</span>passage <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">substr</span>(LOR_res_long<span class="sc">$</span>variable,<span class="dv">9</span>,<span class="fu">nchar</span>(LOR_res_long<span class="sc">$</span>variable)))</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>LOR_res_long <span class="ot">&lt;-</span> LOR_res_long[<span class="sc">!</span>LOR_res_long<span class="sc">$</span>isolate <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"FMS6"</span>,<span class="st">"SNK6"</span>),]  <span class="co"># Filtrado de aislamientos</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Excluye las poblaciones con colonias que parecían sensibles en las placas pero que no se veían afectadas por el fago en las curvas de crecimiento.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(LOR_res_long[<span class="sc">!</span>LOR_res_long<span class="sc">$</span>isolate <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"FMS6"</span>,<span class="st">"SNK6"</span>),], <span class="fu">aes</span>(passage<span class="sc">*</span><span class="dv">3</span>,value<span class="sc">*</span><span class="dv">100</span>,<span class="at">group=</span>isolate,<span class="at">color=</span>(isolate<span class="sc">%in%</span><span class="fu">c</span>(<span class="st">"SNK7"</span>,<span class="st">"QAC5"</span>,<span class="st">"VCM4"</span>)))) <span class="sc">+</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="fl">4.5</span>,<span class="at">shape=</span><span class="dv">18</span>) <span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size=</span><span class="fl">0.8</span>)<span class="sc">+</span><span class="fu">theme_classic</span>() <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">color=</span>F)<span class="sc">+</span><span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">"Dark2"</span>) <span class="sc">+</span> </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">12</span>,<span class="dv">24</span>,<span class="dv">36</span>)) <span class="sc">+</span> </span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size=</span><span class="dv">16</span>) <span class="sc">+</span> </span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Proportion of phage sensitivity in population (%)"</span>) <span class="sc">+</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Day of experimental evolution"</span>) <span class="sc">+</span> </span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">14</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="Figura2_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="768"></p>
-</div>
-</div>
+<section id="observaciones-que-requieren-más-investigación" class="level3">
+<h3 class="anchored" data-anchor-id="observaciones-que-requieren-más-investigación">Observaciones que requieren más investigación</h3>
+<ol type="1">
+<li><p>Las poblaciones que adquirieron resistencia por medio de deleciones grandes no perdieron la resistencia</p></li>
+<li><p>Tres poblaciones que adquirieron resistencia por medio de la misma mutación tuvieron la misma ruta evolutiva (se mantienen resistentes)</p></li>
+</ol>
+<p>Debido a que solo tres colonias perdieron la resistencia no se puede saber si esto estas observaciones tienen alguna relevancia.</p>
 
 
 </section>

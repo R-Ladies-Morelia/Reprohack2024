@@ -18,7 +18,7 @@ library(tidyverse) # Manipulacion de datos
 library(reshape2) # melt(): reduccion de datos
 ```
 
-## Figure 2A. Crecimiento a lo largo del tiempo
+## Figure 2A. ¿Cómo cambia la adecuación a lo largo del tiempo?
 
 ### Cargar los datos
 
@@ -30,21 +30,23 @@ fitness_over_time <- read_excel("data/Fitness_over_Time.xlsx")
 
 ### Ajuste de valores
 
-Calcular los valores ajustados controlando la resistencia del fago, el paso y la disposición de la placa.
+Calcular los valores ajustados de la tasa de crecimiento, controlando por el tipo de bacteria (proveniente de una cepa resistente o no), la posición en la placa y el tiempo en el que se muestreó.
 
-```{r}
+```{r} 
 fitness_over_time$fitted <- fitted.values(lm(r~Passage*Type+Column,fitness_over_time))
 
-# Expresar los valores ajustados como porcentaje de la desarrollo de tipo wild-type
+# Expresar los valores ajustados de la tasa de crecimiento como porcentaje relativo a la tasa de crecimiento del tipo wild-type (iniciada de una cepa sensible a fagos)
 for (passage in seq(0,12,2)){
   anc_means<-mean(unlist(fitness_over_time[fitness_over_time$Passage==passage & fitness_over_time$Type=="ANC","fitted"]))
   fitness_over_time[fitness_over_time$Passage==passage & fitness_over_time$Type=="PR","fitted_percWT"]<-100*fitness_over_time[fitness_over_time$Passage==passage & fitness_over_time$Type=="PR","fitted"]/anc_means
 }
 
-# Calcular el crecimiento a lo largo del tiempo
+# Calcular el promedio y sd del porcentaje de crecimiento de la población de las bacterias iniciadas desde cepas resistents (relativo) por evento de muestreo (passage)
 df <- data.frame(aggregate(unlist(fitness_over_time[fitness_over_time$Type=="PR","fitted_percWT"]), by=list(unlist(fitness_over_time[fitness_over_time$Type=="PR","Passage"])),FUN=mean), 
                  aggregate(unlist(fitness_over_time[fitness_over_time$Type=="PR","fitted_percWT"]),by=list(unlist(fitness_over_time[fitness_over_time$Type=="PR","Passage"])),FUN=sd)[,2])
 colnames(df) <- c("passage","mean","SD") # renombrar columnas
+
+df
 ```
 
 ## Descripción de la figura
@@ -52,6 +54,8 @@ colnames(df) <- c("passage","mean","SD") # renombrar columnas
 Obtener las tasas de crecimiento de las poblaciones inoculadas con colonias resistentes a los fagos a lo largo de la evolución experimental en ausencia de fagos, calculadas a partir de mediciones de la densidad óptica en un lector de microplacas durante 40 h de crecimiento (n = 22).
 
 Las líneas representan las *trayectorias de las poblaciones individuales a lo largo del tiempo*, mientras que los *puntos indican la aptitud media entre las poblaciones muestreadas* el mismo día y las barras de error indican la DE. Los valores se normalizan con respecto a las tasas de crecimiento de las poblaciones de control sensibles a los fagos muestreadas en el mismo punto de la evolución experimental. 
+
+Encontraron que con el tiempo la adecuación de las colonias resistentes aumenta hasta ser similar a la del grupo sensible. Esto puede ser porque se pierde la resistencia (y por lo tanto el costo que tiene) o porque se adquieren mutaciones adicionales que compensan ese costo.
 
 ### Grafica
 
@@ -68,7 +72,8 @@ ggplot() +
   coord_cartesian(ylim=c(60,115))
 ```
 
-## Figure 2B. Resistencia en el tiempo
+
+## Figure 2B. ¿Cómo cambia la proporción de colonias resistentes en el tiempo?
 
 > **NOTA:** Abri el excel y corre un error de compatibilidad.
 
@@ -88,23 +93,6 @@ res_long$variable <- as.character(res_long$variable) # Conversión de la columna
 res_long$passage <- as.numeric(substr(res_long$variable,9,nchar(res_long$variable)))
 ```
 
-Aumento de la aptitud con el tiempo; sin efecto principal o de interacción de las poblaciones que revirtieron a la sensibilidad.
-
-```{r}
-fitness_over_time[fitness_over_time$Population %in% c("SNK7","QAC5","VCM4"),"Outcome"] <- "S"
-fitness_over_time[!fitness_over_time$Population %in% c("SNK7","QAC5","VCM4"),"Outcome"] <- "R"
-anova(lmer(fitted_percWT~Passage*Outcome+(1|Population),fitness_over_time))
-```
-
-Sin efecto de los costes de resistencia sobre la reversión a la sensibilidad.
-
-```{r}
-load("costs_agg.RData")
-costs_agg[costs_agg$Population%in%c("SNK7","QAC5","VCM4"),"Outcome"] <- "S"
-costs_agg[!costs_agg$Population%in%c("SNK7","QAC5","VCM4"),"Outcome"] <- "R"
-t.test(fitted_percWT~Outcome, costs_agg)
-```
-
 ### Descripción de la figura
 
 Proporción de colonias de cada población que se calificaron como *sensibles a los fagos a lo largo del tiempo*, según lo indicado por la interrupción del crecimiento bacteriano al encontrarse con los fagos en una placa de agar (n = 22 poblaciones con 96 colonias muestreadas por población). *Las líneas naranjas indican las poblaciones de las que se obtuvieron colonias sensibles.*
@@ -120,13 +108,17 @@ LOR_res_long$passage <- as.numeric(substr(LOR_res_long$variable,9,nchar(LOR_res_
 LOR_res_long <- LOR_res_long[!LOR_res_long$isolate %in% c("FMS6","SNK6"),]  # Filtrado de aislamientos
 ```
 
-Excluye las poblaciones con colonias que parecían sensibles en las placas pero que no se veían afectadas por el fago en las curvas de crecimiento.
+Nota: Excluye las poblaciones con colonias que parecían sensibles en las placas pero que no se veían afectadas por el fago en las curvas de crecimiento.
+
+Al final encuentran que la mayoría de las colonias se mantienen resistentes. Unicamente 5 parecían ser sensibles a los fagos (de esas 2 las excluimos porque el crecimiento no se detuvo cuando fueron expuestas a los fagos). Por lo tanto, solo 3 colonias pierden la resistencia (líneas naranjas).
 
 ```{r}
-ggplot(LOR_res_long[!LOR_res_long$isolate %in% c("FMS6","SNK6"),], aes(passage*3,value*100,group=isolate,color=(isolate%in%c("SNK7","QAC5","VCM4")))) +
+ggplot(LOR_res_long, aes(passage*3,value*100,group=isolate,color=(isolate%in%c("SNK7","QAC5","VCM4")))) +
   geom_point(size=4.5,shape=18) +
-  geom_line(size=0.8)+theme_classic() +
-  guides(color=F)+scale_color_brewer(palette="Dark2") + 
+  geom_line(size=0.8)+
+  theme_classic() +
+  guides(color=F)+
+  scale_color_brewer(palette="Dark2") + 
   scale_x_continuous(breaks=c(0,12,24,36)) + 
   theme_classic(base_size=16) + 
   ylab("Proportion of phage sensitivity in population (%)") +
@@ -134,4 +126,31 @@ ggplot(LOR_res_long[!LOR_res_long$isolate %in% c("FMS6","SNK6"),], aes(passage*3
   theme(axis.title.y=element_text(size=14))
 ```
 
+### ¿Será que el aumento en la adecuación que se observa con el tiempo se debe a la pérdida de la resistencia?
 
+A pesar de que la adecuación si cambió (aumentó) en el tiempo, no hay diferencias significativas entre las poblaciones que se mantuvieron resistentes y las poblaciones que perdieron la resistencia. Por lo tanto, posiblemente las primeras adquirieron nuevas mutaciones que redujeron los costos de adecuación.
+
+```{r}
+fitness_over_time[fitness_over_time$Population %in% c("SNK7","QAC5","VCM4"),"Outcome"] <- "S"
+fitness_over_time[!fitness_over_time$Population %in% c("SNK7","QAC5","VCM4"),"Outcome"] <- "R"
+anova(lmer(fitted_percWT~Passage*Outcome+(1|Population),fitness_over_time)) 
+```
+
+### ¿Será que las resistencias más costosas tienen más probabilidad de terminar siendo sensibles a los fagos?
+
+Una de sus hipótesis era que las resistencias más costosas (en la figura 1B aquellas que tuvieran tasas de crecimiento más lento) iban a tener mayor probabilidad de perder la resistencia. Por lo tanto comparan el promedio de la tasa de crecimiento original por el resultado al final del experimento pero encuentran que no hay diferencias en la tasa de crecimiento original y la pérdida de resistencia.
+
+```{r}
+load("costs_agg.RData")
+costs_agg[costs_agg$Population%in%c("SNK7","QAC5","VCM4"),"Outcome"] <- "S"
+costs_agg[!costs_agg$Population%in%c("SNK7","QAC5","VCM4"),"Outcome"] <- "R"
+t.test(fitted_percWT~Outcome, costs_agg)
+```
+
+### Observaciones que requieren más investigación
+
+1. Las poblaciones que adquirieron resistencia por medio de deleciones grandes no perdieron la resistencia
+
+2. Tres poblaciones que adquirieron resistencia por medio de la misma mutación tuvieron la misma ruta evolutiva (se mantienen resistentes)
+
+Debido a que solo tres colonias perdieron la resistencia no se puede saber si esto estas observaciones tienen alguna relevancia. 
