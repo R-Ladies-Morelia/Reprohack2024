@@ -84,7 +84,7 @@ if (p_value_P2_day6 < 0.001) {
 
 ### Reto 4 
 En el código de los Heatmaps, los nombres de las mutantes no correspondían, los colores del heatmap no correspondían y había algunos símbolos que fueron modificados. 
-**Solución:** Utilizamos la librería `vidiris` y la familia tipografica Arial. 
+**Solución:** Acomodamos los nombres de las mutantes, utilizamos la librería `vidiris` y la familia tipografica Arial. 
 
 <br>
 
