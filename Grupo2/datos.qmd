@@ -5,10 +5,90 @@ format:
     page-layout: full 
 ---
 
-## Datasets
+**Costs_of_Res.xlsx**
 
-Explicar los inputs del articulo, que son las tablas.
+```{.r}
+# Read in "Costs_of_Res.xlsx" as costs_of_res
+costs_of_res <- read_excel("Costs_of_Res.xlsx")
 
-En columnas se compone, para que figuras se usa, que preguntas contesta.
+# 412 columns x 9 rows
+$ Well: chr [1:412]  Ubicación en el ensayo de placa de 96 pocillos
+$ Population: chr [1:412]  Identidad de la población resistente a los fagos
+$ r: num [1:412]  Tasa de crecimiento del modelo logístico
+$ Row: chr [1:412]  Ubicación en el ensayo de placa de 96 pocillos (fila)
+$ Column: num [1:412]  Ubicación en el ensayo de placa de 96 pocillos (columna)
+$ Plate: chr [1:412]  Lote técnico
+$ Position: chr [1:412]  Mutación de resistencia*
+$ Gene: chr [1:412]  Gen con mutación de resistencia*
+$ Annotation: chr [1:412]  Función prevista del gen*
 
-> Maribel
+# *NA para el stock ancestral y MS15 (no se detectaron diferencias genéticas respecto al ancestro)
+
+```
+
+**Fitness_over_Time.xlsx**
+
+```{.r}
+# Read in "Fitness_over_Time.xlsx" as fitness_over_time
+
+fitness_over_time <- read_excel("Fitness_over_Time.xlsx")
+
+dim(fitness_over_time)		#esto no viene en el script
+
+str(fitness_over_time)		#esto no viene en el script
+
+# Descripción de los datos
+# 191 columnas x 9 filas
+$ Well: chr [1:191]  Ubicación en el ensayo de placa de 96 pocillos
+$ Sample: chr [1:191]  Identidad de la población y tiempo muestreado
+$ r: num [1:191]  Tasa de crecimiento del modelo logístico
+$ Row: chr [1:191]  Ubicación en el ensayo (fila)
+$ Column: num [1:191]  Ubicación en el ensayo (columna)
+$ Population: chr [1:191]  Identidad de la población
+$ Passage: num [1:191]  Tiempo muestreado
+$ Type: chr [1:191]  Tipo de bacteria
+$ Plate: chr [1:191]  Lote técnico
+```
+
+**Replay.xlsx**
+
+```{.r}
+# Read in "Replay.xlsx" as replay
+replay <- read_excel("Replay.xlsx", sheet = "Data")
+
+# Descripción de los datos
+# 60 columnas x 8 filas
+$ Founder_outcome: chr [1:60] Indica si la población fundadora permaneció resistente (R) o desarrolló sensibilidad (S).
+$ Founder: chr [1:60] Identidad de la población fundadora
+$ Resistance_gene: chr [1:60] Gen con mutación de resistencia en la población fundadora
+$ Population: num [1:60] Identidad de la población de reproducción
+$ R_P12: chr [1:60] Colonias resistentes en el paso 12
+$ M_P12: chr [1:60] Colonias intermedias en el paso 12
+$ S_P12: chr [1:60] Colonias sensibles en el paso 12
+$ Prop_S_P12: num [1:60] Proporción de colonias sensibles en el paso 12
+
+```
+**Resistance_over_Time.xlsx**
+
+```{.r}
+# Read in "Resistance_over_Time.xlsx" as res_over_time
+res_over_time <- read_excel("Resistance_over_Time.xlsx")
+
+# Descripción de la tabla
+# 23 columnas x 14 filas
+$ isolate (Population): Identidad de la población
+$ Prop_S_P0: Proporción de colonias sensibles al inicio
+$ P4_R: Colonias resistentes en el paso 4
+$ P4_M: Colonias intermedias en el paso 4
+$ P4_S: Colonias sensibles en el paso 4
+$ Prop_S_P4: Proporción de colonias sensibles en el paso 4
+$ P8_R: Colonias resistentes en el paso 8
+$ P8_M: Colonias intermedias en el paso 8
+$ P8_S: Colonias sensibles en el paso 8
+$ Prop_S_P8: Proporción de colonias sensibles en el paso 8
+$ P12_R: Colonias resistentes en el paso 12
+$ P12_M: Colonias intermedias en el paso 12
+$ P12_S: Colonias sensibles en el paso 12
+$ Prop_S_P12: Proporción de colonias sensibles en el paso 12
+
+```
