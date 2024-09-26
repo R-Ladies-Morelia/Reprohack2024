@@ -53,6 +53,7 @@ print(p_day36)
 Para el heatmap de las figura 5B usamos ggplot. Nuestra información la tomamos del objeto: breseq_gene_props_day36. Este dataframe nos da información sobre el porcentaje de poblaciones (agrupads por gen de resistencia) que tienen mutación en el top20 de genes.
 
 ```{r}
+#| fig-width: 10
 ggplot(breseq_gene_props_day36, aes(top_gene, res_gene, fill = percent_pops * 100)) +
   geom_tile(color = "grey80") +
   theme_classic(base_size = 14) +
