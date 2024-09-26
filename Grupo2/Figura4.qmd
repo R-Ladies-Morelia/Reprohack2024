@@ -4,7 +4,7 @@ title: "Figura 4"
 
 ## Contingencia histórica en la evolución del genoma
 
-> **NOTA:** Agregar el diagrama con descripcion del analisis.
+
 
 ![Fig. 4. Contingencia genética en la identidad de los genes mutados durante la evolución experimental.](img/figure4.jpeg){width=100%}
 
@@ -14,7 +14,7 @@ Para generar las figuras 4A y 4B se tuvieron que seguir varios pasos para proces
 
 ### Esquema
 
-![Esquema](img/Fig4y5_workflow.png){width="800"}
+![Esquema](img/Fig4y5_workflow.png){width="1500"}
 
 ### Dificultades
 

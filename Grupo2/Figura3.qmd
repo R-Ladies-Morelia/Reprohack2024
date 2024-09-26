@@ -4,7 +4,7 @@ title: "Figura 3"
 
 ## Repetición de la evolución experimental
 
-> **NOTA:** Agregar el diagrama con descripcion del analisis.
+<!-- **NOTA:** Agregar el diagrama con descripcion del analisis.  -->
 
 
 ![Fig. 3. Los resultados de la resistencia a los fagos en el experimento de repetición reflejan los resultados de su población fundadora.](img/figure3.jpeg){width=80%}

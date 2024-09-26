@@ -359,23 +359,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="reto-1-1" class="level3">
 <h3 class="anchored" data-anchor-id="reto-1-1">Reto 1</h3>
-<p>En el código no se mencionaba con que paquetes se iba a trabajar. Ni los paquetes necesarios para la importación de datos de Excel.</p>
+<p>En el código no se especificaban los paquetes que se utilizarían, ni se mencionaban los paquetes necesarios para la importación de datos desde archivos de Excel. <strong>Solución:</strong> En este caso decidimos usar los paquetes <code>readxl</code> para la importación de archivos, <code>ggplot2</code> para la generación de gráficas y <code>vidiris</code> para la paleta de colores.</p>
+<p><br></p>
 </section>
 <section id="reto-2-1" class="level3">
 <h3 class="anchored" data-anchor-id="reto-2-1">Reto 2</h3>
-<p>En el código no se mencionaba cómo se generaba la variable “Breseq”.</p>
+<p>En el código no se mencionaba cómo se generaba la variable <code>Breseq</code>. <strong>Solución:</strong> Esta variable se generaba a partir de las tablas presentes en la carpeta <code>Mutation tables</code>.</p>
+<p><br></p>
 </section>
 <section id="reto-3-1" class="level3">
 <h3 class="anchored" data-anchor-id="reto-3-1">Reto 3</h3>
-<p>En el código para la figura 4A no había una línea para agregar el p value.</p>
+<p>En el código para la figura 4A no había una línea para agregar el p value. <strong>Solución:</strong> Agregamos este fragmento al código:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>test_gene_df_day6 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">sim_coef =</span> <span class="fu">c</span>(test_same_P2_day6, test_diff_P2_day6),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">label =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Same</span><span class="sc">\n</span><span class="st">resistance</span><span class="sc">\n</span><span class="st">gene"</span>, <span class="fu">length</span>(test_same_P2_day6)), <span class="fu">rep</span>(<span class="st">"Different</span><span class="sc">\n</span><span class="st">resistance</span><span class="sc">\n</span><span class="st">gene"</span>, <span class="fu">length</span>(test_diff_P2_day6)))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(test_gene_df_day6) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"sim_coef"</span>, <span class="st">"label"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>test_gene_df_day6<span class="sc">$</span>label <span class="ot">&lt;-</span> <span class="fu">factor</span>(test_gene_df_day6<span class="sc">$</span>label, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Same</span><span class="sc">\n</span><span class="st">resistance</span><span class="sc">\n</span><span class="st">gene"</span>, <span class="st">"Different</span><span class="sc">\n</span><span class="st">resistance</span><span class="sc">\n</span><span class="st">gene"</span>))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate day 6 p-value</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>p_value_P2_day6 <span class="ot">&lt;-</span> <span class="fu">length</span>(perm_gene_P2_day6[perm_gene_P2_day6 <span class="sc">&gt;=</span> test_gene_P2_day6]) <span class="sc">/</span> <span class="fu">length</span>(perm_gene_P2_day6)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p_value_P2_day6)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up p-value annotation</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (p_value_P2_day6 <span class="sc">&lt;</span> <span class="fl">0.001</span>) {</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  annotation_day6 <span class="ot">&lt;-</span> <span class="st">"p &lt; 0.001***"</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  annotation_day6 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"p = "</span>, <span class="fu">format</span>(p_value_P2_day6, <span class="at">digits =</span> <span class="dv">3</span>))</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
 </section>
 <section id="reto-4" class="level3">
 <h3 class="anchored" data-anchor-id="reto-4">Reto 4</h3>
-<p>En el código de los Heatmaps, los nombres de las mutantes no correspondían, los colores del heatmap no correspondían y había algunos símbolos que fueron modificados.</p>
+<p>En el código de los Heatmaps, los nombres de las mutantes no correspondían, los colores del heatmap no correspondían y había algunos símbolos que fueron modificados. <strong>Solución:</strong> Acomodamos los nombres de las mutantes, utilizamos la librería <code>vidiris</code> y la familia tipografica Arial.</p>
+<p><br></p>
 </section>
 <section id="reto-5" class="level3">
 <h3 class="anchored" data-anchor-id="reto-5">Reto 5</h3>
-<p>En el código no aparecía el análisis para la figura 5. El código tuvo que ser dividido en 2 partes para generar la aleatorizacion del día 6 y del día 36.</p>
+<p>En el código no aparecía el análisis para la figura 5. <strong>Solución:</strong> El código tuvo que ser dividido en 2 partes para generar la aleatorizacion del día 6 y del día 36 por separado.</p>
 
 
 </section>

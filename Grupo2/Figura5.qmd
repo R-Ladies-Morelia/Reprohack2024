@@ -14,7 +14,7 @@ Para generar las figuras 5A y 5B se tuvieron que seguir varios pasos para proces
 
 ### Esquema
 
-![Esquema](img/Fig4y5_workflow.png){width="800"}
+![Esquema](img/Fig4y5_workflow.png){width="1500"}
 
 Los paquetes que vamos a cargar son necesarios para las gráficas
 
