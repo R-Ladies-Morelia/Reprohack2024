@@ -50,8 +50,8 @@ En el código no se especificaban los paquetes que se utilizarían, ni se mencio
 <br>
 
 ### Reto 2 
-En el código no se mencionaba cómo se generaba la variable "Breseq". 
-**Solución:** Esta variable se generaba a partir de las tablas presentes en la carpeta "Mutation tables". 
+En el código no se mencionaba cómo se generaba la variable `Breseq`. 
+**Solución:** Esta variable se generaba a partir de las tablas presentes en la carpeta `Mutation tables`. 
 
 <br>
 
