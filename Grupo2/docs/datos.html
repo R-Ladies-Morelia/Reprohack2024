@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -247,17 +281,11 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#datasets" id="toc-datasets" class="nav-link active" data-scroll-target="#datasets">Datasets</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -276,16 +304,74 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="datasets" class="level2">
-<h2 class="anchored" data-anchor-id="datasets">Datasets</h2>
-<p>Explicar los inputs del articulo, que son las tablas.</p>
-<p>En columnas se compone, para que figuras se usa, que preguntas contesta.</p>
-<blockquote class="blockquote">
-<p>Maribel</p>
-</blockquote>
+<p><strong>Costs_of_Res.xlsx</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in "Costs_of_Res.xlsx" as costs_of_res</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>costs_of_res <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"Costs_of_Res.xlsx"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 412 columns x 9 rows</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Well<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">412</span>]  Ubicación en el ensayo de placa de <span class="dv">96</span> pocillos</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Population<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">412</span>]  Identidad de la población resistente a los fagos</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> r<span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">412</span>]  Tasa de crecimiento del modelo logístico</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Row<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">412</span>]  Ubicación en el ensayo de placa de <span class="dv">96</span> <span class="fu">pocillos</span> (fila)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Column<span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">412</span>]  Ubicación en el ensayo de placa de <span class="dv">96</span> <span class="fu">pocillos</span> (columna)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Plate<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">412</span>]  Lote técnico</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Position<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">412</span>]  Mutación de resistencia<span class="sc">*</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> Gene<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">412</span>]  Gen con mutación de resistencia<span class="sc">*</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="er">$</span> Annotation<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">412</span>]  Función prevista del gen<span class="sc">*</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># *NA para el stock ancestral y MS15 (no se detectaron diferencias genéticas respecto al ancestro)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Fitness_over_Time.xlsx</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in "Fitness_over_Time.xlsx" as fitness_over_time</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>fitness_over_time <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"Fitness_over_Time.xlsx"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Descripción de los datos</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 191 columnas x 9 filas</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Well<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">191</span>]  Ubicación en el ensayo de placa de <span class="dv">96</span> pocillos</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Sample<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">191</span>]  Identidad de la población y tiempo muestreado</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> r<span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">191</span>]  Tasa de crecimiento del modelo logístico</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Row<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">191</span>]  Ubicación en el <span class="fu">ensayo</span> (fila)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Column<span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">191</span>]  Ubicación en el <span class="fu">ensayo</span> (columna)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Population<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">191</span>]  Identidad de la población</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Passage<span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">191</span>]  Tiempo muestreado</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Type<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">191</span>]  Tipo de bacteria</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Plate<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">191</span>]  Lote técnico</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Replay.xlsx</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in "Replay.xlsx" as replay</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>replay <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"Replay.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Data"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Descripción de los datos</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 60 columnas x 8 filas</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Founder_outcome<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">60</span>] Indica si la población fundadora permaneció <span class="fu">resistente</span> (R) o desarrolló <span class="fu">sensibilidad</span> (S).</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Founder<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">60</span>] Identidad de la población fundadora</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Resistance_gene<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">60</span>] Gen con mutación de resistencia en la población fundadora</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Population<span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">60</span>] Identidad de la población de reproducción</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> R_P12<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">60</span>] Colonias resistentes en el paso <span class="dv">12</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> M_P12<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">60</span>] Colonias intermedias en el paso <span class="dv">12</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> S_P12<span class="sc">:</span> chr [<span class="dv">1</span><span class="sc">:</span><span class="dv">60</span>] Colonias sensibles en el paso <span class="dv">12</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Prop_S_P12<span class="sc">:</span> num [<span class="dv">1</span><span class="sc">:</span><span class="dv">60</span>] Proporción de colonias sensibles en el paso <span class="dv">12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Resistance_over_Time.xlsx</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in "Resistance_over_Time.xlsx" as res_over_time</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>res_over_time <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"Resistance_over_Time.xlsx"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Descripción de la tabla</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 23 columnas x 14 filas</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> <span class="fu">isolate</span> (Population)<span class="sc">:</span> Identidad de la población</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Prop_S_P0<span class="sc">:</span> Proporción de colonias sensibles al inicio</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> P4_R<span class="sc">:</span> Colonias resistentes en el paso <span class="dv">4</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> P4_M<span class="sc">:</span> Colonias intermedias en el paso <span class="dv">4</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> P4_S<span class="sc">:</span> Colonias sensibles en el paso <span class="dv">4</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Prop_S_P4<span class="sc">:</span> Proporción de colonias sensibles en el paso <span class="dv">4</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> P8_R<span class="sc">:</span> Colonias resistentes en el paso <span class="dv">8</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> P8_M<span class="sc">:</span> Colonias intermedias en el paso <span class="dv">8</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> P8_S<span class="sc">:</span> Colonias sensibles en el paso <span class="dv">8</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Prop_S_P8<span class="sc">:</span> Proporción de colonias sensibles en el paso <span class="dv">8</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> P12_R<span class="sc">:</span> Colonias resistentes en el paso <span class="dv">12</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> P12_M<span class="sc">:</span> Colonias intermedias en el paso <span class="dv">12</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> P12_S<span class="sc">:</span> Colonias sensibles en el paso <span class="dv">12</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> Prop_S_P12<span class="sc">:</span> Proporción de colonias sensibles en el paso <span class="dv">12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
