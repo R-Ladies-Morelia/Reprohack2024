@@ -44,16 +44,50 @@ Variables erróneas colocadas en el código. Para la figura 3 menciona que se us
 ### Retos figuras 4 y 5
 
 ### Reto 1
-En el código no se mencionaba con que paquetes se iba a trabajar. Ni los paquetes necesarios para la importación de datos de Excel. 
+En el código no se especificaban los paquetes que se utilizarían, ni se mencionaban los paquetes necesarios para la importación de datos desde archivos de Excel. 
+**Solución:** En este caso decidimos usar los paquetes `readxl` para la importación de archivos, `ggplot2` para la generación de gráficas y `vidiris` para la paleta de colores. 
+
+<br>
 
 ### Reto 2 
 En el código no se mencionaba cómo se generaba la variable "Breseq". 
+**Solución:** Esta variable se generaba a partir de las tablas presentes en la carpeta "Mutation tables". 
+
+<br>
 
 ### Reto 3 
 En el código para la figura 4A no había una línea para agregar el p value.
+**Solución:** Agregamos este fragmento al código: 
+
+```{r, eval=FALSE}
+# Prepare data
+test_gene_df_day6 <- data.frame(
+  sim_coef = c(test_same_P2_day6, test_diff_P2_day6),
+  label = c(rep("Same\nresistance\ngene", length(test_same_P2_day6)), rep("Different\nresistance\ngene", length(test_diff_P2_day6)))
+)
+colnames(test_gene_df_day6) <- c("sim_coef", "label")
+test_gene_df_day6$label <- factor(test_gene_df_day6$label, levels = c("Same\nresistance\ngene", "Different\nresistance\ngene"))
+
+# Calculate day 6 p-value
+p_value_P2_day6 <- length(perm_gene_P2_day6[perm_gene_P2_day6 >= test_gene_P2_day6]) / length(perm_gene_P2_day6)
+print(p_value_P2_day6)
+
+# Set up p-value annotation
+if (p_value_P2_day6 < 0.001) {
+  annotation_day6 <- "p < 0.001***"
+} else {
+  annotation_day6 <- paste0("p = ", format(p_value_P2_day6, digits = 3))
+}
+```
+
+<br>
 
 ### Reto 4 
 En el código de los Heatmaps, los nombres de las mutantes no correspondían, los colores del heatmap no correspondían y había algunos símbolos que fueron modificados. 
+**Solución:** Utilizamos la librería `vidiris` y la familia tipografica Arial. 
+
+<br>
 
 ### Reto 5 
-En el código no aparecía el análisis para la figura 5. El código tuvo que ser dividido en 2 partes para generar la aleatorizacion del día 6 y del día 36. 
+En el código no aparecía el análisis para la figura 5. 
+**Solución:** El código tuvo que ser dividido en 2 partes para generar la aleatorizacion del día 6 y del día 36 por separado. 
