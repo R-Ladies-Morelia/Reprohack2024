@@ -60,6 +60,7 @@ format:
     warning: false
     fig-height: 8
     fig-width: 8
+    fig-align: "center"
     grid: 
       body-width: 1200px
       sidebar-width: 250px

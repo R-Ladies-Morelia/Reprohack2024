@@ -135,8 +135,10 @@ for (passage in seq(0,12,2)){
 }
 
 ### ----- Figure 2A: Growth over time / Crecimiento a lo largo del tiempo -----
-df <- data.frame(aggregate(unlist(fitness_over_time[fitness_over_time$Type=="PR","fitted_percWT"]), by=list(unlist(fitness_over_time[fitness_over_time$Type=="PR","Passage"])),FUN=mean), 
-                 aggregate(unlist(fitness_over_time[fitness_over_time$Type=="PR","fitted_percWT"]),by=list(unlist(fitness_over_time[fitness_over_time$Type=="PR","Passage"])),FUN=sd)[,2])
+df <- data.frame(aggregate(unlist(fitness_over_time[fitness_over_time$Type=="PR","fitted_percWT"]), 
+                            by=list(unlist(fitness_over_time[fitness_over_time$Type=="PR","Passage"])),FUN=mean), 
+                 aggregate(unlist(fitness_over_time[fitness_over_time$Type=="PR","fitted_percWT"]),
+                            by=list(unlist(fitness_over_time[fitness_over_time$Type=="PR","Passage"])),FUN=sd)[,2])
 colnames(df) <- c("passage","mean","SD")
 
 # Grafica
@@ -159,6 +161,25 @@ res_over_time <- read_excel("Resistance_over_Time.xlsx", sheet = "Data")
 res_long <- melt(res_over_time, id.vars = "isolate", measure.vars = c("Prop_S_P0","Prop_S_P4","Prop_S_P8","Prop_S_P12"))
 res_long$variable <- as.character(res_long$variable) # Conversión de la columna variable a caracteres:  
 res_long$passage <- as.numeric(substr(res_long$variable,9,nchar(res_long$variable)))
+res_long <- res_long[!res_long$isolate %in% c("FMS6","SNK6"),]  # Filtrado de aislamientos
+
+
+### ----- Code for Figure 2B  ---------
+
+### Excludes populations with colonies that appeared sensitive on plates but were not affected by phage in growth curves
+# Excluye las poblaciones con colonias que parecían sensibles en las placas pero que no se veían afectadas por el fago en las curvas de crecimiento
+
+ggplot(res_long, aes(passage*3,value*100,group=isolate,color=(isolate%in%c("SNK7","QAC5","VCM4")))) +
+  geom_point(size=4.5,shape=18) +
+  geom_line(linewidth=0.8)+
+  theme_classic() +
+  guides(color=F)+
+  scale_color_brewer(palette="Dark2") + 
+  scale_x_continuous(breaks=c(0,12,24,36)) + 
+  theme_classic(base_size=16) + 
+  ylab("Proportion of phage sensitivity in population (%)") +
+  xlab("Day of experimental evolution") + 
+  theme(axis.title.y=element_text(size=14))
 
 ### Increase in fitness over time; no main or interaction effect of populations that reverted to sensitivity / 
 # Aumento de la aptitud con el tiempo; sin efecto principal o de interacción de las poblaciones que revirtieron a la sensibilidad.
@@ -171,27 +192,6 @@ costs_agg[costs_agg$Population%in%c("SNK7","QAC5","VCM4"),"Outcome"] <- "S"
 costs_agg[!costs_agg$Population%in%c("SNK7","QAC5","VCM4"),"Outcome"] <- "R"
 t.test(fitted_percWT~Outcome, costs_agg)
 
-### ----- Code for Figure 2B  ---------
-# Suposición de cómo podría haberse creado LOR_res_long
-# Podría haber sido una transformación adicional de res_over_time o un conjunto de datos similar
-# It could have been an additional transformation of res_over_time or a similar dataset.
-LOR_res_long <- melt(res_over_time, id.vars = "isolate", measure.vars = c("Prop_S_P0","Prop_S_P4","Prop_S_P8","Prop_S_P12"))
-LOR_res_long$variable <- as.character(LOR_res_long$variable)
-LOR_res_long$passage <- as.numeric(substr(LOR_res_long$variable,9,nchar(LOR_res_long$variable)))
-LOR_res_long <- LOR_res_long[!LOR_res_long$isolate %in% c("FMS6","SNK6"),]  # Filtrado de aislamientos
-
-# NOTA: no encuentro la variable LOR_res_long
-### Excludes populations with colonies that appeared sensitive on plates but were not affected by phage in growth curves
-# Excluye las poblaciones con colonias que parecían sensibles en las placas pero que no se veían afectadas por el fago en las curvas de crecimiento
-ggplot(LOR_res_long[!LOR_res_long$isolate %in% c("FMS6","SNK6"),], aes(passage*3,value*100,group=isolate,color=(isolate%in%c("SNK7","QAC5","VCM4")))) +
-  geom_point(size=4.5,shape=18) +
-  geom_line(size=0.8)+theme_classic() +
-  guides(color=F)+scale_color_brewer(palette="Dark2") + 
-  scale_x_continuous(breaks=c(0,12,24,36)) + 
-  theme_classic(base_size=16) + 
-  ylab("Proportion of phage sensitivity in population (%)") +
-  xlab("Day of experimental evolution") + 
-  theme(axis.title.y=element_text(size=14))
 
 ## ----- Figure 3: Replay experiment / Experimento de repetición ---------
 ### Read in "Replay.xlsx" as replay / Cargar informacion de "Replay.xlsx" como variable replay

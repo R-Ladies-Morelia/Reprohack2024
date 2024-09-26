@@ -42,8 +42,10 @@ for (passage in seq(0,12,2)){
 }
 
 # Calcular el promedio y sd del porcentaje de crecimiento de la población de las bacterias iniciadas desde cepas resistents (relativo) por evento de muestreo (passage)
-df <- data.frame(aggregate(unlist(fitness_over_time[fitness_over_time$Type=="PR","fitted_percWT"]), by=list(unlist(fitness_over_time[fitness_over_time$Type=="PR","Passage"])),FUN=mean), 
-                 aggregate(unlist(fitness_over_time[fitness_over_time$Type=="PR","fitted_percWT"]),by=list(unlist(fitness_over_time[fitness_over_time$Type=="PR","Passage"])),FUN=sd)[,2])
+df <- data.frame(aggregate(unlist(fitness_over_time[fitness_over_time$Type=="PR","fitted_percWT"]), 
+                            by=list(unlist(fitness_over_time[fitness_over_time$Type=="PR","Passage"])),FUN=mean), 
+                 aggregate(unlist(fitness_over_time[fitness_over_time$Type=="PR","fitted_percWT"]),
+                            by=list(unlist(fitness_over_time[fitness_over_time$Type=="PR","Passage"])),FUN=sd)[,2])
 colnames(df) <- c("passage","mean","SD") # renombrar columnas
 
 df
@@ -91,7 +93,11 @@ res_over_time <- read_excel("data/Resistance_over_Time.xlsx", sheet = "Data")
 res_long <- melt(res_over_time, id.vars = "isolate", measure.vars = c("Prop_S_P0","Prop_S_P4","Prop_S_P8","Prop_S_P12"))
 res_long$variable <- as.character(res_long$variable) # Conversión de la columna variable a caracteres:  
 res_long$passage <- as.numeric(substr(res_long$variable,9,nchar(res_long$variable)))
+
+# Nota: Excluye las poblaciones con colonias que parecían sensibles en las placas pero que no se veían afectadas por el fago en las curvas de crecimiento.
+res_long <- res_long[!res_long$isolate %in% c("FMS6","SNK6"),] 
 ```
+
 
 ### Descripción de la figura
 
@@ -99,23 +105,12 @@ Proporción de colonias de cada población que se calificaron como *sensibles a 
 
 ### Grafica
 
-> **NOTA:** La variable `LOR_res_long` no se encuentra en el codigo, pero pude obtener el codigo gracias a chatgpt. Suposición de cómo podría haberse creado `LOR_res_long`. Podría haber sido una transformación adicional de `res_over_time` o un conjunto de datos similar. 
-
-```{r}
-LOR_res_long <- melt(res_over_time, id.vars = "isolate", measure.vars = c("Prop_S_P0","Prop_S_P4","Prop_S_P8","Prop_S_P12"))
-LOR_res_long$variable <- as.character(LOR_res_long$variable)
-LOR_res_long$passage <- as.numeric(substr(LOR_res_long$variable,9,nchar(LOR_res_long$variable)))
-LOR_res_long <- LOR_res_long[!LOR_res_long$isolate %in% c("FMS6","SNK6"),]  # Filtrado de aislamientos
-```
-
-Nota: Excluye las poblaciones con colonias que parecían sensibles en las placas pero que no se veían afectadas por el fago en las curvas de crecimiento.
-
 Al final encuentran que la mayoría de las colonias se mantienen resistentes. Unicamente 5 parecían ser sensibles a los fagos (de esas 2 las excluimos porque el crecimiento no se detuvo cuando fueron expuestas a los fagos). Por lo tanto, solo 3 colonias pierden la resistencia (líneas naranjas).
 
 ```{r}
-ggplot(LOR_res_long, aes(passage*3,value*100,group=isolate,color=(isolate%in%c("SNK7","QAC5","VCM4")))) +
+ggplot(res_long, aes(passage*3,value*100,group=isolate,color=(isolate%in%c("SNK7","QAC5","VCM4")))) +
   geom_point(size=4.5,shape=18) +
-  geom_line(size=0.8)+
+  geom_line(linewidth=0.8)+
   theme_classic() +
   guides(color=F)+
   scale_color_brewer(palette="Dark2") + 
