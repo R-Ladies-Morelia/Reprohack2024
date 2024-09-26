@@ -33,10 +33,6 @@ $ Annotation: chr [1:412]  Función prevista del gen*
 
 fitness_over_time <- read_excel("Fitness_over_Time.xlsx")
 
-dim(fitness_over_time)		#esto no viene en el script
-
-str(fitness_over_time)		#esto no viene en el script
-
 # Descripción de los datos
 # 191 columnas x 9 filas
 $ Well: chr [1:191]  Ubicación en el ensayo de placa de 96 pocillos
