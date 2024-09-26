@@ -21,7 +21,7 @@ Puedes descargar el codigo en español o ingles:
 > 
 > En ingles: [1_Phenotype_data_analysis.R](https://github.com/EveliaCoss/loss-of-resistance/blob/main/1_Phenotype_data_analysis.R)
 
-## Figura 4
+## Figuras 4 y 5
 
 > Modificado por Amairani Cancino
 
@@ -31,5 +31,9 @@ Puedes descargar el codigo en español o ingles:
 Puedes descargar el código en español o inglés: 
 
 > En Español: 
+Código completo: [2_Genome_data_analysis_ESP.R](https://github.com/R-Ladies-Morelia/Reprohack2024/blob/main/Grupo2/2_Genome_data_analysis_ESP.R)
+Código solo para las figuras: [Figuras_4y5.R](https://github.com/R-Ladies-Morelia/Reprohack2024/blob/main/Grupo2/Figuras_4y5.R)
 >
 > En Inglés: 
+Código completo:[2_Genomes_data_analysis.R](https://github.com/EveliaCoss/loss-of-resistance/blob/main/2_Genomes_data_analysis.R)
+Código solo para las figuras:[Figures_4&5.R](https://github.com/EveliaCoss/loss-of-resistance/blob/main/Figures_4%265.R)
