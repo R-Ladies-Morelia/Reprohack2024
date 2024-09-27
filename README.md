@@ -61,7 +61,7 @@ Clases: jueves de 4 -6 pm (GMT-6)
   * Líderes de grupo: Amairani Cancino Bello, María José Palma Martínez y Evelia Coss.
   * Repositorio: [Grupo 2](https://github.com/R-Ladies-Morelia/Reprohack2024/tree/main/Grupo2)
   * Material: [Libro en Quarto](https://r-ladies-morelia.github.io/Reprohack2024/Grupo2/docs/index.html)
-  * Grabación: 
+  * Grabación: [Video Grupo 2](https://drive.google.com/file/d/19Eo147DXiXujJOasWJtAZpRbFHFhkwkT/view?usp=sharing)
   * [Meet up](https://www.meetup.com/rladies-morelia/events/302577407/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link)
 
 <p align="center">
