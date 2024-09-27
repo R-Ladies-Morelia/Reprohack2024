@@ -78,7 +78,7 @@ Clases: jueves de 4 -6 pm (GMT-6)
 <img src='Flyers/SESION-4 (1).jpg' width='300'>
 </p>
 
-- **Grupo 4: ggplot y biodiversidad**
+- **Grupo 4: mapas y biodiversidad**
   * Artículo: [Mapping the planet’s critical natural assets](https://www.nature.com/articles/s41559-022-01934-5)
   * Fecha: jueves 28 de noviembre
   * Líderes de grupo: Aline Pingarroni
