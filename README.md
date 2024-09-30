@@ -68,7 +68,7 @@ Clases: jueves de 4 -6 pm (GMT-6)
 <img src='Flyers/SESION-3.jpg' width='300'>
 </p>
 
-- **Grupo 3: Shiny app**
+- **Grupo 3: Shiny-Phyloseq en comunidades microbianas**
   * Artículo: [Shiny-phyloseq: Web application for interactive microbiome analysis with provenance tracking](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4287943/)
   * Fecha: jueves 31 de octubre
   * Líderes de grupo: Nelly Sélem Mojica
@@ -78,7 +78,7 @@ Clases: jueves de 4 -6 pm (GMT-6)
 <img src='Flyers/SESION-4 (1).jpg' width='300'>
 </p>
 
-- **Grupo 4: mapas y biodiversidad**
+- **Grupo 4: Aprendiendo a hacer mapas**
   * Artículo: [Mapping the planet’s critical natural assets](https://www.nature.com/articles/s41559-022-01934-5)
   * Fecha: jueves 28 de noviembre
   * Líderes de grupo: Aline Pingarroni
