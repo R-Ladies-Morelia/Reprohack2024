@@ -72,8 +72,10 @@ Clases: jueves de 4 -6 pm (GMT-6)
   * Artículo: [Shiny-phyloseq: Web application for interactive microbiome analysis with provenance tracking](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4287943/)
   * Fecha: jueves 31 de octubre
   * Líderes de grupo: Nelly Sélem Mojica
+  * Github: [Phylo_shinny](https://github.com/Yessica1535/Phylo_shinny/tree/main)
+  * Grabación: [Video Grupo 3](https://drive.google.com/file/d/1JcGBgRhwvLv3OEYr2T9etu2XGs-RwdXo/view?usp=sharing)
   * [Meet up](https://www.meetup.com/rladies-morelia/events/302577493/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link)
-
+    
 <p align="center">
 <img src='Flyers/SESION-4 (1).jpg' width='300'>
 </p>
