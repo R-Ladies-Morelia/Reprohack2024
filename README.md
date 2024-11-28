@@ -85,6 +85,7 @@ Clases: jueves de 4 -6 pm (GMT-6)
   * Fecha: jueves 28 de noviembre
   * Líderes de grupo: Aline Pingarroni
   * [Meet up](https://www.meetup.com/rladies-morelia/events/302618901/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link)
+  * Material: [Mapping_R_LADIES_MORELIA](https://github.com/AlinePingarroni/Mapping_R_LADIES_MORELIA)
 
 -----------------------------
 Cursos hechos con amor 💜
