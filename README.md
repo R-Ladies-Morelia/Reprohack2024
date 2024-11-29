@@ -86,6 +86,7 @@ Clases: jueves de 4 -6 pm (GMT-6)
   * Líderes de grupo: Aline Pingarroni
   * [Meet up](https://www.meetup.com/rladies-morelia/events/302618901/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link)
   * Material: [Mapping_R_LADIES_MORELIA](https://github.com/AlinePingarroni/Mapping_R_LADIES_MORELIA)
+  * Grabación: [Video Grupo 4](https://drive.google.com/file/d/1eLVrkUQXzlrwC6F6pPXLbytqLgZdUlUx/view?usp=sharing)
 
 -----------------------------
 Cursos hechos con amor 💜
